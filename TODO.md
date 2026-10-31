@@ -4,6 +4,19 @@ Status: the firmware analysis, reconstruction and `ecu_tool/` build are in place
 the remaining work is mainly hardware validation, mapping the live-data packet
 back to RAM, and deciding what is safe to publish.
 
+## 0. Next hardware session (M4 Mac)
+
+- [ ] Bring the M4 Mac, a USB-C to USB-A adapter/hub, the FT232RL KKL adapter,
+      the K-line harness and a multimeter.
+- [ ] Install the FTDI VCP driver for Apple Silicon and confirm a device such as
+      `/dev/cu.usbserial-*` appears.
+- [ ] Install Xcode Command Line Tools and CMake, then build `ecu_tool/` natively.
+- [ ] Test `live --count 1`, `ids`, `read` and `dump` on the Mac.
+- [ ] If macOS fast-init timing is unreliable, try a Linux VM with USB
+      passthrough; do not assume the Mac timing is good until tested.
+- [ ] Do not run `write-cal` on the Mac until the flash backup and recovery path
+      are verified.
+
 ## 1. Hardware validation
 
 - [ ] Build the tool:
@@ -42,6 +55,25 @@ back to RAM, and deciding what is safe to publish.
       `0x7564`, then convert the rev-limit threshold `0x1450` to RPM.
 - [ ] Confirm the five live-data status bytes on this specific bike.
 - [ ] Test the Windows and macOS builds; only Linux has been exercised so far.
+
+## 1a. Rev-limit investigation (~9000 rpm target)
+
+- [ ] Treat 9000 rpm as an estimate, not a measured value.
+- [ ] Do the limiter test safely on a dyno or closed road, not by holding the
+      engine at high rpm in neutral for long periods.
+- [ ] Log `21 01` from about 7500 rpm upward and capture the first fuel cut /
+      speed-limiter event.
+- [ ] Record RPM, MAP, throttle, injector time, dwell and the five status bytes
+      at the moment the limiter cuts.
+- [ ] Read external RAM at `0x7000` and `0x7564` during the same session.
+- [ ] Determine whether those addresses are external RAM, memory-mapped NVM, or
+      a serial EEPROM copy; compare the read bytes with calibration candidates.
+- [ ] Resolve the DPP page used by `calc_load`/`speed_timing_calc` so the
+      physical address of `0x7564` is known.
+- [ ] Convert the measured cut RPM back through the axis to check whether the
+      raw threshold `0x1450` is the limiter or only one part of it.
+- [ ] If the observed cut is near 9000 rpm and the raw threshold does not fit,
+      look for a second limiter path in `calc_limit1`/`calc_limit3`.
 
 ## 2. Flash/calibration write safety
 
