@@ -29,3 +29,23 @@ jobs:
           cmake --build ecu_diag/build
       - name: ECU tool tests
         run: python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool
+      - name: ECU fault-path tests
+        run: python3 ecu_tool/tests/fault_tests.py
+      - name: Fuel map generator
+        run: python3 firmware/tools/fuel_map_viewer.py --text >/dev/null
+
+  portability:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build ECU tool
+        run: |
+          cmake -S ecu_tool -B ecu_tool/build
+          cmake --build ecu_tool/build
+      - name: Build diagnostic console
+        run: |
+          cmake -S ecu_diag -B ecu_diag/build
+          cmake --build ecu_diag/build

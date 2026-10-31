@@ -139,6 +139,8 @@ python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool
 
 The second test creates a PTY, emulates StartCommunication, live data, flash
 read and calibration transfer, and runs the tool end-to-end without hardware.
+`ecu_tool/tests/fault_tests.py` covers negative responses, short live packets,
+bad read responses and checksum-mismatched dumps.
 
 ## Credits
 
