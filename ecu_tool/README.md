@@ -102,10 +102,20 @@ a standalone 24 KB calibration block. The tool recalculates the calibration
 checksum at `0xC0AFFE`, unlocks security, sends `34`, writes `0x80`-byte blocks
 with `36`, and reads the block back for verification.
 
+When run interactively it asks:
+
+1. Do you have a verified full-flash backup?
+2. Do you have a recovery path if the ECU does not boot?
+3. Is the engine off and the ignition stable?
+4. Type `WRITE` exactly to confirm.
+
+Non-interactive writes are refused unless `--i-understand` is supplied for
+automation.
+
 **This path is experimental.** The exact erase/programming sequence of the
 bootloader was not fully recovered. A failed or partial write can leave the ECU
 unbootable. The tool only writes the calibration block, never boot or
-application, and refuses without `--i-understand`.
+application.
 
 ## Protocol notes
 

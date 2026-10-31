@@ -142,6 +142,11 @@ def main():
     if ids.returncode != 0 or b"21 03" not in ids.stdout:
         sys.stderr.write(ids.stderr.decode(errors="replace"))
         ok = False
+    unsafe = run(tool, ["write-cal", "--file", CAL])
+    print("write-without-confirmation rc", unsafe.returncode)
+    if unsafe.returncode == 0:
+        sys.stderr.write("write-cal accepted a non-interactive write without --i-understand\n")
+        ok = False
     with tempfile.TemporaryDirectory() as td:
         out = os.path.join(td, "dump.bin")
         dump = run(tool, ["dump", "--out", out])

@@ -80,8 +80,9 @@ back to RAM, and deciding what is safe to publish.
 - [ ] Keep at least one verified full-flash backup.
 - [ ] Establish a recovery path (bench harness, spare ECU/BDM, or known-good
       calibration) before using `write-cal`.
-- [ ] Treat `write-cal` as experimental: it uses `27` + `34` + `36` and has only
-      been tested against the offline fake ECU, not real hardware.
+- [ ] Treat `write-cal` as experimental: it uses `27` + `34` + `36`, asks
+      backup/recovery/engine-state questions interactively, and has only been
+      tested against the offline fake ECU, not real hardware.
 - [ ] Do not attempt boot/application writes with the current tool.
 
 ## 3. Live-data and calibration mapping

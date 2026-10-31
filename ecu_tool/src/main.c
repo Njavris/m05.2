@@ -7,6 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef _WIN32
+#include <io.h>
+#else
+#include <unistd.h>
+#endif
 
 #define FLASH_BASE 0xC00000u
 #define FLASH_SIZE 0x00040000u
@@ -58,7 +63,7 @@ static void usage(const char *argv0)
         "  --count N            Stop after N live samples\n"
         "  --csv                CSV output for live\n"
         "  --status             Print decoded status bits\n"
-        "  --i-understand       Required for write-cal\n"
+        "  --i-understand       Skip interactive write prompts (automation only)\n"
         "  -h, --help           This help\n",
         argv0);
 }
@@ -465,6 +470,79 @@ static int cmd_ids(const options *opt)
     return 0;
 }
 
+static int stdin_is_tty(void)
+{
+#ifdef _WIN32
+    return _isatty(_fileno(stdin));
+#else
+    return isatty(fileno(stdin));
+#endif
+}
+
+static void trim_newline(char *text)
+{
+    size_t len = strlen(text);
+    while (len > 0 && (text[len - 1] == '\n' || text[len - 1] == '\r')) {
+        text[--len] = '\0';
+    }
+}
+
+static int ask_yes_no(const char *prompt)
+{
+    char line[64];
+    printf("%s [y/N] ", prompt);
+    fflush(stdout);
+    if (!fgets(line, sizeof(line), stdin)) {
+        return 0;
+    }
+    trim_newline(line);
+    return line[0] == 'y' || line[0] == 'Y';
+}
+
+static int ask_write(void)
+{
+    char line[64];
+    printf("Type WRITE (uppercase) to write calibration flash: ");
+    fflush(stdout);
+    if (!fgets(line, sizeof(line), stdin)) {
+        return 0;
+    }
+    trim_newline(line);
+    return strcmp(line, "WRITE") == 0;
+}
+
+static int confirm_write(const options *opt)
+{
+    printf("\nWARNING: this writes 24576 bytes to calibration flash\n");
+    printf("range 0xC05000-0xC0AFFF, file: %s\n", opt->file);
+    if (opt->i_understand) {
+        printf("--i-understand supplied: skipping interactive questions.\n");
+        return 1;
+    }
+    if (!stdin_is_tty()) {
+        fprintf(stderr, "refusing non-interactive flash write; run interactively "
+                        "or pass --i-understand for automation\n");
+        return 0;
+    }
+    if (!ask_yes_no("Do you have a verified full-flash backup?")) {
+        fprintf(stderr, "aborted: no verified backup\n");
+        return 0;
+    }
+    if (!ask_yes_no("Do you have a recovery path if the ECU does not boot?")) {
+        fprintf(stderr, "aborted: no recovery path\n");
+        return 0;
+    }
+    if (!ask_yes_no("Is the engine off and the ignition stable?")) {
+        fprintf(stderr, "aborted: unstable/incorrect vehicle state\n");
+        return 0;
+    }
+    if (!ask_write()) {
+        fprintf(stderr, "aborted: WRITE was not typed exactly\n");
+        return 0;
+    }
+    return 1;
+}
+
 static int cmd_write_cal(const options *opt)
 {
     serial_port *port = NULL;
@@ -481,10 +559,7 @@ static int cmd_write_cal(const options *opt)
         fprintf(stderr, "write-cal needs --file\n");
         return 1;
     }
-    if (!opt->i_understand) {
-        fprintf(stderr,
-            "refusing to write: this is experimental and can brick the ECU.\n"
-            "Re-run with --i-understand only after reading ecu_tool/README.md.\n");
+    if (!confirm_write(opt)) {
         return 1;
     }
     input = read_file(opt->file, &input_size);
