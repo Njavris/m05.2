@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="330" viewBox="0 0 780 330">
+<rect x="0" y="0" width="780" height="330" fill="#ffffff"/>
+<text x="62" y="24" font-size="15" text-anchor="start" fill="#111827" font-weight="bold" font-family="Consolas, monospace">cal_limit_multiplier</text>
+<text x="62" y="42" font-size="10" text-anchor="start" fill="#4b5563" font-weight="normal" font-family="Consolas, monospace">0xC078E2  17 points  tbl8  shift=0</text>
+<line x1="62" y1="52.0" x2="756" y2="52.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="54" y="56.0" font-size="10" text-anchor="end" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">249</text>
+<line x1="62" y1="108.0" x2="756" y2="108.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="54" y="112.0" font-size="10" text-anchor="end" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">248</text>
+<line x1="62" y1="164.0" x2="756" y2="164.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="54" y="168.0" font-size="10" text-anchor="end" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">247</text>
+<line x1="62" y1="220.0" x2="756" y2="220.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="54" y="224.0" font-size="10" text-anchor="end" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">246</text>
+<line x1="62" y1="276.0" x2="756" y2="276.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="54" y="280.0" font-size="10" text-anchor="end" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">245</text>
+<text x="62.0" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">0</text>
+<text x="105.375" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">1</text>
+<text x="148.75" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">2</text>
+<text x="192.125" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">3</text>
+<text x="235.5" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">4</text>
+<text x="278.875" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">5</text>
+<text x="322.25" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">6</text>
+<text x="365.625" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">7</text>
+<text x="409.0" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">8</text>
+<text x="452.375" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">9</text>
+<text x="495.75" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">10</text>
+<text x="539.125" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">11</text>
+<text x="582.5" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">12</text>
+<text x="625.875" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">13</text>
+<text x="669.25" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">14</text>
+<text x="712.625" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">15</text>
+<text x="756.0" y="292" font-size="10" text-anchor="middle" fill="#6b7280" font-weight="normal" font-family="Consolas, monospace">16</text>
+<text x="409.0" y="312" font-size="10" text-anchor="middle" fill="#4b5563" font-weight="normal" font-family="Consolas, monospace">table index</text>
+<polyline points="62.0,52.0 105.4,52.0 148.8,52.0 192.1,52.0 235.5,52.0 278.9,108.0 322.2,164.0 365.6,164.0 409.0,220.0 452.4,276.0 495.8,276.0 539.1,276.0 582.5,276.0 625.9,276.0 669.2,276.0 712.6,276.0 756.0,276.0" fill="none" stroke="#1f6feb" stroke-width="2"/>
+<circle cx="62.0" cy="52.0" r="3.2" fill="#1f6feb"><title>index 0 = 249</title></circle>
+<text x="62.0" y="44.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">249</text>
+<circle cx="105.4" cy="52.0" r="3.2" fill="#1f6feb"><title>index 1 = 249</title></circle>
+<text x="105.375" y="44.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">249</text>
+<circle cx="148.8" cy="52.0" r="3.2" fill="#1f6feb"><title>index 2 = 249</title></circle>
+<text x="148.75" y="44.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">249</text>
+<circle cx="192.1" cy="52.0" r="3.2" fill="#1f6feb"><title>index 3 = 249</title></circle>
+<text x="192.125" y="44.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">249</text>
+<circle cx="235.5" cy="52.0" r="3.2" fill="#1f6feb"><title>index 4 = 249</title></circle>
+<text x="235.5" y="44.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">249</text>
+<circle cx="278.9" cy="108.0" r="3.2" fill="#1f6feb"><title>index 5 = 248</title></circle>
+<text x="278.875" y="100.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">248</text>
+<circle cx="322.2" cy="164.0" r="3.2" fill="#1f6feb"><title>index 6 = 247</title></circle>
+<text x="322.25" y="156.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">247</text>
+<circle cx="365.6" cy="164.0" r="3.2" fill="#1f6feb"><title>index 7 = 247</title></circle>
+<text x="365.625" y="156.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">247</text>
+<circle cx="409.0" cy="220.0" r="3.2" fill="#1f6feb"><title>index 8 = 246</title></circle>
+<text x="409.0" y="212.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">246</text>
+<circle cx="452.4" cy="276.0" r="3.2" fill="#1f6feb"><title>index 9 = 245</title></circle>
+<text x="452.375" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="495.8" cy="276.0" r="3.2" fill="#1f6feb"><title>index 10 = 245</title></circle>
+<text x="495.75" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="539.1" cy="276.0" r="3.2" fill="#1f6feb"><title>index 11 = 245</title></circle>
+<text x="539.125" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="582.5" cy="276.0" r="3.2" fill="#1f6feb"><title>index 12 = 245</title></circle>
+<text x="582.5" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="625.9" cy="276.0" r="3.2" fill="#1f6feb"><title>index 13 = 245</title></circle>
+<text x="625.875" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="669.2" cy="276.0" r="3.2" fill="#1f6feb"><title>index 14 = 245</title></circle>
+<text x="669.25" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="712.6" cy="276.0" r="3.2" fill="#1f6feb"><title>index 15 = 245</title></circle>
+<text x="712.625" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+<circle cx="756.0" cy="276.0" r="3.2" fill="#1f6feb"><title>index 16 = 245</title></circle>
+<text x="756.0" y="268.0" font-size="9" text-anchor="middle" fill="#1f2937" font-weight="bold" font-family="Consolas, monospace">245</text>
+</svg>

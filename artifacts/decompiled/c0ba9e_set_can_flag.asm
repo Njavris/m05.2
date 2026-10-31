@@ -1,0 +1,7 @@
+c0ba9e: bclr 0xff10.0xb
+c0baa0: mov r12,#0xbab4
+c0baa4: mov r13,#0xc0
+c0baa8: mov 0xc210,r12
+c0baac: mov 0xc212,r13
+c0bab0: bset 0xff10.0xb
+c0bab2: rets

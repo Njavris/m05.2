@@ -1,0 +1,37 @@
+address,name,direction,producers,consumers,observed_role,candidate_meaning,confidence
+0x00C9D0,engine_speed_input,input,external task,speed_timing_calc; cc22_23_task; calc_load; calc_limit2,engine speed/load source,engine speed or raw speed input; live-data VRPM,medium
+0x00CA2A,calc_input_y,input,external task,calc_load,second map axis input,load/TPS/air-charge input,low
+0x00C97C,calc_input_correction,input,external task,calc_load; calc_limit1,correction input,warm-up/voltage/temperature correction,low
+0x00C958,calc_input_x,input,external task,calc_limit2,limit input,speed/load limit input,low
+0x00C936,calc_input_z,input,external task,calc_limit3,limit input,limit calculation input,low
+0x00C06A,calc_input_w,input,external task,calc_limit3,limit input,limit calculation input,low
+0x00C93C,engine_state,state,external task,calc_limit1; calc_limit2; diag_status_build,engine state 1/3/4,engine operating state,medium
+0xE00810,status_bit_10,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE0081A,status_bit_1a,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE0081B,load_enable,input,external task,calc_load,load calculation gate,load calculation enable,medium
+0xE00822,limit_condition,input,external task,calc_limit1,limit branch condition,limit state condition,low
+0xE0083E,status_3e,input,external task,diag_status_build,status value,diagnostic/status flag,medium
+0xE00844,status_44,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE00846,status_46,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE0085B,limit_state,input,external task,calc_limit1; calc_limit2,limit state,limit calculation state,medium
+0xE0085C,status_5c,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE00894,status_94,input,external task,diag_status_build,status bit,packed diagnostic/status flag,medium
+0xE0089E,diag_state,input,external task,diag_status_build; calc_load,diagnostic state,diagnostic/engine state,medium
+0xE008A0,limit_value_0,output,calc_load; calc_limit1,external consumers,limit result,limit/load value,low
+0xE008A2,speed_limit_active,output,calc_limit2,external consumers,speed limit flag,speed/rev limit active,medium
+0xE008A4,limit_value_3,output,calc_limit3,external consumers,limit result,limit value,low
+0xE008A6,limit_value_4,output,calc_limit1; calc_limit3,external consumers,limit result,limit value,low
+0xE008A8,load_rate_limited,output,calc_load,external consumers,rate-limited load,rate-limited load/fuel quantity,medium
+0xE008AA,limit_value_1,output,calc_limit2,external consumers,limit result,limit value,low
+0xE008AC,limit_value_2,output,calc_limit1,external consumers,limit result,limit value,low
+0xE008B0,limit_value_5,output,calc_limit2,external consumers,limit result,limit value,low
+0xE008B2,load_calc_result,output,calc_load,external consumers,corrected load result,load/fuel quantity,medium
+0x00C254,speed_axis_index,output,speed_timing_calc,external consumers,8.8 speed index,speed axis index,medium
+0x00C274,speed_table_504c,output,speed_timing_calc,external consumers,table 0x504C value,speed/timing conversion,low
+0x00C26E,speed_table_5038,output,speed_timing_calc,external consumers,table 0x5038 value,speed/timing conversion,low
+0x00C60C,diag_status_bytes,output,diag_status_build,K-line/CAN consumers,5 packed status bytes,diagnostic status flags,medium
+0x00C410,cc16_17_channels,state,event_*,event_*; external consumers,CC16/17 event channels,injection/ignition timing candidates,low
+0x00C3D2,cc22_23_channels,state,cc22_23_*,cc22_23_*; external consumers,CC22/23 test channels,actuator/test output,high
+0x00E892,pwm_period,output,pwm_period_duty_calc,external consumers,PWM period,PWM/idle actuator candidate,low
+0x00E8A2,pwm_duty,output,pwm_period_duty_calc,external consumers,PWM duty,PWM/idle actuator candidate,low
+0x00E8A6,pwm_control,output,pwm_period_duty_calc,external consumers,PWM control,PWM/idle actuator candidate,low

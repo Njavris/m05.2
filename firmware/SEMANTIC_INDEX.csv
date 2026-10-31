@@ -1,0 +1,1006 @@
+kind,category,address_or_range,name,evidence,confidence
+function,boot,c00200,boot_main,"Boot-block main: checks magic/checksums, selects app or bootloader.",high
+function,boot,c002dc,boot_periph_init,Boot peripheral initialization wrapper.,high
+function,boot,c0030e,boot_bus_mode,External bus mode configuration based on SYSCON bits.,high
+function,function,c0037e,checksum16_be,16-bit sum of big-endian words over a flash range.,high
+function,function,c003b8,delay_loop,Simple delay loop.,high
+function,function,c003c2,delay_ticks,Delay loop parameterized by r12.,high
+function,boot,c003de,boot_minimal_main,Reduced boot path used when configuration ADC check selects it.,high
+function,function,c003f0,bootloader_entry,Bootloader/test loop; bit-bangs P1L.6 and waits on P1L.4.,high
+function,can,c00434,can_twincan_init,TwinCAN initialization; message object 0 ID 0x7E0/0x7E4 (diagnostic).,high
+function,function,c00694,can0_isr,CAN0 interrupt handler; processes message object 0 and calls can_rx_process.,high
+function,boot,c00904,boot_cinit,Boot-block C runtime init (zero/init tables).,high
+function,boot,c00a78,boot_reset,"Reset vector: watchdog, stack, DPPs, self-test, then boot_main.",high
+function,asc0,c00c36,asc0_init,"ASC0 (UART/K-line) initialization; S0BG, S0CON, port setup.",high
+function,asc0,c00c84,asc0_tx_byte,Writes one byte to the ASC0 transmit buffer S0TBUF.,high
+function,asc0,c00c8a,asc0_read_rx_clear,Clears the ASC0 receive flag and returns one S0RBUF byte.,high
+function,function,c00ca2,capcom_timer_init,CAPCOM/T0/T7/T8 timer initialization.,high
+function,timer,c00d34,timer7_isr,"Timer7 interrupt: ASC0 state machine + KWP dispatcher, 1 ms tick.",high
+function,boot,c00dae,boot_port_adc_init,Boot-block port/ADC-related register initialization.,high
+function,asc0,c00ddc,asc0_pin_init,ASC0 alternate-function pin setup.,high
+function,ssc,c00e08,ssc_send_byte,Write one byte to SSC transmit buffer.,high
+function,function,c00e14,ssc0_rx_isr,SSC0 receive interrupt; 7-byte frame engine.,high
+function,ssc,c00eca,ssc_start_frame,Start SSC transfer with 7-byte buffer.,high
+function,boot,c00ee8,boot_extint_init,"Boot external-interrupt init: bus mode, EXICON, T1IC.",high
+function,function,c00f0c,trap_stack_overflow,Stack overflow trap handler.,high
+function,function,c00f6a,trap_stack_underflow,Stack underflow trap handler.,high
+function,function,c00fc8,trap_bootstrap,Bootstrap trap handler.,high
+function,function,c01048,pll_isr,PLL/oscillator watchdog interrupt; performs software reset.,high
+function,function,c01080,clock_init,Clock/PLL and port initialization.,high
+function,asc0,c01144,asc0_state_dispatch,Dispatch ASC0 K-line state 0..5 through table at 0xC00428.,high
+function,asc0,c01158,asc0_task0,K-line state 0 wrapper.,high
+function,asc0,c0115e,asc0_task1,K-line state 1 wrapper.,high
+function,asc0,c01164,asc0_task2,K-line state 2 wrapper.,high
+function,asc0,c0116a,asc0_task3,K-line state 3 wrapper.,high
+function,asc0,c01170,asc0_task4,K-line state 4 wrapper.,high
+function,asc0,c01176,asc0_task5,K-line state 5 wrapper.,high
+function,asc0,c01182,asc0_clear_state,Clear ASC0/K-line state.,high
+function,asc0,c01188,asc0_state0,K-line state 0: idle / start.,high
+function,asc0,c0119e,asc0_state1,K-line state 1: wake-up / 5-baud handling.,high
+function,asc0,c011d6,asc0_state2,K-line state 2: receive frame bytes.,high
+function,kline,c01212,kline_receive_pattern,Receives the 5-byte K-line wake-up pattern and advances state.,high
+function,asc0,c01218,asc0_state2_init,Initialize K-line receive frame.,high
+function,asc0,c01252,asc0_state3,K-line state 3: receive/validate.,high
+function,asc0,c012e6,asc0_state4,K-line state 4: transmit response.,high
+function,asc0,c013e8,asc0_state5,K-line state 5: finish.,high
+function,kwp,c01482,kwp_dispatch,KWP2000 service dispatcher (0x10/0x23/0x27/0x31/0x34/0x36/0x38/0x3D/0x83).,high
+function,kwp,c0151c,kwp_sid81,KWP service 0x81 handler (start communication).,high
+function,kwp,c01544,kwp_sid27_security,"KWP service 0x27 security access; fixed seed 0x1234, key 0x8474.",high
+function,kwp,c015da,kwp_negative,KWP negative response / unsupported service.,high
+function,kwp,c015f8,kwp_sid10_session,KWP service 0x10 start diagnostic session.,high
+function,kwp,c0166a,kwp_sid83,KWP service 0x83 handler (Delphi-specific).,high
+function,kwp,c016c2,kwp_sid34_download,KWP service 0x34 request download.,high
+function,kwp,c0170a,kwp_sid36_transfer,KWP service 0x36 transfer data (0x80-byte blocks to flash/RAM).,high
+function,kwp,c017a8,kwp_sid31_routine,KWP service 0x31 start routine.,high
+function,kwp,c017ea,kwp_sid38,KWP service 0x38 handler.,high
+function,kwp,c01840,kwp_sid23_read_mem,KWP service 0x23 read memory by address.,high
+function,kwp,c0190c,kwp_sid3D_write_mem,KWP service 0x3D write memory by address.,high
+function,can,c019d6,can_diag_object_init,Initializes TwinCAN message objects 9/10 with IDs 0x7EE/0x7EF.,high
+function,can,c01a1c,can_rx_process,TwinCAN receive processing and message-object copy.,high
+function,can,c01ad4,can_bootloader_wait,Initializes CAN diagnostic objects and enters the boot wait loop.,high
+function,can,c01b22,can_rx_dispatch,Dispatch received CAN message to ISO-TP transport.,high
+function,can,c01be4,can_rx_cmd,CAN diagnostic receive command handling.,high
+function,can,c01c6e,can_isotp_send,Send up to 8 bytes over the diagnostic CAN message object.,high
+function,can,c01cc8,can_tx_frame,Load and transmit one 8-byte CAN frame.,high
+function,function,c01d9a,memcpy_wdt,Byte copy with watchdog service.,high
+function,can,c01dec,can_tx_confirm,Set CAN message object transmission-request/confirm bits.,high
+function,function,c01ec8,ret_stub,Empty function.,high
+function,function,c01ece,mem_read_word,Read two words through a 16:16 pointer.,high
+function,function,c01edc,mem_write_word,Write two words through a 16:16 pointer.,high
+function,function,c01eea,seg_to_ptr,Convert 16-bit pointer/DPP offset into a 24-bit pointer.,high
+function,function,c0ba9e,set_can_flag,Set CAN/application flag.,high
+function,function,c0bbc4,capcom_event_config2,Configure one CAPCOM event channel (second form).,high
+function,function,c0bca4,capcom_event_config,Configure one CAPCOM event channel.,high
+function,function,c0bd54,p1l1_set,Sets port P1L.1.,high
+function,function,c0bd58,capcom16_17_init,CAPCOM CC16/CC17 channel setup.,high
+function,timer,c0bda2,timer4_init,Timer T4 initialization.,high
+function,cc22_23,c0be46,cc22_23_output_disable,Clears the CC22/CC23 output-enable bits in CCM5.,high
+function,cc22_23,c0be6a,cc22_23_schedule,Programs the CC22/CC23 compare values from a T7 timestamp.,high
+function,cc,c0bef0,cc_control_ptr_init,Caches pointers to 0xFF2C and 0xFE2A.,high
+function,cc22_23,c0bf02,cc22_23_output_init,Initializes CC22/CC23 interrupt/port/compare pointers.,high
+function,timer,c0bf40,timer6_init,Timer T6 initialization.,high
+function,cc,c0bf54,cc_irq_enable,Sets or clears a per-channel CC interrupt-enable bit.,high
+function,cc,c0bf8c,cc_irq_is_enabled,Tests a per-channel CC interrupt-enable bit in 0xFF2C.,high
+function,function,c0bfd2,app_clear_flag,Clear application flag.,high
+function,function,c0bfe2,app_run,Application run entry.,high
+function,function,c0bff4,empty_stub_1,Empty function.,high
+function,function,c0bff6,empty_stub_2,Empty function.,high
+function,function,c0cac2,watchdog_pin,Watchdog/port pin control.,high
+function,speed,c0cd24,speed_timing_calc,Maps engine speed input 0xC9D0 through axis 0x7000 and tables 0x504C/0x5038.,high
+function,timer,c0cdfa,timer5_init,Timer T5/ASC0 error init.,high
+function,function,c0cea2,capcom_start,Start CAPCOM/T7/T8 time base.,high
+function,event,c0d39e,event_start,Start event scheduler channels.,high
+function,event,c0d516,event_reset,Reset event scheduler state.,high
+function,event,c0d528,event_init,Initialize event scheduler channels.,high
+function,function,c0d562,angle_init,Initialize angle/time conversion from calibration.,high
+function,event,c0d6f0,event_start_fixed,Loads fixed event parameters and starts the CC16/CC17 scheduler.,high
+function,ssc,c0d9e4,ssc_init,SSC/CC26 initialization; installs handlers at 0xC0D8FA and 0xC0D914.,high
+function,function,c0da62,cc26_ptr_init,Stores CC26/CCM6/CC26IC pointers used by the SSC timing path.,high
+function,cc,c0db90,cc_irq_enable_bit,Enables the CC16/CC17 interrupt bit for a channel ID.,high
+function,cc,c0dba6,cc_compare_mode_set,Sets the CC16/CC17 compare-mode bit for a channel ID.,high
+function,event,c0dbde,event_force,Force event at fixed offset.,high
+function,event,c0dc62,event_cancel,Cancel/initialize one event channel.,high
+function,event,c0dc8a,event_schedule,Schedule CAPCOM event (dwell/pulse) for a channel.,high
+function,event,c0e1b6,event_idle,Set channel to idle.,high
+function,event,c0e236,event_accum,Accumulate event time.,high
+function,event,c0e27c,event_schedule_duration,Schedules a CC16/CC17 event using the 32-bit duration fields.,high
+function,cc22_23,c0e722,cc22_23_hysteresis_a,Hysteresis thresholds for the first CC22/CC23 input; state in cc22_23_state_machine_a.,high
+function,cc22_23,c0e760,cc22_23_hysteresis_b,Hysteresis thresholds for the second CC22/CC23 input; state in cc22_23_state_machine_b.,high
+function,cc,c0ebe6,cc_output_gate_update,Updates the CC output gate bits in 0xFD08/0xFD06.,high
+function,cc22_23,c0f3d2,cc22_23_task,Periodic task for the CC22/CC23 event pair; uses engine speed/timing input 0xC9D0.,high
+function,config,c0f628,config_sensor_setup,Selects sensor/ADC handler pointers from calibration config 0xC05036 and builds a float threshold.,high
+function,cc22_23,c0face,cc22_23_start_pair,Starts both CC22/CC23 channels at a common timestamp.,high
+function,cc22_23,c0fb36,cc22_23_start_once,One-shot start of the CC22/CC23 pair.,high
+function,timer,c0fb6e,timer6_start,Start timer T6.,high
+function,cc,c0fb8c,cc_event_timeout_tick,Decrements the CC event timeout counters.,high
+function,ssc,c0fc90,ssc_state_reset,Reset SSC state.,high
+function,ssc,c0fe7e,ssc_pin_config,SSC/port configuration.,high
+function,ssc,c0feae,ssc_mode_select,Select SSC mode from calibration byte 0xC05036.,high
+function,function,c0ff00,ssc0_init_app,Application SSC0 initialization.,high
+function,ssc,c0ff28,ssc_send,Send one SSC byte.,high
+function,ssc,c0ffc0,ssc_rx_start,Start SSC receive engine.,high
+function,function,c0ffde,app_main,Application main entry.,high
+function,function,c10000,app_entry,Application far-call entry trampoline; jumps to app_cstart.,high
+function,ssc,c10200,ssc_rx_queue_init,SSC receive queue initialization.,high
+function,function,c10240,empty_stub_3,Empty function.,high
+function,input,c10242,input_debounce_sample,Samples P1L pins and updates input_state_bits/input_low_bits/input_high_bits.,high
+function,ssc,c10342,ssc_task,"Periodic SSC task: start transfer, timeout, sample port.",high
+function,function,c10370,adc_start,Start ADC conversion; selects pin mode from calibration.,high
+function,function,c103c0,port_bus_init,Application port and external-bus initialization.,high
+function,function,c105ec,adc_calibrate,ADC calibration/start.,high
+function,timer,c1064c,t7_timestamp,Returns a short T7 timestamp with overflow extension.,high
+function,timer,c106e6,t7_timestamp_extended,Returns a T7 timestamp extended by the T7 overflow flag.,high
+function,timer,c1072a,timer8_init,Timer T8/CAPCOM init.,high
+function,function,c108b4,timeout_counter_tick,Increments timeout_counter and clears timeout_value_0/1 at 0x81.,high
+function,pwm,c108ce,pwm_init,PWM/CAPCOM6 initialization.,high
+function,function,c1096e,div32_checked,Checked 32-bit division; returns 0xFFFFFFFF on overflow/zero.,high
+function,function,c109a2,mul_div32,32-bit multiply followed by checked division.,high
+function,pwm,c10a74,pwm_period_duty_calc,Computes PWM period/duty from the 32-bit division result.,high
+function,pwm,c10afc,pwm_output_enable,Enables the PWM output (PWMCON0 and P1L.4).,high
+function,function,c1192c,app_cinit,Application C runtime init table walker.,high
+function,function,c11aa0,app_cstart,Application C runtime startup; copies init data then calls app_main.,high
+function,can,c11b2a,can_bus_config,CAN bus pin/mode configuration.,high
+function,function,c11b9a,cal_checksum,Verify calibration block checksum 0xC05000-0xC0AFFD vs 0xC0AFFE.,high
+function,function,c11bf4,app_hw_init,Application hardware initialization sequence.,high
+function,function,c11c62,app_main_init,Application main initialization; enters scheduler.,high
+function,function,c11cae,app_idle_wait,Scheduler idle/wait path.,high
+function,function,c11eb4,app_scheduler,Application scheduler entry.,high
+function,function,c11ec6,app_scheduler_path,Scheduler alternate path.,high
+function,scheduler,c11eec,scheduler_tick,Increments the scheduler counter and dispatches command 3.,high
+function,asc0,c11f1c,asc0_init_app,Application ASC0/K-line initialization.,high
+function,asc0,c11f60,asc0_read_rx_raw,Returns one S0RBUF byte without changing the receive flag.,high
+function,asc0,c11f66,asc0_rx_handler,ASC0 receive handler: reads S0RBUF and pushes the byte into the K-line ring.,high
+function,asc0,c11f9a,asc0_tx_handler,ASC0 transmit/status handler for the K-line transport.,high
+function,kline,c12696,kline_get_status,Returns the K-line status byte 0xC56D.,high
+function,kline,c126b0,kline_start_timeout,Loads the K-line timeout 0xC56A with 0x0500.,high
+function,kline,c126bc,kline_state_reset,Clears K-line state to 0.,high
+function,kline,c126da,kline_prepare_frame,Computes K-line timing fields and enters state 6.,high
+function,kline,c12826,kline_rx_state_7,K-line receive/transport state 7.,high
+function,kline,c12848,kline_rx_state_8,K-line receive/transport state 8.,high
+function,kline,c1293c,kline_push_rx_byte,Stores a received K-line byte into the IRAM ring at 0xF600.,high
+function,kline,c12982,kline_transport_task,K-line transport state machine; state 0xC584 selects a handler table at 0x7164.,high
+function,test,c13d50,test_command_clear,Clears the 0xFD18 command and its counters.,high
+function,test,c13d5e,test_command_dispatch,Dispatches 0xFD18 actuator/test command bits.,high
+function,capture,c13f6c,capture_control,Capture input control.,high
+function,capture,c13f9a,capture_input_select,Writes the low bits of 0xFD1A (capture input selection).,high
+function,capture,c14298,capture_init,Capture input initialization.,high
+function,input,c14714,input_latch,Latch input port bits into 0xFD1C.,high
+function,function,c147c6,command_dispatch_index3,Calls command_dispatch with index 3.,high
+function,diag,c1482c,diag_status_build,Builds the packed diagnostic status bytes 0xC60C..0xC610.,high
+function,function,c1596e,rate_limit,Rate limiter / slew helper.,high
+function,function,c19a2c,command_dispatch,Dispatches command index 0..6 through the external-RAM table at 0x7666.,high
+function,calc,c1fd9c,calc_load,"Calibration-based VE/load calculation; axes 0x7564/0x755E, VE map 0x794A, correction 0x79B6; live-data FVE1.",high
+function,calc,c200aa,calc_limit1,Provisional injection-time/limit calculation (table 0x7912); live-data injector-time range cross-check.,high
+function,calc,c201ae,calc_limit2,Provisional spark/limit calculation (tables 0x7860/0x784C); live-data spark-advance range cross-check.,high
+function,calc,c202ee,calc_limit3,Provisional spark/limit calculation (tables 0x7552/0x7912/0x78E2/0x7874/0x78D8).,high
+function,calibration,c27ca4,tbl16_interp,16-bit table lookup with 8.8 fixed-point interpolation.,high
+function,calibration,c27fca,tbl8_interp,8-bit table lookup with 8.8 fixed-point interpolation.,high
+function,calibration,c2826e,tbl2d_interp,2D 8-bit map lookup with bilinear interpolation.,high
+function,calibration,c284d8,axis16_signed,Signed axis descriptor -> 8.8 fixed-point index.,high
+function,calibration,c2850e,axis16_unsigned,Unsigned axis descriptor -> 8.8 fixed-point index.,high
+function,function,c28b64,mul32,32x16/32-bit multiply helper.,high
+function,function,c28bb2,div32u,32-bit unsigned division helper.,high
+function,function,c28c4e,empty_stub_0,Empty function.,high
+function,function,c28c62,store32,Stores a 32-bit value as two 16-bit words.,high
+function,float,c28ca4,fp_div_signed,Software float division with sign handling.,high
+function,float,c28cac,fp_div_unsigned,Software float division helper.,high
+function,float,c28dbe,fp_to_int,Software float to integer conversion.,high
+function,float,c28dec,fp_neg,Software float negation/absolute-value helper.,high
+function,float,c28e50,fp_compare,Software float comparison.,high
+function,float,c28e94,fp_pack,Packs a software float into four 16-bit words.,high
+function,float,c28ed2,fp_pack_zero,Packs a zero software float.,high
+function,float,c28f0e,fp_round,Rounds and stores a software float.,high
+function,float,c28f1e,fp_store,Stores four words of a software float.,high
+function,float,c28f5e,fp_store_zero,Stores a zero software float.,high
+function,float,c28f6c,fp_load,Loads four words of a software float.,high
+function,float,c28f84,fp_copy,Copies four words of a software float.,high
+variable,ram,0x000000,RESET_VECTOR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x0002CA,DAT_0002ca,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0002CC,DAT_0002cc,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x000898,DAT_000898,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00089A,DAT_00089a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00089C,DAT_00089c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00089E,DAT_00089e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008A0,DAT_0008a0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008A2,DAT_0008a2,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008A4,DAT_0008a4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008A6,DAT_0008a6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008A8,DAT_0008a8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008BA,DAT_0008ba,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008C8,DAT_0008c8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008CA,DAT_0008ca,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008CC,DAT_0008cc,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008CE,DAT_0008ce,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008D0,DAT_0008d0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008D2,DAT_0008d2,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008D4,DAT_0008d4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0008D6,DAT_0008d6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B56,app_init_table,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x003B64,DAT_003b64,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B66,DAT_003b66,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B68,DAT_003b68,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B6A,DAT_003b6a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B6C,DAT_003b6c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B6E,DAT_003b6e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B70,DAT_003b70,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x003B72,DAT_003b72,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x007000,axis_speed_capture,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00700E,sensor_coeff_table_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007018,sensor_coeff_table_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007022,sensor_coeff_table_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00702C,sensor_coeff_table_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007046,cc22_23_input_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007048,cc22_23_input_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00705E,scheduler_task_table,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007088,scheduler_counter_table,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007090,scheduler_ext_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007092,scheduler_ext_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007094,scheduler_ext_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007096,scheduler_ext_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007098,DAT_007098,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00709A,DAT_00709a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00709C,DAT_00709c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00709E,DAT_00709e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0070C4,DAT_0070c4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x0070C6,DAT_0070c6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x007162,kline_table_count,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007164,kline_handler_table,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00750A,axis_limit_3_alt,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007510,axis_limit_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007552,axis_limit_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00755E,axis_load,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007564,axis_engine_speed,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x007666,command_handler_table,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C000,ram_var_c000,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C014,diag_flag_c014,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C016,can_rx_flag,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C020,boot_variant,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C06A,calc_input_w,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C06E,timer7_tick,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C078,ssc_rx_frame,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C080,boot_port_cfg_c080,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C08C,boot_port_cfg_c08c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C08D,boot_port_cfg_c08d,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C08E,boot_port_cfg_c08e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C08F,boot_port_cfg_c08f,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C090,boot_port_cfg_c090,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C091,boot_port_cfg_c091,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C092,boot_port_cfg_c092,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C094,ssc_frame_bytes,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C096,ssc_rx_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C098,ssc_tx_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C09A,security_unlocked,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C09B,kwp_routine_active,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C09C,kline_rx_timeout_counter,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C09E,kline_init_mode,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0A0,kline_init_timer,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0A2,kline_rx_timeout_limit,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0A3,kline_wakeup_pattern,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0A8,kline_header_pattern,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0AE,kline_rx_index,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0AF,kline_state_machine,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B0,kline_rx_timeout,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B2,kline_response_frame,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B3,kline_response_target,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B4,kline_response_source,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B5,kline_response_length,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B6,kline_response_payload,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B7,kline_response_payload_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B8,kline_response_payload_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0B9,kline_response_payload_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0BA,kline_response_payload_4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0BB,kline_response_payload_5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C0BC,kline_response_payload_6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C138,kline_tx_index,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C13A,kline_var_c13a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C13C,kline_frame_flag,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C13E,kline_rx_retry,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C140,kline_frame_retry,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C142,kline_frame_total,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C144,kline_rx_buffer,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C147,kwp_request,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C148,ram_var_c148,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C149,ram_var_c149,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C14A,kwp_request_addr_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C14B,kwp_request_addr_mid,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C14C,kwp_request_addr_lo,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C14D,kwp_request_data,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D0,kline_tx_phase,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D1,kwp_request_pending,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D2,can_rx_object,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D4,can_tx_remaining,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D6,can_tx_active,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1D8,can_rx_word_23,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1DA,can_rx_word_01,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1DC,can_tx_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C1DE,can_tx_ptr_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C210,can_callback_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C212,can_callback_ptr_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C214,ssc_callback_ptr_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C216,ssc_callback_ptr_0_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C218,ssc_callback_ptr_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C21A,ssc_callback_ptr_1_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C21C,ssc_callback_ptr_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C21E,ssc_callback_ptr_2_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C220,sensor_setup,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C222,sensor_var_c222,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C224,sensor_var_c224,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C226,sensor_var_c226,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C228,sensor_var_c228,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C22A,sensor_var_c22a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C22C,sensor_var_c22c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C22E,sensor_var_c22e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C230,sensor_var_c230,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C232,sensor_var_c232,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C234,sensor_var_c234,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C236,sensor_var_c236,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C238,sensor_var_c238,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C23A,sensor_var_c23a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C23C,sensor_var_c23c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C23E,sensor_var_c23e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C240,capture_callback_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C242,capture_callback_0_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C244,capture_callback_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C246,capture_callback_1_hi,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C254,speed_axis_index,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C25C,capture_overflow,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C264,capture_var_c264,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C268,speed_sample_counter,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C26A,capture_period_a,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C26C,capture_period_b,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C26E,speed_table_5038,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C272,capture_var_c272,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C274,speed_table_504c,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C277,capture_var_c277,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C280,speed_input_ready,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C28A,capture_irq_mask,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C28C,sensor_cfg_flag_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C290,sensor_cfg_flag_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C296,sensor_cfg_flag_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C29C,sensor_cfg_flag_4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C2A2,capture_irq_mask_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C2AA,capture_enable,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C2B2,capture_state,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C2B4,capture_period_initial,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C36E,event_var_c36e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C370,event_var_c370,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C372,event_var_c372,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C374,event_var_c374,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C378,event_var_c378,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C37E,event_var_c37e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C384,event_var_c384,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C386,event_var_c386,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C388,event_var_c388,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C38A,event_var_c38a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C390,event_var_c390,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C392,ram_var_c392,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C394,ram_var_c394,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C396,ram_var_c396,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C398,event_var_c398,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C39A,ram_var_c39a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C39C,ram_var_c39c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C39E,ram_var_c39e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C3A4,ram_var_c3a4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C3BA,ssc_var_c3ba,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C3C2,cc_irq_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3C4,cc_control_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3C6,cc23_compare_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3C8,cc23_irq_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3D2,cc22_23_channels,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3E0,cc22_compare_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3E2,cc22_irq_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3FC,t7_snapshot,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C3FE,cc16_irq_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C400,event_offset_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C402,cc_compare_mode_shadow,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C404,cc17_irq_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C406,event_offset_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C408,event_offset_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C40A,cc_compare_mode_ptr,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C40C,event_offset_3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C40E,event_var_c40e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C410,cc16_17_channels,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C446,app_flag,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C448,cc22_23_start_time,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C44C,sensor_setup_flag,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C450,cc22_23_state_machine_a,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C454,cc22_23_state_machine_b,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C456,cc22_23_started,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C45E,sensor_channel_count,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C468,sensor_coefficients,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C478,event_var_c478,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C47A,ssc_var_c47a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C47B,ssc_var_c47b,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C47C,ssc_var_c47c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C47E,ssc_var_c47e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C480,ssc_var_c480,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C482,ssc_var_c482,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C484,ssc_var_c484,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C486,event_var_c486,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C488,ssc_var_c488,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C48A,ssc_var_c48a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C48C,ssc_var_c48c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C48E,event_var_c48e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C490,ssc_cc26_flags,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C492,ssc_var_c492,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C494,ssc_var_c494,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C496,ssc_var_c496,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C498,ssc_timeout,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C49A,input_state_bits,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C49C,input_low_bits,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C49E,ssc_var_c49e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4A8,ssc_var_c4a8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4AA,ssc_var_c4aa,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4B4,ssc_var_c4b4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4B6,input_high_bits,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4B8,ssc_var_c4b8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4B9,ssc_var_c4b9,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4BA,ssc_control_flags,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4BB,ssc_var_c4bb,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4BC,ssc_var_c4bc,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4BD,ssc_var_c4bd,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4BE,ssc_var_c4be,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C4C8,t7_offset_short,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4CA,t7_offset_extended,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4CC,timeout_counter,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4D2,timeout_value_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4D4,timeout_value_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C4EA,pwm_duty_calc,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C504,pwm_divisor,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C546,cal_checksum_accum,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C548,cal_checksum_valid,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C54A,scheduler_tick,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C54C,scheduler_counter,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C550,scheduler_counter_reload,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C568,kline_var_c568,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C56A,kline_timeout,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C56C,kline_var_c56c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C56D,kline_status,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C56F,kline_var_c56f,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C574,kline_var_c574,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C577,kline_var_c577,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C57A,kline_var_c57a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C57C,kline_var_c57c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C57D,kline_flag_c57d,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C57E,kline_var_c57e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C57F,kline_var_c57f,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C580,kline_var_c580,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C582,kline_mode,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C584,kline_state,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C586,kline_var_c586,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C588,kline_flag_c588,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C58C,kline_var_c58c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C592,kline_var_c592,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C598,kline_var_c598,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C599,kline_var_c599,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C59C,kline_var_c59c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C59E,kline_var_c59e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5A0,kline_var_c5a0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5A2,kline_flag_c5a2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C5A5,kline_var_c5a5,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5A6,kline_var_c5a6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5A8,kline_var_c5a8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5A9,kline_flag_c5a9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C5AB,kline_var_c5ab,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5AC,kline_var_c5ac,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5B0,kline_var_c5b0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5B4,kline_var_c5b4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5B6,kline_var_c5b6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5BA,kline_var_c5ba,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5BC,kline_var_c5bc,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5BE,kline_var_c5be,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5C4,kline_var_c5c4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C5E6,engine_state_valid,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C5E8,test_command_timer_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C5EA,test_command_timer_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C603,diag_flag_c603,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C604,ram_var_c604,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C60C,diag_status_bytes,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C60D,diag_status_byte1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C60E,diag_status_byte2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C60F,diag_status_byte3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C610,diag_status_byte4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C77E,diag_flag_c77e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C780,diag_flag_c780,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C781,diag_flag_c781,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C784,diag_flag_c784,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C786,diag_flag_c786,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C78D,diag_flag_c78d,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C81C,diag_flag_c81c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C824,diag_flag_c824,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C830,diag_flag_c830,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C836,diag_flag_c836,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C840,diag_flag_c840,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C841,diag_flag_c841,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C850,diag_flag_c850,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C86A,limit_counter_a,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C86C,limit_counter_b,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C86E,limit_counter_c,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C884,limit_flag_0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C885,limit_flag_1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C886,limit_flag_2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C89E,diag_flag_c89e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C91C,diag_flag_c91c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C92B,diag_flag_c92b,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C92E,diag_flag_c92e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C934,diag_flag_c934,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C936,calc_input_z,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C93C,engine_state,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C954,diag_flag_c954,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00C958,calc_input_x,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C962,engine_state_962,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C97C,calc_input_correction,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C9D0,engine_speed_input,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00C9F0,diag_flag_c9f0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CA2A,calc_input_y,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00CA37,ram_var_ca37,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CA44,diag_flag_ca44,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAC5,diag_flag_cac5,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAC6,diag_flag_cac6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAD0,diag_flag_cad0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAD6,diag_flag_cad6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAD7,diag_flag_cad7,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAF8,diag_flag_caf8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CAF9,diag_flag_caf9,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00CB60,engine_fault_cb60,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00E892,pwm_period,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00E894,pwm_cfg_94,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8A0,pwm_cfg_a0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8A2,pwm_duty,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00E8A4,pwm_cfg_a4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8A6,pwm_control,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00E8A8,pwm_cfg_a8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8AC,pwm_cfg_ac,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8AE,pwm_cfg_ae,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8C0,pwm_cfg_c0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8C2,pwm_cfg_c2,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8C4,pwm_cfg_c4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8C6,pwm_cfg_c6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8CA,pwm_cfg_ca,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00E8CE,pwm_cfg_ce,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00EF00,C1CSR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF02,C1IR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF04,C1BTR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF06,C1GMS,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF08,C1UGML,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF0A,C1LGML,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF0C,C1UMLM,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF0E,C1LMLM,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF10,C1MCR1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF12,C1AR1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF14,C1LAR1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF16,C1MCFG1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF20,C1MCR2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF22,C1AR2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF24,C1LAR2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF26,C1MCFG2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF30,C1MCR3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF32,C1AR3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF34,C1LAR3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF36,C1MCFG3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF40,C1MCR4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF42,C1AR4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF44,C1LAR4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF46,C1MCFG4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF50,C1MCR5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF52,C1AR5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF54,C1LAR5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF56,C1MCFG5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF60,C1MCR6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF62,C1AR6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF64,C1LAR6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF66,C1MCFG6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF70,C1MCR7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF72,C1AR7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF74,C1LAR7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF76,C1MCFG7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF80,C1MCR8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF82,C1AR8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF84,C1LAR8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF86,C1MCFG8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF90,C1MCR9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF92,C1AR9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF94,C1LAR9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EF96,C1MCFG9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFA0,C1MCR10,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFA2,C1AR10,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFA4,C1LAR10,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFA6,C1MCFG10,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFB0,C1MCR11,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFB2,C1AR11,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFB4,C1LAR11,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFB6,C1MCFG11,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFC0,C1MCR12,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFC2,C1AR12,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFC4,C1LAR12,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFC6,C1MCFG12,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFD0,C1MCR13,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFD2,C1AR13,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFD4,C1LAR13,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFD6,C1MCFG13,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFE0,C1MCR14,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFE2,C1AR14,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFE4,C1LAR14,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFE6,C1MCFG14,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFF0,C1MCR15,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFF2,C1AR15,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFF4,C1LAR15,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00EFF6,C1MCFG15,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+sfr,sfr,0x00F000,DAT_00f000,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F002,DAT_00f002,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F004,DAT_00f004,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F006,DAT_00f006,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F030,PT0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F032,PT1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F034,PT2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F036,PT3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F038,PP0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F03A,PP1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F03C,PP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F03E,PP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F050,T7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F052,T8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F054,T7REL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F056,T8REL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F060,DAT_00f060,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F076,IDMEM2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F078,IDPROG,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F07A,IDMEM,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F07C,IDCHIP,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F07E,IDMANUF,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F080,DAT_00f080,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F082,DAT_00f082,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F084,DAT_00f084,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F086,DAT_00f086,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F09C,DAT_00f09c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0A0,ADDAT2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0AA,PDCR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0AE,PTCR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0B0,SSCTB,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0B2,SSCRB,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0B4,SSCBR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F0C0,DAT_00f0c0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0C2,DAT_00f0c2,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0C4,DAT_00f0c4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0C6,DAT_00f0c6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0D0,DAT_00f0d0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0D2,DAT_00f0d2,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F0FE,DAT_00f0fe,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F100,DP0L,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F102,DP0H,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F104,DP1L,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F106,DP1H,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F108,RP0H,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F10C,DAT_00f10c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F110,DAT_00f110,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F120,DAT_00f120,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F126,DAT_00f126,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F128,DAT_00f128,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F12A,DAT_00f12a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F130,DAT_00f130,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F136,DAT_00f136,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F138,DAT_00f138,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F13A,DAT_00f13a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00F160,CC16IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F162,CC17IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F164,CC18IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F166,CC19IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F168,CC20IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F16A,CC21IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F16C,CC22IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F16E,CC23IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F170,CC24IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F172,CC25IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F174,CC26IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F176,CC27IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F178,CC28IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F17A,T7IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F17C,T8IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F17E,PWMIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F184,CC29IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F186,XP0IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F18C,CC30IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F18E,XP1IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F194,CC31IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F196,XP2IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F19C,S0TBIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F19E,XP3IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1C0,EXICON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1C2,ODP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1C4,PICON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1C6,ODP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1CA,ODP4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1CE,ODP6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1D2,ODP7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1D6,ODP8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1DA,EXISEL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00F1E4,input_status,Latched input/status bits read by boot and watchdog code.,hardware
+variable,ram,0x00F600,kline_rx_ring,IRAM ring used by the K-line transport.,semantic
+variable,ram,0x00F740,can_diag_rx_buffer,CAN diagnostic receive buffer.,semantic
+variable,ram,0x00F741,can_msg_f741,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F742,can_msg_f742,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F743,can_msg_f743,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F744,can_msg_f744,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F745,can_msg_f745,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F746,can_msg_f746,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F750,xram_var_f750,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00F751,DAT_00f751,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00FA0C,DAT_00fa0c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00FACE,boot_iram_fill_start,Mechanical name from access pattern; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00FAD0,DAT_00fad0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00FADA,DAT_00fada,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+variable,ram,0x00FBE0,DAT_00fbe0,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FC00,isr_save_fc00,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FC31,DAT_00fc31,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FC40,isr_save_fc40,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FC60,isr_save_fc60,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FC80,isr_save_fc80,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FCE0,SRCP0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCE2,DSTP0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCE4,SRCP1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCE6,DSTP1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCE8,SRCP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCEA,DSTP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCEC,SRCP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCEE,DSTP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCF0,SRCP4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCF2,DSTP4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCF4,SRCP5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCF6,DSTP5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCF8,SRCP6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCFA,DSTP6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCFC,SRCP7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+context,ram,0x00FCFE,DSTP7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,semantic
+variable,ram,0x00FD00,input_status_flags,Input/capture status flags.,semantic
+variable,ram,0x00FD02,speed_status_flags,Speed/CC status flags.,semantic
+variable,ram,0x00FD06,output_gate_1,CC output gate 1.,semantic
+variable,ram,0x00FD08,output_gate_0,CC output gate 0.,semantic
+variable,ram,0x00FD0A,test_status,Test/actuator status bits.,semantic
+variable,ram,0x00FD0C,capture_status_0,Capture status 0.,semantic
+variable,ram,0x00FD0E,cc_event_timeout_1,CC event timeout counter 1.,semantic
+variable,ram,0x00FD10,capture_status_1,Capture status 1.,semantic
+variable,ram,0x00FD12,cc_event_timeout_0,CC event timeout counter 0.,semantic
+variable,ram,0x00FD14,scheduler_event_flag,Scheduler event flag.,semantic
+variable,ram,0x00FD18,test_command,"Actuator/test command flags: bit0 CC22/23, bit1 event, bit2 PWM.",semantic
+variable,ram,0x00FD1A,capture_input_select,Capture input selection bits.,semantic
+variable,ram,0x00FD1C,status_flag_fd1c,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FDFC,stack_guard_fdfc,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+context,ram,0x00FDFE,stack_guard_fdfe,Mechanical name from access pattern; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FE00,DPP0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE02,DPP1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE04,DPP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE06,DPP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE08,CSP,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE0C,MDH,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE0E,MDL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE10,CP,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE12,SP,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE14,STKOV,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE16,STKUN,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE18,ADDRSEL1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE1A,ADDRSEL2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE1C,ADDRSEL3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE1E,ADDRSEL4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE28,DAT_00fe28,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FE2A,DAT_00fe2a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FE30,PW0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE32,PW1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE34,PW2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE36,PW3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE40,T2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE42,T3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE44,T4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE46,T5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE48,T6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE4A,CAPREL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE50,T0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE52,T1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE54,T0REL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE56,T1REL,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE5C,DAT_00fe5c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FE5E,DAT_00fe5e,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FE60,CC16,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE62,CC17,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE64,CC18,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE66,CC19,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE68,CC20,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE6A,CC21,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE6C,CC22,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE6E,CC23,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE70,CC24,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE72,CC25,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE74,CC26,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE76,CC27,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE78,CC28,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE7A,CC29,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE7C,CC30,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE7E,CC31,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE80,CC0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE82,CC1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE84,CC2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE86,CC3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE88,CC4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE8A,CC5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE8C,CC6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE8E,CC7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE90,CC8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE92,CC9,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE94,CC10,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE96,CC11,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE98,CC12,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE9A,CC13,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE9C,CC14,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FE9E,CC15,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEA0,ADDAT,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEA4,P1DIDIS,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEAA,DAT_00feaa,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FEAE,WDT,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEB0,S0TBUF,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEB2,S0RBUF,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEB4,S0BG,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEB6,DAT_00feb6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FEC0,PECC0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEC2,PECC1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEC4,PECC2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEC6,PECC3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEC8,PECC4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FECA,PECC5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FECC,PECC6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FECE,PECC7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FEFA,DAT_00fefa,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF00,P0L,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF02,P0H,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF04,P1L,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF06,P1H,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF08,DAT_00ff08,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF0A,DAT_00ff0a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF0C,BUSCON0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF0E,MDC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF10,PSW,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF12,SYSCON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF14,BUSCON1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF16,BUSCON2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF18,BUSCON3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF1A,BUSCON4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF1C,ZEROS,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF1E,ONES,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF20,T78CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF22,CCM4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF24,CCM5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF26,CCM6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF28,CCM7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF2A,DAT_00ff2a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF2C,DAT_00ff2c,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF30,PWMCON0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF32,PWMCON1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF38,DAT_00ff38,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF3A,DAT_00ff3a,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF40,T2CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF42,T3CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF44,T4CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF46,T5CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF48,T6CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF50,T01CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF52,CCM0,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF54,CCM1,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF56,CCM2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF58,CCM3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF60,T2IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF62,T3IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF64,T4IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF66,T5IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF68,T6IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF6A,CRIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF6C,S0TIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF6E,S0RIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF70,S0EIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF72,SSCTIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF74,SSCRIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF76,SSCEIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF78,CC0IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF7A,CC1IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF7C,CC2IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF7E,CC3IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF80,CC4IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF82,CC5IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF83,DAT_00ff83,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FF84,CC6IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF86,CC7IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF88,CC8IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF8A,CC9IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF8C,CC10IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF8E,CC11IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF90,CC12IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF92,CC13IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF94,CC14IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF96,CC15IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF98,ADCIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF9A,ADEIC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF9C,T0IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FF9E,T1IC,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFA0,ADCON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFA2,P5,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFA4,P5DIDIS,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFAA,DAT_00ffaa,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFAC,TFR,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFAE,WDTCON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFB0,S0CON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFB2,SSCCON,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFB4,DAT_00ffb4,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFB6,DAT_00ffb6,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFBE,DAT_00ffbe,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFC0,P2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFC2,DP2,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFC4,P3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFC6,DP3,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFC8,P4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFCA,DP4,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFCC,P6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFCE,DP6,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFD0,P7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFD2,DP7,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFD4,P8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFD6,DP8,named by caller/data-flow audit; see SEMANTIC_NAMES.md,hardware
+sfr,sfr,0x00FFD8,DAT_00ffd8,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFDA,DAT_00ffda,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFDC,DAT_00ffdc,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+sfr,sfr,0x00FFDE,DAT_00ffde,named by access-pattern/subsystem audit; see SEMANTIC_NAMES.md,mechanical
+structure,memory,0xC0B2,kline_frame_t,format/target/source/length/payload/checksum built by asc0_state5 and KWP handlers,high
+structure,memory,0xC0AE..0xC1D1,kline_transport_t,logical K-line state/counters; access in kline_* and asc0_* functions,high
+structure,memory,0xC410,cc_event_channel_t,0x12-byte stride; fields used by event_schedule/capcom_event_config,high
+structure,memory,0xC3D2,cc22_23_channel_t,"0x1A-byte stride; timestamp at +0, flags at +7/+8",medium
+structure,memory,0xC450,cc22_23_state_t,state/hysteresis/start inputs for CC22/23,high
+structure,memory,0xC240,capture_state_t,"callbacks, periods and sample state in timer5/capture code",high
+structure,memory,0xFD18,test_command_t,test command bits/timers/output gates,high
+structure,memory,0xC1D2,can_transport_t,CAN ISO-TP transport state,high
+structure,memory,0xC54A,scheduler_state_t,scheduler tick/counters/status flags,high
+structure,memory,0xE892,pwm_state_t,PWM period/duty/control and XRAM setup,high
+structure,memory,0xC220,sensor_setup_t,seven handler pointers and five coefficients selected by cal_config_selector,high
+structure,memory,0xC60C,diag_status_t,five packed diagnostic bytes built by diag_status_build,high
+structure,memory,any 8 bytes,fp32_t,four-word software float used by fp_load/fp_store/fp_copy,high
+structure,memory,0x200300,can_msg_object_t,TwinCAN message object (0x20 stride); IDs/masks/control observed,medium
+structure,memory,calibration block,cal_axis_t/cal_tbl8_t/cal_tbl16_t/cal_map2d_t,self-describing table headers; accessors axis16_*/tbl*,high
+structure,memory,0xC04000,adapt_record_layout_t,0x200-byte sequence/payload/5AA5/tail record,high
+constant,calibration,0xC05000,cal_id,ASCII D000101 at calibration block start,high
+constant,calibration,0xC05036,cal_config_selector,read by config_sensor_setup/timer/pwm init,high
+constant,calibration,0xC0781E,cal_speed_limit_threshold,0x1450 compared by calc_limit2,high
+constant,calibration,0xC07830,cal_limit_multiplier,0xE3D7 multiplier in calc_limit2,high
+constant,calibration,0xC07832,cal_limit_counter_threshold,0x00A0 threshold in calc_limit2,high
+constant,calibration,0xC07834,cal_limit_count,0x0006 count in calc_limit2,high
+constant,calibration,0xC0783C,cal_limit_fallback_speed,0x6800 fallback in calc_limit2,high
+constant,calibration,0xC0784C,cal_limit_curve_0,17-point limit curve used by calc_limit2,high
+constant,calibration,0xC07860,cal_limit_curve_1,17-point limit/base curve used by calc_limit2,high
+constant,calibration,0xC07874,cal_limit_curve_2,17-point limit curve used by calc_limit3,high
+constant,calibration,0xC078D8,cal_limit_curve_3,6-point limit curve used by calc_limit3,high
+constant,calibration,0xC078E2,cal_limit_multiplier_curve,17-point multiplier curve used by calc_limit3,high
+constant,calibration,0xC07912,cal_limit_table16,17-point 16-bit limit table used by calc_limit1/3,high
+constant,calibration,0xC0794A,cal_load_map,9x9 8-bit load/base map used by calc_load,high
+constant,calibration,0xC0799E,cal_constant_curve_0,9-point constant curve used by calc_load,high
+constant,calibration,0xC079AA,cal_constant_curve_1,9-point constant curve used by calc_load,high
+constant,calibration,0xC079B6,cal_correction_curve,17-point correction curve used by calc_load,high
+constant,calibration,0xC01FFE,boot_checksum,0xEE88 boot-block checksum,high
+constant,calibration,0xC0AFFE,cal_checksum,0x8D79 calibration-block checksum,high
+constant,calibration,0xC3FFFC,app_magic,0xAA00 validation fast-path magic,high
+constant,calibration,0xC3FFFE,app_checksum,0x25C2 application-block checksum,high
+constant,calibration,0xC3FFE6,app_id_ht007r1504,application ID string,high
+constant,calibration,0xC3FFF4,app_part_28097344,application part-number string,high
+algorithm,flash integrity,,checksum16_be,byte-swapped 16-bit sum; verified on all blocks/dumps,high
+algorithm,boot,,boot_validate,magic + boot/app checksum branches,high
+algorithm,boot,,boot_select_mode,ADC threshold decision tree,high
+algorithm,boot,,boot_cinit/app_cinit,init-table record walker,high
+algorithm,diagnostics,,kline_transport,"wake pattern, state machine, timing, frame checksum",high
+algorithm,diagnostics,,kwp_dispatch,KWP2000 service dispatch/security/memory services,high
+algorithm,diagnostics,,can_transport,"TwinCAN object IDs, ISO-TP-like 8-byte transport",high
+algorithm,engine,,event_schedule_cc16_17,T7 timestamp + 32-bit duration -> compare value,high
+algorithm,test,,cc22_23_test_output,test-command bit0 -> CC22/23 output pair,high
+algorithm,engine,,speed_timing_calc,axis 0x7000 + tables 0x504C/0x5038,high
+algorithm,engine,,calc_load,axis/map/correction calculation,high
+algorithm,engine,,calc_limit1/2/3,limit tables/flags/hysteresis,medium
+algorithm,actuator,,pwm_period_duty_calc,32-bit/float scaling to PWM period/duty,high
+algorithm,runtime,,software_float,four-word software float pack/div/compare/round,high
+algorithm,io,,input_debounce_sample,P1L sampling/edge state,high
+algorithm,diagnostics,,diag_status_build,pack ~40 flags into five bytes,high
+algorithm,calibration,,calibration_accessors,axis/8/16/2D table interpolation,high
+algorithm,data,,adaptation_log,0x200-byte sequence/payload/5AA5/tail records,high
+algorithm,system,,app_scheduler,tick/event/task dispatch,high
+algorithm,io,,ssc_frame_engine,7-byte SSC frame transfer,medium

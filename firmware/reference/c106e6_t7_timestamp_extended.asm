@@ -1,0 +1,23 @@
+c106e6: mov r13,#0x0
+c106e8: bmov r13.0x0,0xff10.0xb
+c106ec: bclr 0xff10.0xb
+c106ee: mov r12,0xf050
+c106f2: shr r12,#0x8
+c106f4: mov r14,0xc4ca
+c106f8: add r12,r14
+c106fa: mov r14,0xf17a
+c106fe: jnb r14.0x7,0xc10712
+c10702: mov r12,0xc4ca
+c10706: add r12,#0x100
+c1070a: mov r14,0xf050
+c1070e: shr r14,#0x8
+c10710: add r12,r14
+c10712: cmp r13,#0x1
+c10714: jmpa cc_NE,0xc1071e
+c10718: bset 0xff10.0xb
+c1071a: jmpa cc_UC,0xc10726
+c1071e: cmp r13,#0x0
+c10720: jmpa cc_NE,0xc10726
+c10724: bclr 0xff10.0xb
+c10726: mov r4,r12
+c10728: rets

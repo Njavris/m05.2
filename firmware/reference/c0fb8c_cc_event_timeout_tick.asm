@@ -1,0 +1,20 @@
+c0fb8c: sub 0xc478,0xff1e
+c0fb90: mov r12,0xc478
+c0fb94: cmp r12,#0xa00
+c0fb98: jmpr cc_ULE,0xc0fbca
+c0fb9a: mov 0xc478,0xff1c
+c0fb9e: movb RL1,0xfd12
+c0fba2: cmpb RL1,#0x0
+c0fba4: jmpr cc_ULE,0xc0fbb4
+c0fba6: movb RL1,0xfd12
+c0fbaa: cmpb RL1,#0x10
+c0fbae: jmpr cc_NC,0xc0fbb4
+c0fbb0: addb 0xfd12,0xff1e
+c0fbb4: movb RL1,0xfd0e
+c0fbb8: cmpb RL1,#0x0
+c0fbba: jmpr cc_ULE,0xc0fbca
+c0fbbc: movb RL1,0xfd0e
+c0fbc0: cmpb RL1,#0x10
+c0fbc4: jmpr cc_NC,0xc0fbca
+c0fbc6: addb 0xfd0e,0xff1e
+c0fbca: rets

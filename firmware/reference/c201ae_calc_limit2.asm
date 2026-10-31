@@ -1,0 +1,99 @@
+c201ae: extp 0x380, #0x1
+c201b2: movb RL1,0x85b
+c201b6: jmpr cc_EQ,0xc201ca
+c201b8: extp 0x380, #0x1
+c201bc: mov 0x8b0,0xff1c
+c201c0: extp 0x380, #0x1
+c201c4: mov 0x8aa,0xff1c
+c201c8: rets
+c201ca: movb RL1,0xc93c
+c201ce: cmpb RL1,#0x3
+c201d0: jmpr cc_EQ,0xc201f4
+c201d2: movb 0xc885,0xff1c
+c201d6: mov 0xc86c,0xff1c
+c201da: mov r12,#0x7860
+c201de: mov r13,#0xc0
+c201e2: mov r14,0xc97c
+c201e6: calls 0xc27fca
+c201ea: extp 0x380, #0x1
+c201ee: mov 0x8aa,r4
+c201f2: jmpr cc_UC,0xc2024c
+c201f4: movb RL1,0xc93c
+c201f8: cmpb RL1,#0x3
+c201fa: jmpr cc_NE,0xc2024c
+c201fc: movb RL2,#0x1
+c201fe: movb 0xc885,RL2
+c20202: extp 0x380, #0x1
+c20206: mov r12,0x8aa
+c2020a: cmp r12,#0x80
+c2020e: jmpr cc_ULE,0xc2024c
+c20210: mov r13,0xc86c
+c20214: extp 0x301, #0x1
+c20218: cmp r13,0x3834
+c2021c: jmpr cc_C,0xc2024c
+c2021e: movb 0xc885,0xff1c
+c20222: mov 0xc86c,0xff1c
+c20226: extp 0x301, #0x1
+c2022a: mov r14,0x3830
+c2022e: mulu r12,r14
+c20230: mov r13,#0x0
+c20232: mov r12,0xfe0c
+c20236: extp 0x380, #0x1
+c2023a: mov 0x8aa,r12
+c2023e: cmp r12,#0x80
+c20242: jmpr cc_UGT,0xc2024c
+c20244: extp 0x380, #0x1
+c20248: mov 0x8aa,0xff1c
+c2024c: movb RL1,0xc93c
+c20250: cmpb RL1,#0x3
+c20252: jmpr cc_NE,0xc202e0
+c20254: mov r12,0xc9d0
+c20258: extp 0x301, #0x1
+c2025c: cmp r12,0x381e
+c20260: jmpr cc_C,0xc20266
+c20262: movb RL1,#0x1
+c20264: jmpr cc_UC,0xc20268
+c20266: movb RL1,#0x0
+c20268: mov r12,0xc86a
+c2026c: extp 0x301, #0x1
+c20270: cmp r12,0x3832
+c20274: jmpr cc_C,0xc2027a
+c20276: movb RL2,#0x1
+c20278: jmpr cc_UC,0xc2027c
+c2027a: movb RL2,#0x0
+c2027c: cmpb RL1,#0x0
+c2027e: jmpr cc_EQ,0xc20286
+c20280: movb RL3,#0x1
+c20282: movb 0xc884,RL3
+c20286: cmpb RL1,#0x0
+c20288: jmpr cc_EQ,0xc2029e
+c2028a: cmpb RL2,#0x0
+c2028c: jmpr cc_EQ,0xc2029e
+c2028e: movb 0xc884,0xff1c
+c20292: movb RL1,#0x1
+c20294: extp 0x380, #0x1
+c20298: movb 0x8a2,RL1
+c2029c: jmpr cc_UC,0xc202a6
+c2029e: extp 0x380, #0x1
+c202a2: movb 0x8a2,0xff1c
+c202a6: extp 0x380, #0x1
+c202aa: movb RL1,0x8a2
+c202ae: jmpr cc_EQ,0xc202b6
+c202b0: mov r12,0xc958
+c202b4: jmpr cc_UC,0xc202be
+c202b6: extp 0x301, #0x1
+c202ba: mov r12,0x383c
+c202be: mov r13,r12
+c202c0: mov r12,#0x7510
+c202c4: calls 0xc2850e
+c202c8: mov r14,r4
+c202ca: mov r12,#0x784c
+c202ce: mov r13,#0xc0
+c202d2: calls 0xc27fca
+c202d6: extp 0x380, #0x1
+c202da: mov 0x8b0,r4
+c202de: rets
+c202e0: mov 0xc86a,0xff1c
+c202e4: extp 0x380, #0x1
+c202e8: mov 0x8b0,0xff1c
+c202ec: rets

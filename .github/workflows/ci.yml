@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Host model tests
+        run: make -C firmware test
+      - name: Byte-exact image rebuild
+        run: make -C firmware repro
+      - name: Rebuild reconstruction
+        run: make -C firmware reconstruction
+      - name: Compile C data
+        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ireconstruction/03-data -fsyntax-only reconstruction/03-data/data.c
+      - name: Compile host model
+        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ifirmware/include -fsyntax-only firmware/src/*.c
+      - name: Build ECU tool
+        run: |
+          cmake -S ecu_tool -B ecu_tool/build
+          cmake --build ecu_tool/build
+      - name: ECU tool tests
+        run: python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool

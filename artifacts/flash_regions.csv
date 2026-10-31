@@ -1,0 +1,7 @@
+start,end,size_bytes,contents,integrity
+0xC00000,0xC01FFF,8192,Boot block (vector table + boot/loader + HAL ISRs),16-bit sum of BE words over 0xC00000-0xC01FFD stored at 0xC01FFE = 0xEE88
+0xC02000,0xC03FFF,8192,Erased/unused in this image,
+0xC04000,0xC04CFF,3328,Wear-leveled adaptation/EEPROM log (runtime mutable),Not covered by any flash checksum
+0xC04D00,0xC04FFF,768,Erased/unused,
+0xC05000,0xC0AFFF,24576,"Calibration/parameter block; ASCII ID ""D000101"" at 0xC05000",16-bit sum of BE words over 0xC05000-0xC0AFFD stored at 0xC0AFFE = 0x8D79
+0xC0B000,0xC3FFFF,217088,"Application block (code, OBD strings, tables, ID footer)",16-bit sum of BE words over 0xC0B000-0xC3FFFB stored at 0xC3FFFE = 0x25C2; magic word at 0xC3FFFC

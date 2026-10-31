@@ -1,0 +1,57 @@
+firmware_address,firmware_name,firmware_bit,live_offset,live_bit,live_uid,live_name,inverted,firmware_alias,evidence,confidence
+0xC60C,diag_status_bytes,0,0x37,0,B_FUELCOFF,Fuel Cut Off Enable,,diag_flag_c9f0,diag_status_build bit position,high
+0xC60C,diag_status_bytes,1,0x37,1,B_FCOCRFLD,Clear Flood Enable,,diag_flag_c91c,diag_status_build bit position,high
+0xC60C,diag_status_bytes,2,0x37,2,B_DFCOCMET,DFCO Met,,diag_flag_c92e,diag_status_build bit position,high
+0xC60C,diag_status_bytes,3,0x37,3,B_DFCOENBL,DFCO Enter,,diag_flag_ca44,diag_status_build bit position,high
+0xC60C,diag_status_bytes,4,0x37,4,B_DFCOEENBL,DFCO Exit,,diag_flag_c89e,diag_status_build bit position,high
+0xC60C,diag_status_bytes,5,0x37,5,B_FCOHRPM,Speed Limiter,,engine_state == 3,diag_status_build bit position,high
+0xC60C,diag_status_bytes,6,0x37,6,B_VRLVENBL,Roll Over Enabled,,DAT_e00894,diag_status_build bit position,high
+0xC60C,diag_status_bytes,7,0x37,7,B_FCLREST2,C/L Reset Cyl 2,,diag_flag_caf9,diag_status_build bit position,high
+0xC60D,diag_status_byte1,0,0x38,0,B_FCLCEN1,C/L Enabled Cyl 1,,diag_flag_c92b,diag_status_build bit position,high
+0xC60D,diag_status_byte1,1,0x38,1,B_PPDSEBL,Prime Pulse Disable,,diag_flag_c934,diag_status_build bit position,high
+0xC60D,diag_status_byte1,2,0x38,2,B_FPENABL,Fuel Pump On,,DAT_e0081a,diag_status_build bit position,high
+0xC60D,diag_status_byte1,3,0x38,3,B_FTRNSAES,Acc Enrich Enter,,diag_flag_c81c,diag_status_build bit position,high
+0xC60D,diag_status_byte1,4,0x38,4,B_FTRNSDES,Dec Enlean Enter,,diag_flag_c77e,diag_status_build bit position,high
+0xC60D,diag_status_byte1,5,0x38,5,B_FTRNSAEDCLOAD,Acc Enrich Exit,inverted,ram_var_c604,diag_status_build bit position,high
+0xC60D,diag_status_byte1,6,0x38,6,B_FTRNSDEINLOAD,Dec Enlean Exit,inverted,diag_flag_c603,diag_status_build bit position,high
+0xC60D,diag_status_byte1,7,0x38,7,B_FCLCEN2,C/L Enabled Cyl 2,,DAT_e0083e == 1,diag_status_build bit position,high
+0xC60E,diag_status_byte2,0,0x39,0,B_FO2STAT1,O2 Sensor Rich Cyl 1,,diag_flag_c784,diag_status_build bit position,high
+0xC60E,diag_status_byte2,1,0x39,1,B_FCLREST1,C/L Reset Cyl 1,,diag_flag_c850,diag_status_build bit position,high
+0xC60E,diag_status_byte2,2,0x39,2,B_FOSHTREN,O2 Sensor Heater Enable,,diag_flag_c786,diag_status_build bit position,high
+0xC60E,diag_status_byte2,3,0x39,3,B_FO2REDY1,O2 Sensor Ready Cyl 1,,diag_flag_c780,diag_status_build bit position,high
+0xC60E,diag_status_byte2,4,0x39,4,B_IACVMODE0,IACV Correction on,,diag_flag_c781,diag_status_build bit position,high
+0xC60E,diag_status_byte2,5,0x39,5,B_IAMTRLOST,IACV Lost Step,,diag_flag_c78d,diag_status_build bit position,high
+0xC60E,diag_status_byte2,6,0x39,6,B_IACMVIHB,IACV Move Inhibit,,DAT_e00844,diag_status_build bit position,high
+0xC60E,diag_status_byte2,7,0x39,7,B_VIGNS,Ignition On,,diag_flag_cac6,diag_status_build bit position,high
+0xC60F,diag_status_byte3,0,0x3A,0,B_CYCSENBL,MAP CID Enable,,diag_flag_cad0 == 1,diag_status_build bit position,high
+0xC60F,diag_status_byte3,1,0x3A,1,B_VCSINSYN,MAP CID Succeed,,diag_flag_cac5,diag_status_build bit position,high
+0xC60F,diag_status_byte3,2,0x3A,2,B_IDLCONM,Idle Mode,,DAT_e00810,diag_status_build bit position,high
+0xC60F,diag_status_byte3,3,0x3A,3,B_FPESTAT,Power Enrichment Enable,,diag_flag_caf8,diag_status_build bit position,high
+0xC60F,diag_status_byte3,4,0x3A,4,B_FPEAFREN,PE Protection Enable,inverted,DAT_e0089e,diag_status_build bit position,high
+0xC60F,diag_status_byte3,5,0x3A,5,B_PNSWITCH,Clutch / Neutral Switch,,DAT_e0085c,diag_status_build bit position,high
+0xC60F,diag_status_byte3,6,0x3A,6,B_DIAGSWTCH,Diagnostic Mode,,DAT_e00846,diag_status_build bit position,high
+0xC60F,diag_status_byte3,7,0x3A,7,B_MILSTATUS,MIL Fault Light on,,diag_flag_c954,diag_status_build bit position,high
+0xC610,diag_status_byte4,0,0x3B,0,B_VAFCMET,Airflow Correction Met,,diag_flag_cad6,diag_status_build bit position,high
+0xC610,diag_status_byte4,1,0x3B,1,B_VBAROCMET,Baro Update Met,,diag_flag_c014,diag_status_build bit position,high
+0xC610,diag_status_byte4,2,0x3B,2,B_VCSINSYNSPRK,Seq. Spark Enable,,diag_flag_c824,diag_status_build bit position,high
+0xC610,diag_status_byte4,3,0x3B,3,B_SATITRIG,Spark Tip-In Enable,,diag_flag_c841,diag_status_build bit position,high
+0xC610,diag_status_byte4,4,0x3B,4,B_CATLOENB,Cat Light Off Enable,,diag_flag_c830,diag_status_build bit position,high
+0xC610,diag_status_byte4,5,0x3B,5,B_ENGSTATE3,Engine Running,,diag_flag_c836,diag_status_build bit position,high
+0xC610,diag_status_byte4,6,0x3B,6,B_NISTBLIDLE,Stable Warm Idle,,diag_flag_c840,diag_status_build bit position,high
+0xC610,diag_status_byte4,7,0x3B,7,B_FO2REDY2,O2 Sensor Ready Cyl 2,,diag_flag_cad7,diag_status_build bit position,high
+0xC9D0,engine_speed_input,,0x58,,VRPM,Engine Speed,,,VRPM raw/4; source read by speed/load/limit code,medium
+0xCA2A,calc_input_y,,0x4E,,VMAP,MAP Intake Pressure,,,second axis input to calc_load; MAP is likely speed-density load,medium
+0xCA2A,calc_input_y,,0x5A,,VTHROT,Throttle Position,,,alternate candidate; needs log confirmation,low
+0xC410,cc16_17_channels,,0x1A,,FPWVC1,Injector Time Cyl 1,,,CC16/17 event duration is injector pulse-width candidate,medium
+0xC410,cc16_17_channels,,0x1C,,FPWVC2,Injector Time Cyl 2,,,second channel; unused on single-cylinder engine,low
+0xC410,cc16_17_channels,,0x35,,SPDWELL,Spark Dwell Time,,,event channel duration; dwell is ignition-channel candidate,medium
+0xC410,cc16_17_channels,,0x2F,,SAESTA,Spark Adv Measured,,,event scheduling angle/timing candidate,low
+0xC410,cc16_17_channels,,0x31,,SAGLOBAL1,Spark Adv Target,,,event scheduling angle/timing candidate,low
+0xC410,cc16_17_channels,,0x33,,SAIDLDYN,Dynam. Idle Spark Adv,,,event scheduling angle/timing candidate,low
+0xE008B2,load_calc_result,,0x1E,,FVE1,Volume Efficiency Cyl 1,,,map max 244 -> log FVE1 max 95.20; FVE1 raw = result*256,high
+0xE008B2,load_calc_result,,0x20,,FVE2,Volume Efficiency Cyl 2,,,second-cylinder counterpart,low
+0xE008A8,load_rate_limited,,0x1E,,FVE1,Volume Efficiency Cyl 1,,,rate-limited load is alternate VE source,low
+0xC54A,scheduler_tick,,0x2D,,RUNTIME,Engine Runtime,,,scheduler tick is only recovered runtime counter,medium
+0xE892,pwm_period,,0x18,,FPPDC,Fuel Pump Duty Cycle,,,PWM period is candidate fuel-pump/purge duty source,low
+0xE8A2,pwm_duty,,0x18,,FPPDC,Fuel Pump Duty Cycle,,,PWM duty is candidate fuel-pump/purge duty source,low
+0xE8A6,pwm_control,,0x40,,VAFRRAW2,Carbon Canister Purge,,,PWM control is candidate purge output,low

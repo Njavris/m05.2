@@ -1,0 +1,14 @@
+Original analysis, documentation, host model, tools and reconstruction:
+Copyright (c) 2026 Njavris, licensed under the MIT License (see LICENSE).
+
+Analysis, reverse engineering, documentation and implementation were performed
+by DeepSeek v4.1 Flash 1017.
+
+The MIT License does NOT cover the vendor firmware images, calibration data,
+block extracts, Ghidra decompiler output, or machine-specific tables derived from
+them. Those materials remain the property of their respective owners and are
+included only for interoperability, repair and research. Do not redistribute
+them without permission.
+
+This project is independent research and is not affiliated with or endorsed by
+the vehicle, ECU or semiconductor manufacturers.

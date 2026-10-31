@@ -1,0 +1,2 @@
+c0bfd2: mov 0xc446,0xff1c
+c0bfd6: rets

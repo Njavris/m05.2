@@ -1,0 +1,22 @@
+c2850e: mov r14,[r12+#0x2]
+c28512: mov r15,[r12+#0x4]
+c28516: mov r1,[r12]
+c28518: sub r1,#0x1
+c2851a: shl r1,#0x8
+c2851c: mov r12,r1
+c2851e: cmp r13,r14
+c28520: jmpr cc_UGT,0xc28526
+c28522: mov r4,#0x0
+c28524: jmpr cc_UC,0xc28542
+c28526: cmp r13,r15
+c28528: jmpr cc_C,0xc2852e
+c2852a: mov r4,r12
+c2852c: jmpr cc_UC,0xc28542
+c2852e: sub r13,r14
+c28530: mulu r13,r12
+c28532: sub r15,r14
+c28534: mov r1,0xfe0c
+c28538: mov r13,0xfe0e
+c2853c: divlu r15
+c2853e: mov r4,0xfe0e
+c28542: rets

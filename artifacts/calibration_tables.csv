@@ -1,0 +1,11 @@
+segment_C0_offset,physical_address,kind,referenced_by,format,data_preview
+0x784C,0xC0784C,tbl8,calc_limit2 @0xC201AE,"count=17, shift=1",05 05 05 05 05 05 05 03 00 00 00 00 00 00 00 00 00
+0x7860,0xC07860,tbl8,calc_limit2 @0xC201AE,"count=17, shift=1",49 48 43 3E 39 14 0C 06 04 04 04 04 04 04 04 04 04
+0x7874,0xC07874,tbl8,calc_limit3 @0xC202EE,"count=17, shift=1",61 54 43 2E 1F 05 05 05 05 02 02 02 02 02 02 02 02
+0x78D8,0xC078D8,tbl8,calc_limit3 @0xC202EE,"count=6, shift=0",B7 75 5B 34 20 20
+0x78E2,0xC078E2,tbl8,calc_limit3 @0xC202EE,"count=17, shift=0",F9 F9 F9 F9 F9 F8 F7 F7 F6 F5 F5 F5 F5 F5 F5 F5 F5
+0x7912,0xC07912,tbl16,calc_limit1/2/3 @0xC200AA/0xC201AE/0xC202EE,count=17,015B 0132 0100 00BC 00B6 00AF 00AD 00A9 00A7 00A6 00A1 009E 009E 009E 009E 009E 009E
+0x794A,0xC0794A,tbl2d,calc_load @0xC1FD9C,9x9 8-bit map; header [cols][?][shift],00 00 0A 0C 0D 0E 0F 0F 10 00 08 0A 0C 0D 0E 0F 0F 10 00 0C 18 1D 21 21 23 24 23 00 12 23 30 38 35 33 35 36 00 22 35 47 50 50 50 52 57 00 33 47 62 72 7B 84 7A 7C 00 42 63 81 9E AA AD A6 AC 00 5A 89 A2 BD D5 DD DE E3 00 65 97 B9 E3 F1 F4 F4 F2
+0x799E,0xC0799E,tbl8,calc_load @0xC1FD9C,"count=9, shift=0",03 03 03 03 03 03 03 03 03
+0x79AA,0xC079AA,tbl8,calc_load @0xC1FD9C,"count=9, shift=0",03 03 03 03 03 03 03 03 03
+0x79B6,0xC079B6,tbl8,calc_load @0xC1FD9C,"count=17, shift=0",B4 B4 B4 AB 9F 95 8A 80 80 80 80 80 80 80 80 80 80

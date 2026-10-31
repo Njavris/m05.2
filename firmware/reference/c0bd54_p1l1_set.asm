@@ -1,0 +1,2 @@
+c0bd54: bset 0xff04.0x1
+c0bd56: rets

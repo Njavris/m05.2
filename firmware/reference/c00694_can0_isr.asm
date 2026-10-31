@@ -1,0 +1,82 @@
+c00694: mov 0xfc00,r0
+c00698: scxt 0xfe10,#0xfc00
+c0069c: scxt 0xff0e,#0x10
+c006a0: push 0xfe00
+c006a2: mov 0xfe00,#0x300
+c006a6: push 0xfe04
+c006a8: mov 0xfe04,#0x302
+c006ac: push 0xfe0c
+c006ae: push 0xfe0e
+c006b0: push 0xffde
+c006b2: push 0xfe5c
+c006b4: push 0xfe5e
+c006b6: push 0xffdc
+c006b8: scxt 0xffda,#0x0
+c006bc: push 0xff08
+c006be: push 0xff0a
+c006c0: extr #0x4
+c006c2: push 0xf000
+c006c4: push 0xf002
+c006c6: push 0xf004
+c006c8: push 0xfe06
+c006ca: calls 0xc01a1c
+c006ce: jmpr cc_UC,0xc0073e
+c006d0: extp 0x80, #0x1
+c006d4: mov r8,0x310
+c006d8: and r8,#0x3
+c006da: cmp r8,#0x2
+c006dc: jmpr cc_NE,0xc0073e
+c006de: extp 0x80, #0x1
+c006e2: mov r8,0x284
+c006e6: jnb r8.0x0,0xc00732
+c006ea: extp 0x80, #0x1
+c006ee: mov r9,0x310
+c006f2: and r9,#0x300
+c006f6: cmp r9,#0x200
+c006fa: jmpr cc_NE,0xc00732
+c006fc: extp 0x80, #0x1
+c00700: mov r9,0x310
+c00704: and r9,#0xc00
+c00708: cmp r9,#0x800
+c0070c: jmpr cc_EQ,0xc0071e
+c0070e: movb RL1,#0x0
+c00710: addb RL1,#0x1
+c00712: cmpb RL1,#0x8
+c00716: jmpr cc_C,0xc00710
+c00718: mov r8,#0x1
+c0071a: mov 0xc016,r8
+c0071e: mov r8,#0xf7ff
+c00722: mov r9,#0xfdff
+c00726: extp 0x80, #0x2
+c0072a: mov 0x310,r8
+c0072e: mov 0x310,r9
+c00732: mov r8,#0xfffd
+c00736: extp 0x80, #0x1
+c0073a: mov 0x310,r8
+c0073e: mov r8,#0x0
+c00740: extp 0x80, #0x2
+c00744: mov r9,0x286
+c00748: mov r6,0x284
+c0074c: mov r7,#0x0
+c0074e: add r8,r6
+c00750: addc r9,r7
+c00752: jb r8.0x0,0xc006d0
+c00756: extr #0x4
+c00758: pop 0xf006
+c0075a: pop 0xf004
+c0075c: pop 0xf002
+c0075e: pop 0xfe00
+c00760: pop 0xff0a
+c00762: pop 0xff08
+c00764: pop 0xffda
+c00766: pop 0xffdc
+c00768: pop 0xfe5e
+c0076a: pop 0xfe5c
+c0076c: pop 0xffde
+c0076e: pop 0xfe0e
+c00770: pop 0xfe0c
+c00772: pop 0xfe04
+c00774: pop 0xfe00
+c00776: pop 0xff0e
+c00778: pop 0xfe10
+c0077a: reti

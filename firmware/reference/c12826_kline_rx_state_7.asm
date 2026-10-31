@@ -1,0 +1,11 @@
+c12826: mov r12,0xc5a2
+c1282a: cmp r12,#0x1
+c1282c: jmpr cc_NE,0xc12832
+c1282e: mov 0xc5be,0xff1c
+c12832: mov r12,0xc5a2
+c12836: jmpr cc_NE,0xc1283c
+c12838: mov 0xc5b0,0xff1c
+c1283c: mov 0xc574,0xff1c
+c12840: mov r12,#0x7
+c12842: mov 0xc584,r12
+c12846: rets

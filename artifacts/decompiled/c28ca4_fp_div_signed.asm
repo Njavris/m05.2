@@ -1,0 +1,11 @@
+c28c86: mov r1,r2
+c28c88: shr r4,#0x1
+c28c8a: mov r7,r6
+c28c8c: mov r8,r12
+c28c8e: mov r9,r13
+c28c90: mov r5,r14
+c28c92: jmps 0xc28f1e
+c28c96: jmps 0xc28f5e
+c28ca4: mov r2,[r11]
+c28ca6: bmovn r2.0xf,r2.0xf
+c28caa: mov [r11],r2

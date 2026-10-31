@@ -1,0 +1,76 @@
+c200aa: movb RL1,0xc93c
+c200ae: cmpb RL1,#0x4
+c200b0: jmpr cc_EQ,0xc200b6
+c200b2: cmpb RL1,#0x1
+c200b4: jmpr cc_NE,0xc200bc
+c200b6: calls 0xc202ee
+c200ba: jmpr cc_UC,0xc20192
+c200bc: extp 0x380, #0x1
+c200c0: movb RL1,0x85b
+c200c4: jmpr cc_EQ,0xc200d4
+c200c6: mov r12,#0x8000
+c200ca: extp 0x380, #0x1
+c200ce: mov 0x8ac,r12
+c200d2: jmpr cc_UC,0xc20192
+c200d4: movb RL1,0xc93c
+c200d8: cmpb RL1,#0x3
+c200da: jmpr cc_NE,0xc20192
+c200dc: movb RL2,#0x1
+c200de: movb 0xc886,RL2
+c200e2: mov r12,0xc86e
+c200e6: extp 0x380, #0x1
+c200ea: cmp r12,0x8a6
+c200ee: jmpr cc_C,0xc20192
+c200f0: extp 0x380, #0x1
+c200f4: mov r13,0x8a0
+c200f8: cmp r13,#0x80
+c200fc: jmpr cc_UGT,0xc2010c
+c200fe: extp 0x380, #0x1
+c20102: mov r14,0x8ac
+c20106: cmp r14,#0x80
+c2010a: jmpr cc_ULE,0xc20192
+c2010c: movb 0xc886,0xff1c
+c20110: mov 0xc86e,0xff1c
+c20114: extp 0x380, #0x1
+c20118: mov r12,0x8a0
+c2011c: extp 0x301, #0x1
+c20120: mov r14,0x38e0
+c20124: mulu r12,r14
+c20126: mov r13,#0x0
+c20128: mov r12,0xfe0c
+c2012c: extp 0x380, #0x1
+c20130: mov 0x8a0,r12
+c20134: cmp r12,#0x80
+c20138: jmpr cc_UGT,0xc20142
+c2013a: extp 0x380, #0x1
+c2013e: mov 0x8a0,0xff1c
+c20142: extp 0x380, #0x1
+c20146: movb RL1,0x822
+c2014a: jmpr cc_EQ,0xc2017a
+c2014c: extp 0x380, #0x1
+c20150: mov r12,0x8ac
+c20154: extp 0x380, #0x1
+c20158: mov r14,0x8a4
+c2015c: mulu r12,r14
+c2015e: mov r13,#0x0
+c20160: mov r12,0xfe0c
+c20164: extp 0x380, #0x1
+c20168: mov 0x8ac,r12
+c2016c: cmp r12,#0x80
+c20170: jmpr cc_UGT,0xc2017a
+c20172: extp 0x380, #0x1
+c20176: mov 0x8ac,0xff1c
+c2017a: mov r12,#0x7912
+c2017e: mov r13,#0xc0
+c20182: mov r14,0xc97c
+c20186: calls 0xc27ca4
+c2018a: extp 0x380, #0x1
+c2018e: mov 0x8a6,r4
+c20192: extp 0x380, #0x1
+c20196: mov r12,0x8a0
+c2019a: extp 0x380, #0x1
+c2019e: cmp r12,0x8ac
+c201a2: jmpr cc_NC,0xc201ac
+c201a4: extp 0x380, #0x1
+c201a8: mov 0x8ac,r12
+c201ac: rets

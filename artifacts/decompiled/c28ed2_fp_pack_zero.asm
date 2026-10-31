@@ -1,0 +1,19 @@
+c28ed2: mov r5,[r10+#0x6]
+c28ed6: mov r3,#0x0
+c28ed8: mov [r10+#0x6],r3
+c28edc: mov r3,r9
+c28ede: mov r9,[r10+#0x4]
+c28ee2: mov [r10+#0x4],r3
+c28ee6: mov r3,r8
+c28ee8: mov r8,[r10+#0x2]
+c28eec: mov [r10+#0x2],r3
+c28ef0: mov r3,r7
+c28ef2: mov r1,[r10]
+c28ef4: mov [r10],r3
+c28ef6: bmov r4.0x0,r1.0xf
+c28efa: mov r7,r1
+c28efc: and r7,#0xf
+c28f00: shl r1,#0x1
+c28f02: shr r1,#0x5
+c28f04: bmovn r7.0x4,0xff10.0x3
+c28f08: rets
