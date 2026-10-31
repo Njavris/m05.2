@@ -15,6 +15,7 @@ The workspace is arranged as an evidence pipeline:
 | 4. Firmware tree | [`firmware/`](firmware/README.md) | buildable host model, full decompilation, byte-exact rebuild |
 | 5. Generated artifacts | [`artifacts/`](artifacts/README.md) | function map, CSVs, decompiled files, block extracts |
 | 6. Host tool | [`ecu_tool/`](ecu_tool/README.md) | cross-platform FT232RL K-line live-data/flash tool |
+| 7. Diagnostic console | [`ecu_diag/`](ecu_diag/README.md) | cross-platform terminal diagnostic software |
 
 ## Start here
 
@@ -29,6 +30,7 @@ The workspace is arranged as an evidence pipeline:
 * [firmware/SEMANTIC_NAMES.md](firmware/SEMANTIC_NAMES.md) — naming evidence
 * [firmware/ALGORITHMS.md](firmware/ALGORITHMS.md) — algorithm cross-index
 * [ecu_tool/README.md](ecu_tool/README.md) — FT232RL K-line live-data/flash tool
+* [ecu_diag/README.md](ecu_diag/README.md) — terminal diagnostic software
 * [docs/12-debug-channels.md](docs/12-debug-channels.md) — live-data `21 01`/`30` live-data map and firmware aliases
 * [docs/13-live-data-inferences.md](docs/13-live-data-inferences.md) — what the live-data map changes in the firmware analysis
 
@@ -104,6 +106,10 @@ the dump, so several axis descriptors and task tables remain unknown. See
 cmake -S ecu_tool -B ecu_tool/build
 cmake --build ecu_tool/build
 ./ecu_tool/build/ecu_tool selftest
+
+cmake -S ecu_diag -B ecu_diag/build
+cmake --build ecu_diag/build
+./ecu_diag/build/ecu_diag --port /dev/ttyUSB0
 ```
 
 ## Credits

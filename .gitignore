@@ -19,3 +19,6 @@ Thumbs.db
 
 # ECU tool build
 ecu_tool/build/
+
+# ECU diagnostic console build
+ecu_diag/build/

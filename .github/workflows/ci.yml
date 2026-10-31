@@ -23,5 +23,9 @@ jobs:
         run: |
           cmake -S ecu_tool -B ecu_tool/build
           cmake --build ecu_tool/build
+      - name: Build diagnostic console
+        run: |
+          cmake -S ecu_diag -B ecu_diag/build
+          cmake --build ecu_diag/build
       - name: ECU tool tests
         run: python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool

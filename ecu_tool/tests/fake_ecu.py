@@ -103,7 +103,7 @@ def serve(master, stop):
             os.write(master, frame(response))
 
 
-def run(tool, args, timeout=30):
+def run(tool, args, timeout=30, input_text=None):
     master, slave = pty.openpty()
     tty.setraw(master)
     tty.setraw(slave)
@@ -114,6 +114,7 @@ def run(tool, args, timeout=30):
     thread.start()
     try:
         proc = subprocess.run([tool, "--port", slave_name, "--timeout", "1000"] + args,
+                              input=input_text.encode() if input_text else None,
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                               timeout=timeout)
     finally:
@@ -142,6 +143,13 @@ def main():
     if ids.returncode != 0 or b"21 03" not in ids.stdout:
         sys.stderr.write(ids.stderr.decode(errors="replace"))
         ok = False
+    diag_tool = os.path.join(ROOT, "ecu_diag", "build", "ecu_diag")
+    if os.path.exists(diag_tool):
+        diag = run(diag_tool, [], input_text="1\n1\n100\n\n0\n")
+        print("diag live rc", diag.returncode)
+        if diag.returncode != 0 or b"rpm=" not in diag.stdout:
+            sys.stderr.write(diag.stderr.decode(errors="replace"))
+            ok = False
     unsafe = run(tool, ["write-cal", "--file", CAL])
     print("write-without-confirmation rc", unsafe.returncode)
     if unsafe.returncode == 0:
