@@ -8,7 +8,7 @@ SRCS := $(wildcard src/*.c)
 OBJS := $(SRCS:.c=.o)
 BIN  := firmware_model
 
-.PHONY: all test demo clean repro collect maps reconstruction
+.PHONY: all test demo clean repro collect maps fuel-map reconstruction
 
 all: $(BIN)
 
@@ -36,6 +36,10 @@ collect:
 
 maps:
 	python3 tools/visualize_maps.py --dump $(DUMP) --out ../artifacts/maps
+	python3 tools/fuel_map_viewer.py --dump $(DUMP) --out ../artifacts/maps/fuel_map.html
+
+fuel-map:
+	python3 tools/fuel_map_viewer.py --dump $(DUMP) --out ../artifacts/maps/fuel_map.html
 
 reconstruction:
 	python3 tools/build_reconstruction.py

@@ -161,7 +161,8 @@ result = (map * corr) >> 15;
 ```
 
 That is a base value times a correction factor. The result is stored in XRAM at
-0xE008B2.
+0xE008B2. An interactive 2D/3D view of this map is generated at
+[`../artifacts/maps/fuel_map.html`](../artifacts/maps/fuel_map.html).
 
 ## 6.5 Calibration-related code
 

@@ -12,6 +12,7 @@ need a C166 toolchain.
 | `patch_calibration.py` | patch bytes and repair the containing checksum |
 | `collect_ghidra.py` | combine the per-function C/ASM reference into `decompiled_all.c` and `.asm` |
 | `visualize_maps.py` | render calibration maps as SVG/HTML (no third-party packages) |
+| `fuel_map_viewer.py` | interactive 2D/3D fuel/VE map, with optional A/B diff |
 | `build_reconstruction.py` | build `../reconstruction/` in three parts (bootloader/application/data) with C data arrays |
 
 ## Typical workflows
@@ -64,9 +65,24 @@ tables, records, live-data maps and the function index are C arrays/structs in
 make maps
 ```
 
-This writes `../artifacts/maps/index.html`, one SVG per table, `maps.json` and
-`decoded_tables.csv`. The heatmap axes are table indices; the physical axis
-descriptors are in external RAM and are not in the dump.
+This writes `../artifacts/maps/index.html`, one SVG per table, `maps.json`,
+`decoded_tables.csv`, and the interactive `fuel_map.html`. The heatmap axes are
+table indices; the physical axis descriptors are in external RAM and are not in
+the dump.
+
+For only the 9×9 fuel/VE map:
+
+```bash
+make fuel-map
+```
+
+Compare two dumps with:
+
+```bash
+python3 tools/fuel_map_viewer.py --dump ../dumps/mash_dump.bin \
+    --compare ../dumps/mash_dump_05_0_2.bin \
+    --out ../artifacts/maps/fuel_map_diff.html
+```
 
 ### Combine the Ghidra output
 

@@ -20,7 +20,7 @@ This folder is generated from the four ECU dumps by the analysis documented in
 | `live_21_01_bits.csv` | live-data `21 01` status-bit names |
 | `live_30_slew.csv` | live-data `0x30` data-slewing channels |
 | `live_firmware_map.csv` | firmware byte/bit → live-data field/status-bit mapping |
-| `maps/` | calibration map visualisations (`index.html`, SVGs, JSON/CSV) |
+| `maps/` | calibration map visualisations (`index.html`, `fuel_map.html`, SVGs, JSON/CSV) |
 | `boot_block.bin` | 0xC00000–0xC01FFF extracted boot block |
 | `adaptation_log.bin` | 0xC04000–0xC04CFF extracted adaptation log |
 | `calibration_block.bin` | 0xC05000–0xC0AFFF extracted calibration block |

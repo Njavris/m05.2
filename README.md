@@ -39,7 +39,7 @@ cd firmware
 make test      # host model checks against ../dumps/mash_dump.bin
 make demo      # checksums, vectors, KWP exchange, calibration tables
 make repro     # byte-exact rebuild of the original image
-make maps      # render calibration maps to SVG/HTML
+make maps      # render calibration maps and interactive fuel map
 make reconstruction # rebuild ../reconstruction/ semantic tree
 ```
 

@@ -13,6 +13,7 @@ Files:
 * `*.svg` — individual heatmaps/line charts
 * `maps.json` — decoded table data
 * `decoded_tables.csv` — flat per-cell/per-point values
+* `fuel_map.html` — interactive 2D/3D fuel/VE map (separate tool)
 
 The heatmap axes are table indices. The physical axis descriptors live in
 external RAM (0x7000/0x750A..0x7564) and are not in the flash dump, so the
