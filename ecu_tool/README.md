@@ -90,6 +90,34 @@ CSV mode prints the same fields plus the five raw status bytes.
 stored checksums (boot, calibration, application). A checksum mismatch is
 reported; the image is still written for inspection.
 
+## Dump everything
+
+```bash
+./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+    dump-all --out incoming/session_001
+```
+
+or:
+
+```bash
+./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+    --dump-all --out incoming/session_001
+```
+
+The directory contains:
+
+- `flash.bin` — full 256 KB flash, with `checksums.txt`
+- `xram_0000_7fff.bin` — 32 KB external-RAM window
+- `eeprom_4000.bin` — 4 KB EEPROM candidate at `0x4000`
+- `iram_c000_cfff.bin`, `xram_e000_e7ff.bin`, `iram_f600_fdff.bin`
+- targeted reads: `axis_7000.bin`, `axis_7500.bin`, `table_7050.bin`, `handler_7160.bin`, `table_7660.bin`
+- `ids.txt`, `live_21_01.bin`, `metadata.txt`, `failures.txt`
+
+It continues after a rejected window and records the exact range and error. A
+failed window does not mean the whole ECU read failed. Only K-line-accessible
+memory is covered; SFRs and a serial EEPROM behind SSC0 still need JTAG/OCDS or
+a chip/bus capture.
+
 ## Calibration write (experimental)
 
 ```bash

@@ -7,9 +7,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #ifdef _WIN32
+#include <direct.h>
 #include <io.h>
+#include <sys/stat.h>
 #else
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <unistd.h>
 #endif
 
@@ -45,6 +50,7 @@ static void usage(const char *argv0)
         "Commands:\n"
         "  live                 Poll 21 01 and print live data\n"
         "  dump                 Read the complete 256 KB flash to a BIN file\n"
+        "  dump-all             Dump flash, RAM windows and IDs into a directory\n"
         "  read                 Read a memory range (needs --addr and --len)\n"
         "  ids                  Read 21 03 / 21 04 / 21 FF and calibration ID\n"
         "  write-cal            Experimental calibration-block write (0x36)\n"
@@ -52,10 +58,11 @@ static void usage(const char *argv0)
         "\n"
         "Options:\n"
         "  --port PATH          Serial port (default /dev/ttyUSB0 or COM3)\n"
+        "  --dump-all           Alias for the dump-all command\n"
         "  --baud N             Baud rate (default 10400)\n"
         "  --timeout MS         Per-response timeout (default 1000)\n"
         "  --verbose            Print TX/RX frames\n"
-        "  --out FILE           Output for dump/read\n"
+        "  --out PATH           Output file for dump/read, or directory for dump-all\n"
         "  --addr 0x...         Address for read\n"
         "  --len N              Length for read\n"
         "  --file FILE          Full 256 KB image or 24 KB calibration block\n"
@@ -114,6 +121,8 @@ static int parse_options(int argc, char **argv, options *opt)
         const char *arg = argv[i];
         if (!strcmp(arg, "-h") || !strcmp(arg, "--help")) {
             opt->command = "help";
+        } else if (!strcmp(arg, "--dump-all")) {
+            opt->command = "dump-all";
         } else if (!strcmp(arg, "--port") && i + 1 < argc) {
             opt->port = argv[++i];
         } else if (!strcmp(arg, "--baud") && i + 1 < argc) {
@@ -470,6 +479,369 @@ static int cmd_ids(const options *opt)
     return 0;
 }
 
+static int make_directory(const char *path)
+{
+    if (!path || !*path) {
+        return -1;
+    }
+#ifdef _WIN32
+    if (_mkdir(path) == 0) {
+        return 0;
+    }
+#else
+    if (mkdir(path, 0755) == 0) {
+        return 0;
+    }
+#endif
+    if (errno == EEXIST) {
+#ifdef _WIN32
+        struct _stat st;
+        if (_stat(path, &st) == 0 && (st.st_mode & _S_IFDIR)) {
+            return 0;
+        }
+#else
+        struct stat st;
+        if (stat(path, &st) == 0 && S_ISDIR(st.st_mode)) {
+            return 0;
+        }
+#endif
+    }
+    return -1;
+}
+
+static void default_dump_dir(char *buf, size_t len)
+{
+    time_t now = time(NULL);
+    struct tm *tm = localtime(&now);
+    if (tm) {
+        strftime(buf, len, "dump_all_%Y%m%d_%H%M%S", tm);
+    } else {
+        snprintf(buf, len, "dump_all");
+    }
+}
+
+static void note_failure(FILE *fail, const char *file, uint32_t addr,
+                         size_t len, const char *err)
+{
+    if (fail) {
+        fprintf(fail, "%-24s 0x%06X len 0x%zX  %s\n",
+                file, (unsigned)addr, len, err);
+        fflush(fail);
+    }
+}
+
+static int capture_range(kline_ctx *ctx, const char *dir, const char *name,
+                         uint32_t addr, size_t len, FILE *fail)
+{
+    uint8_t *data;
+    char err[256];
+    char path[1024];
+
+    data = (uint8_t *)malloc(len ? len : 1);
+    if (!data) {
+        note_failure(fail, name, addr, len, "out of memory");
+        return -1;
+    }
+    if (kline_read_memory(ctx, addr, data, len, err, sizeof(err)) != 0) {
+        note_failure(fail, name, addr, len, err);
+        free(data);
+        return -1;
+    }
+    snprintf(path, sizeof(path), "%s/%s", dir, name);
+    if (write_file(path, data, len) != 0) {
+        note_failure(fail, name, addr, len, "file write failed");
+        free(data);
+        return -1;
+    }
+    printf("  %-24s 0x%06X  %zu bytes\n", name, (unsigned)addr, len);
+    free(data);
+    return 0;
+}
+
+static void write_flash_checksums(const char *dir, const uint8_t *image);
+
+static int capture_flash(kline_ctx *ctx, const char *dir, FILE *fail)
+{
+    uint8_t *image;
+    size_t offset;
+    char err[256];
+    char path[1024];
+    int checksum_ok;
+
+    image = (uint8_t *)malloc(FLASH_SIZE);
+    if (!image) {
+        note_failure(fail, "flash.bin", FLASH_BASE, FLASH_SIZE, "out of memory");
+        return -1;
+    }
+    for (offset = 0; offset < FLASH_SIZE; offset += 0x4000) {
+        size_t chunk = FLASH_SIZE - offset;
+        if (chunk > 0x4000) {
+            chunk = 0x4000;
+        }
+        fprintf(stderr, "\rflash 0x%06X / 0x%06X",
+                (unsigned)(FLASH_BASE + offset),
+                (unsigned)(FLASH_BASE + FLASH_SIZE));
+        fflush(stderr);
+        if (kline_read_memory(ctx, FLASH_BASE + (uint32_t)offset,
+                              image + offset, chunk, err, sizeof(err)) != 0) {
+            fprintf(stderr, "\n");
+            note_failure(fail, "flash.bin", FLASH_BASE + (uint32_t)offset,
+                         chunk, err);
+            free(image);
+            return -1;
+        }
+    }
+    fprintf(stderr, "\n");
+    snprintf(path, sizeof(path), "%s/flash.bin", dir);
+    if (write_file(path, image, FLASH_SIZE) != 0) {
+        note_failure(fail, "flash.bin", FLASH_BASE, FLASH_SIZE, "file write failed");
+        free(image);
+        return -1;
+    }
+    write_flash_checksums(dir, image);
+    checksum_ok = verify_image(image);
+    free(image);
+    return checksum_ok == 0 ? 0 : 1;
+}
+
+static int request_to_file(kline_ctx *ctx, const uint8_t *req, size_t req_len,
+                           const char *label, FILE *out)
+{
+    uint8_t resp[256];
+    size_t resp_len = 0;
+    char err[256];
+    size_t i;
+
+    if (kline_request(ctx, req, req_len, resp, sizeof(resp),
+                      &resp_len, err, sizeof(err)) != 0) {
+        fprintf(out, "%-10s ERROR %s\n", label, err);
+        return -1;
+    }
+    fprintf(out, "%-10s", label);
+    for (i = 0; i < resp_len; ++i) {
+        fprintf(out, " %02X", resp[i]);
+    }
+    fprintf(out, "  |");
+    for (i = 0; i < resp_len; ++i) {
+        fprintf(out, "%c", resp[i] >= 32 && resp[i] < 127 ? resp[i] : '.');
+    }
+    fprintf(out, "|\n");
+    return 0;
+}
+
+static int capture_ids(kline_ctx *ctx, const char *dir, FILE *fail)
+{
+    char path[1024];
+    char err[256];
+    uint8_t cal[10];
+    uint8_t req[2];
+    FILE *out;
+    int failed = 0;
+
+    snprintf(path, sizeof(path), "%s/ids.txt", dir);
+    out = fopen(path, "w");
+    if (!out) {
+        note_failure(fail, "ids.txt", 0, 0, strerror(errno));
+        return -1;
+    }
+    req[0] = 0x21; req[1] = 0x03;
+    if (request_to_file(ctx, req, 2, "21 03", out) != 0) failed++;
+    req[0] = 0x21; req[1] = 0x04;
+    if (request_to_file(ctx, req, 2, "21 04", out) != 0) failed++;
+    req[0] = 0x21; req[1] = 0xFF;
+    if (request_to_file(ctx, req, 2, "21 FF", out) != 0) failed++;
+    if (kline_read_memory(ctx, 0xC05000, cal, sizeof(cal), err, sizeof(err)) == 0) {
+        fprintf(out, "%-10s ", "CALIBVER");
+        for (size_t i = 0; i < sizeof(cal); ++i) {
+            fprintf(out, "%c", cal[i] >= 32 && cal[i] < 127 ? cal[i] : '.');
+        }
+        fprintf(out, "\n");
+    } else {
+        fprintf(out, "%-10s ERROR %s\n", "CALIBVER", err);
+        failed++;
+    }
+    fclose(out);
+    if (failed) {
+        note_failure(fail, "ids.txt", 0, 0, "one or more ID requests failed");
+    }
+    return failed ? -1 : 0;
+}
+
+static int capture_live(kline_ctx *ctx, const char *dir, FILE *fail)
+{
+    uint8_t data[100];
+    char err[256];
+    char path[1024];
+
+    if (kline_read_live(ctx, data, err, sizeof(err)) != 0) {
+        note_failure(fail, "live_21_01.bin", 0, sizeof(data), err);
+        return -1;
+    }
+    snprintf(path, sizeof(path), "%s/live_21_01.bin", dir);
+    if (write_file(path, data, sizeof(data)) != 0) {
+        note_failure(fail, "live_21_01.bin", 0, sizeof(data), "file write failed");
+        return -1;
+    }
+    printf("  %-24s 100 bytes\n", "live_21_01.bin");
+    return 0;
+}
+
+static void write_metadata(const char *dir, const options *opt,
+                           const char *created, int failure_count)
+{
+    char path[1024];
+    FILE *out;
+
+    snprintf(path, sizeof(path), "%s/metadata.txt", dir);
+    out = fopen(path, "w");
+    if (!out) {
+        return;
+    }
+    fprintf(out, "ecu_tool dump-all\n");
+    fprintf(out, "port: %s\n", opt->port);
+    fprintf(out, "baud: %u\n", opt->baud);
+    fprintf(out, "timeout_ms: %u\n", opt->timeout_ms);
+    fprintf(out, "created: %s\n", created);
+    fprintf(out, "failures: %d\n", failure_count);
+    fprintf(out, "flash: 0xC00000 length 0x40000\n");
+    fprintf(out, "xram: 0x000000 length 0x008000\n");
+    fprintf(out, "iram: 0x00C000 length 0x001000\n");
+    fprintf(out, "xram: 0x00E000 length 0x000800\n");
+    fprintf(out, "iram: 0x00F600 length 0x000800\n");
+    fprintf(out, "targeted: 0x7000/0x40 0x7500/0x80 0x7050/0x100 0x7160/0x100 0x7660/0x100\n");
+    fprintf(out, "eeprom candidate: 0x004000/0x1000\n");
+    fclose(out);
+}
+
+static void write_flash_checksums(const char *dir, const uint8_t *image)
+{
+    struct {
+        const char *name;
+        size_t start;
+        size_t length;
+        size_t stored;
+    } blocks[] = {
+        {"boot", 0x00000, 0x01FFE, 0x01FFE},
+        {"calibration", 0x05000, 0x05FFE, 0x0AFFE},
+        {"application", 0x0B000, 0x34FFE, 0x3FFFE},
+    };
+    char path[1024];
+    FILE *out;
+    size_t i;
+
+    snprintf(path, sizeof(path), "%s/checksums.txt", dir);
+    out = fopen(path, "w");
+    if (!out) {
+        return;
+    }
+    for (i = 0; i < sizeof(blocks) / sizeof(blocks[0]); ++i) {
+        uint16_t computed = checksum16_be(image + blocks[i].start,
+                                          blocks[i].length);
+        uint16_t stored = (uint16_t)(image[blocks[i].stored] |
+                                     (image[blocks[i].stored + 1] << 8));
+        fprintf(out, "%-12s computed 0x%04X stored 0x%04X %s\n",
+                blocks[i].name, computed, stored,
+                computed == stored ? "ok" : "MISMATCH");
+    }
+    fclose(out);
+}
+
+static int cmd_dump_all(const options *opt)
+{
+    serial_port *port = NULL;
+    kline_ctx ctx;
+    char err[256];
+    char dir[512];
+    char created[64];
+    char failpath[1024];
+    FILE *fail;
+    int failures = 0;
+    int result;
+
+    if (opt->out_set) {
+        snprintf(dir, sizeof(dir), "%s", opt->out);
+    } else {
+        default_dump_dir(dir, sizeof(dir));
+    }
+    if (make_directory(dir) != 0) {
+        fprintf(stderr, "cannot create directory %s: %s\n", dir, strerror(errno));
+        return 1;
+    }
+    {
+        time_t now = time(NULL);
+        struct tm *tm = localtime(&now);
+        if (tm) {
+            strftime(created, sizeof(created), "%Y-%m-%d %H:%M:%S", tm);
+        } else {
+            snprintf(created, sizeof(created), "unknown");
+        }
+    }
+    snprintf(failpath, sizeof(failpath), "%s/failures.txt", dir);
+    fail = fopen(failpath, "w");
+    if (!fail) {
+        fprintf(stderr, "cannot write %s: %s\n", failpath, strerror(errno));
+        return 1;
+    }
+    if (connect_ecu(opt, &port, &ctx, err, sizeof(err)) != 0) {
+        fprintf(stderr, "connect: %s\n", err);
+        note_failure(fail, "connection", 0, 0, err);
+        fclose(fail);
+        return 1;
+    }
+    printf("Dumping to %s\n", dir);
+    if (capture_flash(&ctx, dir, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "xram_0000_7fff.bin", 0x000000, 0x8000, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "eeprom_4000.bin", 0x004000, 0x1000, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "iram_c000_cfff.bin", 0x00C000, 0x1000, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "xram_e000_e7ff.bin", 0x00E000, 0x0800, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "iram_f600_fdff.bin", 0x00F600, 0x0800, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "axis_7000.bin", 0x7000, 0x40, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "axis_7500.bin", 0x7500, 0x80, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "table_7050.bin", 0x7050, 0x100, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "handler_7160.bin", 0x7160, 0x100, fail) != 0) {
+        failures++;
+    }
+    if (capture_range(&ctx, dir, "table_7660.bin", 0x7660, 0x100, fail) != 0) {
+        failures++;
+    }
+    if (capture_ids(&ctx, dir, fail) != 0) {
+        failures++;
+    }
+    if (capture_live(&ctx, dir, fail) != 0) {
+        failures++;
+    }
+    serial_close(port);
+    fclose(fail);
+    write_metadata(dir, opt, created, failures);
+    printf("dump-all complete: %s (%d failures)\n", dir, failures);
+    printf("  flash.bin, RAM windows, axis/table reads, ids.txt, live_21_01.bin\n");
+    if (failures) {
+        printf("  see %s/failures.txt\n", dir);
+        result = 1;
+    } else {
+        result = 0;
+    }
+    return result;
+}
+
 static int stdin_is_tty(void)
 {
 #ifdef _WIN32
@@ -668,6 +1040,9 @@ int main(int argc, char **argv)
     }
     if (!strcmp(opt.command, "dump")) {
         return cmd_dump(&opt);
+    }
+    if (!strcmp(opt.command, "dump-all")) {
+        return cmd_dump_all(&opt);
     }
     if (!strcmp(opt.command, "read")) {
         return cmd_read(&opt);

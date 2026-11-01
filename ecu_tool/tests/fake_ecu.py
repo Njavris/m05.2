@@ -84,8 +84,12 @@ def serve(master, stop):
             elif payload and payload[0] == 0x23:
                 addr = (payload[1] << 16) | (payload[2] << 8) | payload[3]
                 count = payload[4]
-                off = addr - 0xC00000
-                response = bytes([0x63]) + bytes(image[off:off + count])
+                if 0xC00000 <= addr < 0xC40000:
+                    off = addr - 0xC00000
+                    data = bytes(image[off:off + count])
+                else:
+                    data = bytes(count)
+                response = bytes([0x63]) + data
             elif payload[:2] == b"\x27\x01":
                 response = bytes([0x67, 0x01, 0x12, 0x34])
             elif payload[:2] == b"\x27\x02":
@@ -161,6 +165,11 @@ def main():
         print("dump rc", dump.returncode)
         if dump.returncode != 0 or not os.path.exists(out):
             sys.stderr.write(dump.stderr.decode(errors="replace"))
+            ok = False
+        dumpall = run(tool, ["dump-all", "--out", os.path.join(td, "all")], timeout=60)
+        print("dump-all rc", dumpall.returncode)
+        if dumpall.returncode != 0 or not os.path.exists(os.path.join(td, "all", "flash.bin")):
+            sys.stderr.write(dumpall.stderr.decode(errors="replace"))
             ok = False
         write = run(tool, ["write-cal", "--file", CAL, "--i-understand"], timeout=120)
         print("write rc", write.returncode)
