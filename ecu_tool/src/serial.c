@@ -1,6 +1,8 @@
 #ifndef _WIN32
+#ifdef __linux__
 #define _DEFAULT_SOURCE
 #define _POSIX_C_SOURCE 200809L
+#endif
 #endif
 
 #include "serial.h"
@@ -224,8 +226,12 @@ static speed_t baud_constant(unsigned baud)
 #endif
     case 19200: return B19200;
     case 38400: return B38400;
+#ifdef B57600
     case 57600: return B57600;
+#endif
+#ifdef B115200
     case 115200: return B115200;
+#endif
     default: return 0;
     }
 }
@@ -277,32 +283,31 @@ serial_port *serial_open(const char *path, unsigned baud,
     {
         struct termios tio;
         speed_t speed = baud_constant(baud);
-        if (speed == 0 && baud == 10400) {
 #ifdef __APPLE__
+        if (speed == 0) {
             speed = B9600;
-#else
-            set_error(err, errlen, "10400 baud is not supported by this termios");
-            close(fd);
-            return NULL;
-#endif
         }
+#else
         if (speed == 0) {
             set_error(err, errlen, "unsupported baud rate");
             close(fd);
             return NULL;
         }
+#endif
         if (tcgetattr(fd, &tio) != 0) {
             set_error(err, errlen, "tcgetattr failed");
             close(fd);
             return NULL;
         }
-        cfmakeraw(&tio);
+        tio.c_iflag &= ~(IGNBRK | BRKINT | PARMRK | ISTRIP | INLCR |
+                         IGNCR | ICRNL | IXON | IXOFF | IXANY);
+        tio.c_oflag &= ~OPOST;
+        tio.c_lflag &= ~(ECHO | ECHONL | ICANON | ISIG | IEXTEN);
         tio.c_cflag &= ~(PARENB | CSTOPB | CSIZE);
 #ifdef CRTSCTS
         tio.c_cflag &= ~CRTSCTS;
 #endif
         tio.c_cflag |= CS8 | CLOCAL | CREAD;
-        tio.c_iflag &= ~(IXON | IXOFF | IXANY);
         tio.c_cc[VMIN] = 0;
         tio.c_cc[VTIME] = 0;
         if (cfsetispeed(&tio, speed) != 0 || cfsetospeed(&tio, speed) != 0) {
@@ -316,10 +321,10 @@ serial_port *serial_open(const char *path, unsigned baud,
             return NULL;
         }
 #ifdef __APPLE__
-        if (baud == 10400) {
+        {
             speed_t actual = (speed_t)baud;
             if (ioctl(fd, IOSSIOSPEED, &actual) != 0) {
-                set_error(err, errlen, "IOSSIOSPEED 10400 failed");
+                set_error(err, errlen, "IOSSIOSPEED failed");
                 close(fd);
                 return NULL;
             }
