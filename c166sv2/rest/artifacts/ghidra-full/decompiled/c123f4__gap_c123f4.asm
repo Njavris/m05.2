@@ -1,0 +1,31 @@
+; c123f4 gap_c123f4 size=80
+c123f4  movb RL4,0x7692
+c123f8  jnb r4.0x4,0xc124a6
+c123fc  movb RL2,#0x4
+c123fe  movb 0xc55d,RL2
+c12402  movb RL5,#0x1
+c12404  movb RL2,RL1
+c12406  movbz r12,RL2
+c12408  movb 0xc55a,RL5
+c1240c  addb RL1,#0x1
+c1240e  movb [r12+#0xf63d],RL5
+c12412  movb RL2,#0x0
+c12414  mov r12,#0x5ae1
+c12418  mov r13,#0xc0
+c1241c  movb RL4,0xc55e
+c12420  subb 0xc55e,0xff1e
+c12424  movbz r4,RL4
+c12426  mov r14,#0x0
+c12428  add r12,r4
+c1242a  addc r13,r14
+c1242c  exts r13, #0x1
+c1242e  movb RL4,[r12]
+c12430  movb RL5,RL1
+c12432  addb RL1,#0x1
+c12434  movbz r12,RL5
+c12436  addb RL2,#0x1
+c12438  cmpb RL2,#0x4
+c1243a  movb [r12+#0xf63d],RL4
+c1243e  jmpr cc_C,0xc12414
+c12440  movb RL2,#0x1
+c12442  jmpr cc_UC,0xc124a8

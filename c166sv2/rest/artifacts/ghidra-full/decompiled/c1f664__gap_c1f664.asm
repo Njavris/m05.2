@@ -1,0 +1,42 @@
+; c1f664 gap_c1f664 size=150
+c1f664  extp 0x380, #0x1
+c1f668  movb RL1,0x894
+c1f66c  jmpr cc_EQ,0xc1f69c
+c1f66e  extp 0x301, #0x1
+c1f672  mov r12,0x382c
+c1f676  add 0xc09a,r12
+c1f67a  mov r13,0xc09a
+c1f67e  extp 0x301, #0x1
+c1f682  cmp r13,0x382a
+c1f686  jmpr cc_C,0xc1f694
+c1f688  extp 0x301, #0x1
+c1f68c  mov r14,0x382a
+c1f690  mov 0xc09a,r14
+c1f694  extp 0x380, #0x1
+c1f698  movb 0x894,0xff1c
+c1f69c  mov r12,0xc09a
+c1f6a0  extp 0x380, #0x1
+c1f6a4  mov 0x88e,r12
+c1f6a8  mov 0xca84,r12
+c1f6ac  extp 0x380, #0x1
+c1f6b0  mov r12,0x888
+c1f6b4  extp 0x301, #0x1
+c1f6b8  add r12,0x3948
+c1f6bc  extp 0x380, #0x1
+c1f6c0  cmp r12,0x888
+c1f6c4  jmpr cc_NC,0xc1f6ca
+c1f6c6  mov r12,#0xffff
+c1f6ca  extp 0x380, #0x1
+c1f6ce  mov r13,0x888
+c1f6d2  extp 0x301, #0x1
+c1f6d6  cmp r13,0x3948
+c1f6da  jmpr cc_ULE,0xc1f6ee
+c1f6dc  extp 0x301, #0x1
+c1f6e0  sub r13,0x3948
+c1f6e4  cmp r13,0xc09a
+c1f6e8  jmpr cc_ULE,0xc1f6ee
+c1f6ea  mov 0xc09a,r13
+c1f6ee  cmp r12,0xc09a
+c1f6f2  jmpr cc_NC,0xc1f6f8
+c1f6f4  mov 0xc09a,r12
+c1f6f8  rets

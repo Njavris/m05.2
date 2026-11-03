@@ -1,0 +1,9 @@
+; c10776 farcall_62 size=22
+c10776  push 0xfe00
+c10778  mov 0xfe00,#0x301
+c1077c  push 0xfe04
+c1077e  mov 0xfe04,#0x303
+c10782  subb 0xc4da,0xff1e
+c10786  pop 0xfe04
+c10788  pop 0xfe00
+c1078a  reti

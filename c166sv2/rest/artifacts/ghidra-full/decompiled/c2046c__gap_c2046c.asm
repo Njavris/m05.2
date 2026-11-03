@@ -1,0 +1,112 @@
+; c2046c gap_c2046c size=364
+c2046c  calls 0xc1fede
+c20470  movb RL1,0xca86
+c20474  jmpr cc_NE,0xc2048e
+c20476  subb 0xc0b1,0xff1e
+c2047a  movbz r12,0xc0b1
+c2047e  cmp r12,#0xe1
+c20482  jmpr cc_C,0xc204cc
+c20484  sub 0xc0b4,0xff1e
+c20488  movb 0xc0b1,0xff1c
+c2048c  jmpr cc_UC,0xc204cc
+c2048e  movb RL1,0xca86
+c20492  cmpb RL1,#0x1
+c20494  jmpr cc_NE,0xc204ae
+c20496  subb 0xc09f,0xff1e
+c2049a  movbz r12,0xc09f
+c2049e  cmp r12,#0xe1
+c204a2  jmpr cc_C,0xc204cc
+c204a4  sub 0xc0a6,0xff1e
+c204a8  movb 0xc09f,0xff1c
+c204ac  jmpr cc_UC,0xc204cc
+c204ae  movb RL1,0xca86
+c204b2  cmpb RL1,#0x2
+c204b4  jmpr cc_NE,0xc204cc
+c204b6  subb 0xc0a4,0xff1e
+c204ba  movbz r12,0xc0a4
+c204be  cmp r12,#0xe1
+c204c2  jmpr cc_C,0xc204cc
+c204c4  sub 0xc0aa,0xff1e
+c204c8  movb 0xc0a4,0xff1c
+c204cc  movb RL1,0xc93c
+c204d0  cmpb RL1,#0x3
+c204d2  jmpr cc_NE,0xc20540
+c204d4  mov r12,0xc9d0
+c204d8  extp 0x301, #0x1
+c204dc  cmp r12,0x39d0
+c204e0  jmpr cc_UGT,0xc204ec
+c204e2  extp 0x380, #0x1
+c204e6  movb 0x8b4,0xff1c
+c204ea  jmpr cc_UC,0xc2054a
+c204ec  mov r12,0xc9d0
+c204f0  extp 0x301, #0x1
+c204f4  cmp r12,0x39d0
+c204f8  jmpr cc_ULE,0xc20510
+c204fa  extp 0x301, #0x1
+c204fe  cmp r12,0x39d2
+c20502  jmpr cc_UGT,0xc20510
+c20504  movb RL1,#0x1
+c20506  extp 0x380, #0x1
+c2050a  movb 0x8b4,RL1
+c2050e  jmpr cc_UC,0xc2054a
+c20510  mov r12,0xc9d0
+c20514  extp 0x301, #0x1
+c20518  cmp r12,0x39d2
+c2051c  jmpr cc_ULE,0xc20534
+c2051e  extp 0x301, #0x1
+c20522  cmp r12,0x39d4
+c20526  jmpr cc_UGT,0xc20534
+c20528  movb RL1,#0x2
+c2052a  extp 0x380, #0x1
+c2052e  movb 0x8b4,RL1
+c20532  jmpr cc_UC,0xc2054a
+c20534  movb RL1,#0x3
+c20536  extp 0x380, #0x1
+c2053a  movb 0x8b4,RL1
+c2053e  jmpr cc_UC,0xc2054a
+c20540  movb RL1,#0x4
+c20542  extp 0x380, #0x1
+c20546  movb 0x8b4,RL1
+c2054a  extp 0x380, #0x1
+c2054e  movb RL1,0x8b4
+c20552  jmpr cc_NE,0xc2056c
+c20554  subb 0xc0b0,0xff1e
+c20558  movbz r12,0xc0b0
+c2055c  cmp r12,#0xe1
+c20560  jmpr cc_C,0xc205d6
+c20562  sub 0xc0a2,0xff1e
+c20566  movb 0xc0b0,0xff1c
+c2056a  rets
+c2056c  extp 0x380, #0x1
+c20570  movb RL1,0x8b4
+c20574  cmpb RL1,#0x1
+c20576  jmpr cc_NE,0xc20590
+c20578  subb 0xc0be,0xff1e
+c2057c  movbz r12,0xc0be
+c20580  cmp r12,#0xe1
+c20584  jmpr cc_C,0xc205d6
+c20586  sub 0xc0ac,0xff1e
+c2058a  movb 0xc0be,0xff1c
+c2058e  rets
+c20590  extp 0x380, #0x1
+c20594  movb RL1,0x8b4
+c20598  cmpb RL1,#0x2
+c2059a  jmpr cc_NE,0xc205b4
+c2059c  subb 0xc09e,0xff1e
+c205a0  movbz r12,0xc09e
+c205a4  cmp r12,#0xe1
+c205a8  jmpr cc_C,0xc205d6
+c205aa  sub 0xc0b2,0xff1e
+c205ae  movb 0xc09e,0xff1c
+c205b2  rets
+c205b4  extp 0x380, #0x1
+c205b8  movb RL1,0x8b4
+c205bc  cmpb RL1,#0x3
+c205be  jmpr cc_NE,0xc205d6
+c205c0  subb 0xc0a0,0xff1e
+c205c4  movbz r12,0xc0a0
+c205c8  cmp r12,#0xe1
+c205cc  jmpr cc_C,0xc205d6
+c205ce  sub 0xc09c,0xff1e
+c205d2  movb 0xc0a0,0xff1c
+c205d6  rets

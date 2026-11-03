@@ -1,0 +1,243 @@
+; c27216 gap_c27216 size=828
+c27216  extp 0x301, #0x1
+c2721a  mov r12,0x3e74
+c2721e  jmpr cc_EQ,0xc27262
+c27220  cmp r12,#0x1
+c27222  jmpr cc_EQ,0xc2722e
+c27224  cmp r12,#0x2
+c27226  jmpr cc_EQ,0xc2723a
+c27228  cmp r12,#0x3
+c2722a  jmpr cc_EQ,0xc2724e
+c2722c  jmpr cc_UC,0xc27272
+c2722e  movb RL1,#0x1
+c27230  extp 0x380, #0x1
+c27234  movb 0x904,RL1
+c27238  jmpr cc_UC,0xc2726a
+c2723a  movb RL1,#0x1
+c2723c  extp 0x380, #0x1
+c27240  movb 0x8fe,RL1
+c27244  extp 0x380, #0x1
+c27248  movb 0x904,0xff1c
+c2724c  jmpr cc_UC,0xc27272
+c2724e  movb RL1,#0x1
+c27250  extp 0x380, #0x1
+c27254  movb 0x904,RL1
+c27258  extp 0x380, #0x1
+c2725c  movb 0x8fe,RL1
+c27260  jmpr cc_UC,0xc27272
+c27262  extp 0x380, #0x1
+c27266  movb 0x904,0xff1c
+c2726a  extp 0x380, #0x1
+c2726e  movb 0x8fe,0xff1c
+c27272  extp 0x380, #0x1
+c27276  movb RL1,0x6fc
+c2727a  extp 0x380, #0x1
+c2727e  movb 0x903,RL1
+c27282  cmpb RL1,#0x0
+c27284  jmpr cc_NE,0xc272c8
+c27286  extp 0x380, #0x1
+c2728a  movb RL2,0x702
+c2728e  jmpr cc_NE,0xc272c8
+c27290  movb RL3,0xcc32
+c27294  jmpr cc_NE,0xc272c8
+c27296  mov r12,0xc962
+c2729a  extp 0x301, #0x1
+c2729e  cmp r12,0x3e76
+c272a2  jmpr cc_C,0xc272c8
+c272a4  extp 0x301, #0x1
+c272a8  cmp r12,0x3e78
+c272ac  jmpr cc_UGT,0xc272c8
+c272ae  mov r13,0xc936
+c272b2  extp 0x301, #0x1
+c272b6  cmp r13,0x3e7a
+c272ba  jmpr cc_SLT,0xc272c8
+c272bc  movb RL4,#0x1
+c272be  extp 0x380, #0x1
+c272c2  movb 0x905,RL4
+c272c6  jmpr cc_UC,0xc272d0
+c272c8  extp 0x380, #0x1
+c272cc  movb 0x905,0xff1c
+c272d0  extp 0x380, #0x1
+c272d4  movb RL1,0x904
+c272d8  jmpa cc_EQ,0xc273e6
+c272dc  extp 0x380, #0x1
+c272e0  movb RL2,0x905
+c272e4  jmpr cc_EQ,0xc27330
+c272e6  mov r12,0xca0a
+c272ea  extp 0x301, #0x1
+c272ee  cmp r12,0x3e7c
+c272f2  jmpr cc_ULE,0xc27330
+c272f4  mov r13,0xca2a
+c272f8  extp 0x301, #0x1
+c272fc  cmp r13,0x3e7e
+c27300  jmpr cc_C,0xc27330
+c27302  extp 0x301, #0x1
+c27306  cmp r13,0x3e80
+c2730a  jmpr cc_UGT,0xc27330
+c2730c  mov r14,0xc9d0
+c27310  extp 0x301, #0x1
+c27314  cmp r14,0x3e82
+c27318  jmpr cc_C,0xc27330
+c2731a  extp 0x301, #0x1
+c2731e  cmp r14,0x3e84
+c27322  jmpr cc_UGT,0xc27330
+c27324  movb RL3,#0x1
+c27326  extp 0x380, #0x1
+c2732a  movb 0x902,RL3
+c2732e  jmpr cc_UC,0xc27338
+c27330  extp 0x380, #0x1
+c27334  movb 0x902,0xff1c
+c27338  extp 0x380, #0x1
+c2733c  movb RL1,0x902
+c27340  jmpr cc_EQ,0xc27382
+c27342  mov r12,#0x25
+c27346  calls 0xc24530
+c2734a  cmpb RL4,#0x0
+c2734c  jmpr cc_NE,0xc2735c
+c2734e  mov r12,0xca3e
+c27352  extp 0x301, #0x1
+c27356  cmp r12,0x3e86
+c2735a  jmpr cc_ULE,0xc27376
+c2735c  mov r12,#0x25
+c27360  calls 0xc24530
+c27364  cmpb RL4,#0x0
+c27366  jmpr cc_EQ,0xc27382
+c27368  mov r12,0xca3e
+c2736c  extp 0x301, #0x1
+c27370  cmp r12,0x3e88
+c27374  jmpr cc_UGT,0xc27382
+c27376  movb RL1,#0x1
+c27378  extp 0x380, #0x1
+c2737c  movb 0x8fa,RL1
+c27380  jmpr cc_UC,0xc2738a
+c27382  extp 0x380, #0x1
+c27386  movb 0x8fa,0xff1c
+c2738a  mov r12,#0xccb0
+c2738e  mov [-r0],r12
+c27390  movbz r12,0xccaa
+c27394  extp 0x380, #0x1
+c27398  movbz r13,0x902
+c2739c  extp 0x380, #0x1
+c273a0  movbz r14,0x8fa
+c273a4  mov r15,#0xcca8
+c273a8  calls 0xc24cb4
+c273ac  mov r12,#0xccb2
+c273b0  mov [r0],r12
+c273b2  mov r13,#0xccaa
+c273b6  mov [-r0],r13
+c273b8  mov r12,0xcca8
+c273bc  mov r13,0xccb0
+c273c0  extp 0x301, #0x1
+c273c4  mov r14,0x3e8c
+c273c8  extp 0x301, #0x1
+c273cc  mov r15,0x3e8a
+c273d0  calls 0xc24d1c
+c273d4  add r0,#0x4
+c273d6  mov r12,#0x25
+c273da  movbz r13,0xccaa
+c273de  movbz r14,0xccb2
+c273e2  calls 0xc24d82
+c273e6  extp 0x380, #0x1
+c273ea  movb RL1,0x8fe
+c273ee  jmpa cc_EQ,0xc27550
+c273f2  extp 0x380, #0x1
+c273f6  movb RL2,0x905
+c273fa  jmpr cc_EQ,0xc27446
+c273fc  extp 0x380, #0x1
+c27400  mov r12,0x900
+c27404  jmpr cc_EQ,0xc27446
+c27406  mov r13,0xca0a
+c2740a  extp 0x301, #0x1
+c2740e  cmp r13,0x3e8e
+c27412  jmpr cc_UGT,0xc27446
+c27414  mov r14,0xca2a
+c27418  extp 0x301, #0x1
+c2741c  cmp r14,0x3e90
+c27420  jmpr cc_UGT,0xc27446
+c27422  mov r15,0xc9d0
+c27426  extp 0x301, #0x1
+c2742a  cmp r15,0x3e92
+c2742e  jmpr cc_C,0xc27446
+c27430  extp 0x301, #0x1
+c27434  cmp r15,0x3e94
+c27438  jmpr cc_UGT,0xc27446
+c2743a  movb RL3,#0x1
+c2743c  extp 0x380, #0x1
+c27440  movb 0x906,RL3
+c27444  jmpr cc_UC,0xc2744e
+c27446  extp 0x380, #0x1
+c2744a  movb 0x906,0xff1c
+c2744e  extp 0x380, #0x1
+c27452  movb 0x8fb,0xff1c
+c27456  extp 0x380, #0x1
+c2745a  movb 0x8fc,0xff1c
+c2745e  extp 0x380, #0x1
+c27462  mov r12,0x900
+c27466  cmp r12,#0x0
+c27468  jmpr cc_ULE,0xc274d0
+c2746a  mov r13,0xca3e
+c2746e  extp 0x301, #0x1
+c27472  cmp r13,0x3e96
+c27476  jmpr cc_C,0xc2748c
+c27478  extp 0x380, #0x1
+c2747c  movb 0x8fd,0xff1c
+c27480  movb RL1,#0x1
+c27482  extp 0x380, #0x1
+c27486  movb 0x8fc,RL1
+c2748a  jmpr cc_UC,0xc274d0
+c2748c  extp 0x380, #0x1
+c27490  movb RL1,0x906
+c27494  jmpr cc_EQ,0xc274d0
+c27496  extp 0x380, #0x1
+c2749a  mov r12,0x900
+c2749e  mov r13,0xc9d0
+c274a2  calls 0xc28852
+c274a6  mov r12,r4
+c274a8  extp 0x301, #0x1
+c274ac  cmp r12,0x3e98
+c274b0  jmpr cc_C,0xc274c6
+c274b2  movb RL1,#0x1
+c274b4  extp 0x380, #0x1
+c274b8  movb 0x8fb,RL1
+c274bc  extp 0x380, #0x1
+c274c0  movb 0x8fd,0xff1c
+c274c4  jmpr cc_UC,0xc274d0
+c274c6  movb RL1,#0x1
+c274c8  extp 0x380, #0x1
+c274cc  movb 0x8fd,RL1
+c274d0  mov r12,0xc9d0
+c274d4  extp 0x380, #0x1
+c274d8  mov 0x900,r12
+c274dc  movb RL1,0xcca6
+c274e0  jmpr cc_NE,0xc274ec
+c274e2  extp 0x380, #0x1
+c274e6  movb RL2,0x8fb
+c274ea  jmpr cc_EQ,0xc274f4
+c274ec  mov 0xccae,0xff1c
+c274f0  mov 0xccac,0xff1c
+c274f4  mov r12,#0xccac
+c274f8  mov [-r0],r12
+c274fa  movbz r12,0xcca6
+c274fe  extp 0x380, #0x1
+c27502  movbz r13,0x906
+c27506  extp 0x380, #0x1
+c2750a  movbz r14,0x8fd
+c2750e  mov r15,#0xccae
+c27512  calls 0xc24cb4
+c27516  mov r12,#0xcca7
+c2751a  mov [r0],r12
+c2751c  mov r13,#0xcca6
+c27520  mov [-r0],r13
+c27522  mov r12,0xccae
+c27526  mov r13,0xccac
+c2752a  extp 0x301, #0x1
+c2752e  mov r14,0x3e9c
+c27532  extp 0x301, #0x1
+c27536  mov r15,0x3e9a
+c2753a  calls 0xc24d1c
+c2753e  add r0,#0x4
+c27540  mov r12,#0x25
+c27544  movbz r13,0xcca6
+c27548  movbz r14,0xcca7
+c2754c  calls 0xc24d82
+c27550  rets

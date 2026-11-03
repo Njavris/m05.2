@@ -1,0 +1,33 @@
+; c23982 gap_c23982 size=88
+c23982  sub r0,#0x4
+c23984  movb RL1,0xcb2d
+c23988  cmpb RL1,#0x20
+c2398c  jmpr cc_EQ,0xc2399a
+c2398e  cmpb RL1,#0x10
+c23992  jmpr cc_NE,0xc239b2
+c23994  mov [r0],0xca38
+c23998  jmpr cc_UC,0xc239b2
+c2399a  sub r0,#0x4
+c2399c  mov r12,#0x8
+c2399e  movbz r13,0xcb25
+c239a2  calls 0xc23446
+c239a6  mov r14,[r4+]
+c239a8  mov r15,[r4]
+c239aa  add r0,#0x4
+c239ac  mov [r0],r14
+c239ae  mov [r0+#0x2],r15
+c239b2  mov r12,[r0]
+c239b4  mov r13,#0xffff
+c239b8  mov r14,#0xf
+c239ba  calls 0xc27b86
+c239be  mov [r0],r4
+c239c0  mov r12,#0x770a
+c239c4  mov r13,[r0]
+c239c6  calls 0xc2850e
+c239ca  mov [r0],r4
+c239cc  mov r12,[r0]
+c239ce  shr r12,#0x8
+c239d0  mov r1,r12
+c239d2  movb 0xcb39,RL1
+c239d6  add r0,#0x4
+c239d8  rets

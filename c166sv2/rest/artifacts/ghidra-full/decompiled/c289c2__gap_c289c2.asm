@@ -1,0 +1,31 @@
+; c289c2 gap_c289c2 size=72
+c289c2  mov r15,r13
+c289c4  mov r1,#0x0
+c289c6  jmpr cc_UC,0xc289cc
+c289c8  add r15,r15
+c289ca  addc r1,r1
+c289cc  cmpd1 r14,#0x0
+c289ce  jmpr cc_NE,0xc289c8
+c289d0  mov r13,#0x0
+c289d2  sub r12,r15
+c289d4  subc r13,r1
+c289d6  mov r14,r12
+c289d8  mov r15,r13
+c289da  sub r14,#0x7fff
+c289de  subc r15,#0x0
+c289e0  jmpr cc_SGE,0xc28a00
+c289e2  mov r14,r12
+c289e4  mov r15,r13
+c289e6  sub r14,#0x8000
+c289ea  subc r15,#0xffff
+c289ee  jmpr cc_SLE,0xc289f6
+c289f0  mov r13,r12
+c289f2  ashr r13,#0xf
+c289f4  jmpr cc_UC,0xc289fe
+c289f6  mov r12,#0x8000
+c289fa  mov r13,#0xffff
+c289fe  jmpr cc_UC,0xc28a06
+c28a00  mov r12,#0x7fff
+c28a04  mov r13,#0x0
+c28a06  mov r4,r12
+c28a08  rets

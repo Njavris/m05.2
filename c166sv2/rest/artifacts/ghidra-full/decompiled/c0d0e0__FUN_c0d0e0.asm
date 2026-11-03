@@ -1,0 +1,30 @@
+; c0d0e0 FUN_c0d0e0 size=74
+c0d0e0  mov [-r0],r6
+c0d0e2  mov r6,r12
+c0d0e4  mov r12,0xc374
+c0d0e8  mov [-r0],r12
+c0d0ea  movbz r14,RL6
+c0d0ec  shl r14,#0x2
+c0d0ee  mov r15,r14
+c0d0f0  mov r13,0xc37e
+c0d0f4  mov [-r0],r13
+c0d0f6  mov r13,[r15+#0xc384]
+c0d0fa  mov r14,[r15+#0xc386]
+c0d0fe  movbz r15,RL6
+c0d100  shl r15,#0x1
+c0d102  mov r1,r15
+c0d104  movbz r12,RL6
+c0d106  mov r15,[r1+#0xc36a]
+c0d10a  calls 0xc0bbc4
+c0d10e  add r0,#0x4
+c0d110  movbz r6,RL6
+c0d112  mov r14,r6
+c0d114  shl r14,#0x3
+c0d116  add r14,r6
+c0d118  shl r14,#0x1
+c0d11a  mov r12,#0x0
+c0d11c  mov r13,#0x0
+c0d11e  mov [r14+#0xc416],r12
+c0d122  mov [r14+#0xc418],r13
+c0d126  mov r6,[r0+]
+c0d128  rets

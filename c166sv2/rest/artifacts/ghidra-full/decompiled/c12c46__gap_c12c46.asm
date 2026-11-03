@@ -1,0 +1,24 @@
+; c12c46 gap_c12c46 size=76
+c12c46  movbz r12,0xc5c4
+c12c4a  movbz r13,0xc570
+c12c4e  add r12,r13
+c12c50  movb RL1,[r0]
+c12c52  movb [r12+#0xf63d],RL1
+c12c56  movb RL1,0xc5c4
+c12c5a  addb RL1,0xc570
+c12c5e  movb 0xc589,RL1
+c12c62  subb 0xc570,0xff1e
+c12c66  movbz r12,0xc570
+c12c6a  cmp r12,#0x88
+c12c6e  jmpr cc_NE,0xc12c76
+c12c70  movb 0xc570,0xff1c
+c12c74  jmpr cc_UC,0xc12c9e
+c12c76  movb RL1,0xc570
+c12c7a  cmpb RL1,0xc578
+c12c7e  jmpr cc_NE,0xc12cb0
+c12c80  movb RL2,0xc589
+c12c84  addb RL2,#0x1
+c12c86  movb 0xc5c7,RL2
+c12c8a  mov r12,#0x5
+c12c8c  mov 0xc574,r12
+c12c90  jmpr cc_UC,0xc12cb0

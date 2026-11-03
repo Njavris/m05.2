@@ -1,0 +1,19 @@
+; c0cf18 FUN_c0cf18 size=48
+c0cf18  mov 0xfa00,r0
+c0cf1c  scxt 0xfe10,#0xfa00
+c0cf20  scxt 0xff0e,#0x10
+c0cf24  push 0xfe00
+c0cf26  mov 0xfe00,#0x301
+c0cf2a  push 0xfe04
+c0cf2c  mov 0xfe04,#0x303
+c0cf30  push 0xfe0c
+c0cf32  push 0xfe0e
+c0cf34  bset 0xff10.0xb
+c0cf36  calls 0xc11f10
+c0cf3a  pop 0xfe0e
+c0cf3c  pop 0xfe0c
+c0cf3e  pop 0xfe04
+c0cf40  pop 0xfe00
+c0cf42  pop 0xff0e
+c0cf44  pop 0xfe10
+c0cf46  reti

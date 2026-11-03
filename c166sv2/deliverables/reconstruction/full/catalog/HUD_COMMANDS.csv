@@ -1,0 +1,7 @@
+id,tx_bytes,rx_size,read,byte_order,scan_interval,description
+00,21 01,100,,,,Vendor command 21 01
+01,21 03,0x04,Once,,,Vendor command 21 03
+02,21 04,0x04,Once,,,Vendor command 21 04
+03,21 FF,0x04,Once,LH,,Vendor command 21 FF
+04,23 C0 50 00 0A,10,Once,,,Vendor command 23 C0 50 00 0A
+05,18 00 00 00,Varying,,LH,1000,Vendor command 18 00 00 00

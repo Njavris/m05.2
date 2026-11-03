@@ -1,0 +1,31 @@
+; c1c1f0 gap_c1c1f0 size=104
+c1c1f0  movb RL1,0xc1b6
+c1c1f4  jmpr cc_EQ,0xc1c246
+c1c1f6  movb RL2,0xc068
+c1c1fa  jmpr cc_NE,0xc1c20a
+c1c1fc  mov 0xc070,0xff1c
+c1c200  movb 0xc076,0xff1c
+c1c204  mov 0xc074,0xff1c
+c1c208  jmpr cc_UC,0xc1c246
+c1c20a  subb 0xc076,0xff1e
+c1c20e  movb RL1,0xc076
+c1c212  cmpb RL1,#0x3c
+c1c216  jmpr cc_C,0xc1c22e
+c1c218  sub 0xc070,0xff1e
+c1c21c  mov r12,0xc070
+c1c220  cmp r12,#0xffff
+c1c224  jmpr cc_C,0xc1c22a
+c1c226  mov 0xc070,0xff1e
+c1c22a  movb 0xc076,0xff1c
+c1c22e  mov r12,0xc062
+c1c232  cmp r12,0xc9a0
+c1c236  jmpr cc_EQ,0xc1c246
+c1c238  mov r13,0xc074
+c1c23c  cmp r13,#0xffff
+c1c240  jmpr cc_NC,0xc1c246
+c1c242  sub 0xc074,0xff1e
+c1c246  mov r12,0xc062
+c1c24a  mov 0xc9a0,r12
+c1c24e  movb RL1,0xc1b6
+c1c252  movb 0xc068,RL1
+c1c256  rets

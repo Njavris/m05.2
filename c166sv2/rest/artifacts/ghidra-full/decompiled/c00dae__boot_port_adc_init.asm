@@ -1,0 +1,13 @@
+; c00dae boot_port_adc_init size=44
+c00dae  mov 0xc080,0xff1e
+c00db2  movb RL1,#0x2
+c00db4  movb 0xc092,RL1
+c00db8  movb 0xc091,0xff1c
+c00dbc  movb 0xc090,0xff1c
+c00dc0  movb RL2,#0x1f
+c00dc4  movb 0xc08f,RL2
+c00dc8  movb 0xc08e,0xff1c
+c00dcc  movb 0xc08d,0xff1c
+c00dd0  movb 0xc08c,0xff1c
+c00dd4  calls 0xc00eca
+c00dd8  rets

@@ -1,0 +1,25 @@
+; c12afc gap_c12afc size=74
+c12afc  mov r12,0xc5a2
+c12b00  cmp r12,#0x1
+c12b02  jmpr cc_NE,0xc12b08
+c12b04  sub 0xc5be,0xff1e
+c12b08  mov r12,0xc5a2
+c12b0c  jmpr cc_NE,0xc12b12
+c12b0e  sub 0xc5b0,0xff1e
+c12b12  jmpa cc_UC,0xc12cb0
+c12b16  mov r12,0xc5a2
+c12b1a  cmp r12,#0x1
+c12b1c  jmpr cc_NE,0xc12b22
+c12b1e  mov 0xc5be,0xff1c
+c12b22  mov r12,0xc5a2
+c12b26  jmpr cc_NE,0xc12b2c
+c12b28  mov 0xc5b0,0xff1c
+c12b2c  movb RL1,[r0]
+c12b2e  addb 0xc5a1,RL1
+c12b32  mov r12,0xc574
+c12b36  cmp r12,#0x5
+c12b38  jmpa cc_UGT,0xc12cb0
+c12b3c  shl r12,#0x1
+c12b3e  add r12,#0x7184
+c12b42  mov r12,[r12]
+c12b44  jmpi cc_UC,[r12]

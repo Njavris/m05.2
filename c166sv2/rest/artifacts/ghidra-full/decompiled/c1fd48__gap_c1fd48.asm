@@ -1,0 +1,11 @@
+; c1fd48 gap_c1fd48 size=36
+c1fd48  movb RL1,#0x2
+c1fd4a  extp 0x380, #0x1
+c1fd4e  movb 0x89e,RL1
+c1fd52  extp 0x301, #0x1
+c1fd56  mov r12,0x383a
+c1fd5a  extp 0x380, #0x1
+c1fd5e  mov 0x898,r12
+c1fd62  extp 0x380, #0x1
+c1fd66  mov 0x89a,0xff1c
+c1fd6a  rets

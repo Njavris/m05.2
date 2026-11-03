@@ -1,0 +1,19 @@
+; c0bc44 FUN_c0bc44 size=48
+c0bc44  mov 0xfa60,r0
+c0bc48  scxt 0xfe10,#0xfa60
+c0bc4c  scxt 0xff0e,#0x10
+c0bc50  push 0xfe00
+c0bc52  mov 0xfe00,#0x301
+c0bc56  push 0xfe04
+c0bc58  mov 0xfe04,#0x303
+c0bc5c  push 0xfe0c
+c0bc5e  push 0xfe0e
+c0bc60  mov r12,#0x0
+c0bc62  calls 0xc0df4c
+c0bc66  pop 0xfe0e
+c0bc68  pop 0xfe0c
+c0bc6a  pop 0xfe04
+c0bc6c  pop 0xfe00
+c0bc6e  pop 0xff0e
+c0bc70  pop 0xfe10
+c0bc72  reti

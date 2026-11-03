@@ -1,0 +1,32 @@
+; c166ce gap_c166ce size=72
+c166ce  mov [-r0],r9
+c166d0  mov [-r0],r8
+c166d2  mov r9,r12
+c166d4  mov r8,r12
+c166d6  mov [-r0],r13
+c166d8  mov [-r0],r14
+c166da  calls 0xc14740
+c166de  mov r12,r4
+c166e0  mov r15,r12
+c166e2  ashr r15,#0xf
+c166e4  mov r1,0xc000
+c166e8  mov r2,[r9]
+c166ea  add r1,r2
+c166ec  mov r2,r9
+c166ee  add r2,#0x2
+c166f0  mov r14,[r0+]
+c166f2  mov r13,[r0+]
+c166f4  mov r3,[r2]
+c166f6  add r1,r3
+c166f8  mov [r8+#0x2],r14
+c166fc  mov [r8],r13
+c166fe  mov r8,[r9]
+c16700  sub r1,r8
+c16702  mov r8,[r2]
+c16704  sub r1,r8
+c16706  mov 0xc000,r1
+c1670a  mov r13,r15
+c1670c  calls 0xc14750
+c16710  mov r8,[r0+]
+c16712  mov r9,[r0+]
+c16714  rets

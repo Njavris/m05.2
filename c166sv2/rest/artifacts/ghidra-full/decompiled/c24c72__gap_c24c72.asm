@@ -1,0 +1,31 @@
+; c24c72 gap_c24c72 size=66
+c24c72  mov [-r0],r9
+c24c74  mov [-r0],r8
+c24c76  mov [-r0],r7
+c24c78  mov [-r0],r6
+c24c7a  mov r8,r13
+c24c7c  mov r9,r12
+c24c7e  mov r7,r14
+c24c80  movb RL6,#0x0
+c24c82  jmpr cc_UC,0xc24ca6
+c24c84  movbz r12,RL6
+c24c86  shl r12,#0x1
+c24c88  mov r13,r9
+c24c8a  add r13,r12
+c24c8c  mov r12,[r13]
+c24c8e  calls 0xc24286
+c24c92  cmpb RL4,#0x0
+c24c94  jmpr cc_NE,0xc24c9e
+c24c96  mov r12,r8
+c24c98  calls 0xc24802
+c24c9c  jmpr cc_UC,0xc24caa
+c24c9e  mov r12,r8
+c24ca0  calls 0xc247e6
+c24ca4  addb RL6,#0x1
+c24ca6  cmpb RL6,RL7
+c24ca8  jmpr cc_C,0xc24c84
+c24caa  mov r6,[r0+]
+c24cac  mov r7,[r0+]
+c24cae  mov r8,[r0+]
+c24cb0  mov r9,[r0+]
+c24cb2  rets

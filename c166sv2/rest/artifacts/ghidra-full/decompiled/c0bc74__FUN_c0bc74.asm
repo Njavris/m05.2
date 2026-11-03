@@ -1,0 +1,19 @@
+; c0bc74 FUN_c0bc74 size=48
+c0bc74  mov 0xfa60,r0
+c0bc78  scxt 0xfe10,#0xfa60
+c0bc7c  scxt 0xff0e,#0x10
+c0bc80  push 0xfe00
+c0bc82  mov 0xfe00,#0x301
+c0bc86  push 0xfe04
+c0bc88  mov 0xfe04,#0x303
+c0bc8c  push 0xfe0c
+c0bc8e  push 0xfe0e
+c0bc90  mov r12,#0x1
+c0bc92  calls 0xc0df4c
+c0bc96  pop 0xfe0e
+c0bc98  pop 0xfe0c
+c0bc9a  pop 0xfe04
+c0bc9c  pop 0xfe00
+c0bc9e  pop 0xff0e
+c0bca0  pop 0xfe10
+c0bca2  reti

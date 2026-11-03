@@ -1,0 +1,35 @@
+name,category,fields,source,evidence,confidence
+kline_frame_t,firmware,5,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+kline_state_t,firmware,7,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cc_event_channel_t,firmware,10,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cc22_23_channel_t,firmware,5,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+sensor_setup_t,firmware,5,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+diag_status_t,firmware,5,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+fp32_t,firmware,1,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+can_msg_object_t,firmware,12,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cal_axis_t,firmware,3,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cal_tbl8_t,firmware,3,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cal_tbl16_t,firmware,2,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cal_map2d_t,firmware,4,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+adapt_record_layout_t,firmware,4,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+kline_transport_t,firmware,16,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+cc22_23_state_t,firmware,5,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+capture_state_t,firmware,13,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+test_command_t,firmware,6,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+can_transport_t,firmware,8,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+scheduler_state_t,firmware,9,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+pwm_state_t,firmware,16,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+map_70f6_state_t,firmware,2,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+map_6e50_state_t,firmware,4,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+record_select_t,firmware,3,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+config_mode_t,firmware,4,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+adapt_record_1e_t,firmware,1,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+fault_status_t,firmware,1,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+axis_pair_7052_t,firmware,2,include/mt05/firmware_types.h,recovered from access patterns; logical view where marked,high
+mt05_function_t,catalog,14,include/mt05/catalog.h,catalog record for one Ghidra function,high
+mt05_variable_t,catalog,10,include/mt05/catalog.h,catalog record for one RAM/flash variable,high
+mt05_structure_t,catalog,6,include/mt05/catalog.h,catalog record for one recovered structure,high
+mt05_live_field_t,catalog,10,include/mt05/live_data.h,HUD ECU Hacker 21 01 field,high
+mt05_live_bit_t,catalog,9,include/mt05/live_data.h,HUD ECU Hacker status bit,high
+mt05_hud_command_t,catalog,5,include/mt05/live_data.h,HUD ECU Hacker command,high
+mt05_slew_t,catalog,10,include/mt05/live_data.h,HUD ECU Hacker data-slewing entry,high

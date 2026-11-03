@@ -1,0 +1,10 @@
+dest,source,length,initial_hex,initial_value,name,evidence,confidence
+00C1FC,C0BB54,2,0000,0,pwm_phase_counter,c0cf48 increments this value while PWM config steps; init table zeroes it,medium
+00C3A0,C0BD9E,3,000000,0,timer4_gate_state,c0bdc8 writes 1 and tests this field; init table zeroes it,medium
+00C492,C0BFD8,1,00,0,ssc_rx_bytes_remaining,c0ff34 decrements per SSCRB byte and reloads 7,high
+00C4CC,C0BFDA,1,00,0,t8_capture_state,c1078c uses this in the T8 capture path; init table zeroes it,medium
+00C506,C0BFDC,2,0000,0,engine_start_phase,c1168a selects phase 0/1 and stores this state,medium
+00C546,C0BFDE,4,00000000,0,cal_checksum_accum,cal_checksum accumulates here; init table zeroes it,high
+00C550,C0BFF2,2,0F0F,3855,scheduler_counter_reload,scheduler_tick compares counter 0xC54C with this reload,high
+00C5FE,C0BFFA,4,00000000,0,engine_limit_state,c142da sets/clears this around a 0x2CB threshold,medium
+00FD1E,C0BFFE,2,0000,0,status_flag_fd1e,bit0/bit1 status bits cleared by c23e42/c23e4e,medium

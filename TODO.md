@@ -1,16 +1,45 @@
 # TODO — Njavris
 
-Status: the firmware analysis, reconstruction and `ecu_tool/` build are in place;
-the remaining work is mainly hardware validation, mapping the live-data packet
+Status: the firmware analysis, whole-image disassembly, reconstruction and
+`tools/ecu_tool/` build are in place; the remaining work is mainly semantic naming of
+the newly recovered functions, hardware validation, mapping the live-data packet
 back to RAM, and deciding what is safe to publish.
 
-## 0. Next hardware session (M4 Mac)
+## 0. Full disassembly follow-up
+
+- [x] Run the C166SV2 whole-image Ghidra pass: 902 functions, 46,430 instructions,
+      all 262,144 bytes covered in `c166sv2/deliverables/artifacts/ghidra-full/flash.lst`.
+- [x] Run the earlier evidence-based naming pass over the post-195 functions:
+      24 high, 77 medium, 606 low-confidence placeholders (superseded by the
+      full 902-entry catalog below); see `c166/deliverables/firmware/AUTO_NAMES.csv`,
+      `c166/deliverables/firmware/AUTO_VARIABLES.csv`, `c166/deliverables/reconstruction/03-data/auto_functions.c`
+      and `c166sv2/documentation/report/16-auto-naming.md`.
+- [x] Promote the medium/high-confidence names into the full catalog:
+      `c166sv2/deliverables/reconstruction/full/catalog/FUNCTIONS.csv` (220 high, 340 medium,
+      342 low after iterative call-graph refinement).
+- [x] Build the normal C11 project in `c166sv2/deliverables/reconstruction/full/`: CMake,
+      catalog accessors, tests, HUD live-data tables and 1,804-file reference tree.
+- [x] Parse HUD ECU Hacker profile/translation/tuning/log evidence into
+      `c166sv2/deliverables/reconstruction/full/catalog/HUD_*.csv`.
+- [ ] Resolve or delete the 342 low-confidence `<domain>_sub_<address>` names.
+- [ ] Resolve the 37 remaining byte gaps in
+      `c166sv2/documentation/ghidra-full/coverage.csv`; most are data tables or padding.
+- [ ] Review the 342 low-confidence catalog names and promote only the ones
+      with new table/variable/caller evidence.
+- [ ] Decide what the hidden `0xC02000-0xC03DF6` boot/test block is and whether
+      it is reachable from an external bootstrap path.
+- [ ] Map the ten `farcall_*` entry points and the 0xC10000 trampoline table to
+      their diagnostic or engine-control roles.
+- [ ] Reconcile the 902-function C166SV2 pass with the curated 195-function reference;
+      keep the latter as the reviewed source until naming catches up.
+
+## 0a. Next hardware session (M4 Mac)
 
 - [ ] Bring the M4 Mac, a USB-C to USB-A adapter/hub, the FT232RL KKL adapter,
       the K-line harness and a multimeter.
 - [ ] Install the FTDI VCP driver for Apple Silicon and confirm a device such as
       `/dev/cu.usbserial-*` appears.
-- [ ] Install Xcode Command Line Tools and CMake, then build `ecu_tool/` natively.
+- [ ] Install Xcode Command Line Tools and CMake, then build `tools/ecu_tool/` natively.
 - [ ] Test `live --count 1`, `ids`, `read` and `dump` on the Mac.
 - [ ] If macOS fast-init timing is unreliable, try a Linux VM with USB
       passthrough; do not assume the Mac timing is good until tested.
@@ -21,33 +50,33 @@ back to RAM, and deciding what is safe to publish.
 
 - [ ] Build the tool:
   ```bash
-  cmake -S ecu_tool -B ecu_tool/build
-  cmake --build ecu_tool/build
-  ./ecu_tool/build/ecu_tool selftest
+  cmake -S tools/ecu_tool -B tools/ecu_tool/build
+  cmake --build tools/ecu_tool/build
+  ./tools/ecu_tool/build/ecu_tool selftest
   ```
 - [ ] Connect the FT232RL KKL adapter (K-line, ground, +12 V) and identify the
       serial port (`/dev/ttyUSB0` or `COM3`).
 - [ ] Test connection:
   ```bash
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --verbose live --count 1
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --verbose live --count 1
   ```
 - [ ] If StartCommunication fails, capture the verbose trace and check fast-init
       timing; 5-baud init is **not implemented yet**.
 - [ ] Log live data at idle and several steady RPMs:
   ```bash
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --csv live --count 60
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --csv live --count 60
   ```
 - [ ] Dump the full flash and verify checksums:
   ```bash
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 dump --out backup_flash.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 dump --out backup_flash.bin
   ```
 - [ ] Read the missing external-RAM regions while the ECU is powered:
   ```bash
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7000 --len 0x40 --out xram_7000.bin
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7500 --len 0x80 --out xram_7500.bin
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7050 --len 0x100 --out xram_7050.bin
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7160 --len 0x100 --out xram_7160.bin
-  ./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7660 --len 0x100 --out xram_7660.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7000 --len 0x40 --out xram_7000.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7500 --len 0x80 --out xram_7500.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7050 --len 0x100 --out xram_7050.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7160 --len 0x100 --out xram_7160.bin
+  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7660 --len 0x100 --out xram_7660.bin
   ```
 - [ ] If `0x23` rejects those RAM addresses, use XC164 OCDS/JTAG or dump the
       external EEPROM/SSC device instead.
@@ -115,5 +144,5 @@ back to RAM, and deciding what is safe to publish.
 ## 5. Optional polish
 
 - [ ] Add 5-baud initialization support.
-- [ ] Add wiring/photos and adapter notes to `ecu_tool/README.md`.
+- [ ] Add wiring/photos and adapter notes to `tools/ecu_tool/README.md`.
 - [ ] Add a release tag and short changelog.

@@ -22,3 +22,19 @@ ecu_tool/build/
 
 # ECU diagnostic console build
 ecu_diag/build/
+
+# Reconstruction project builds
+reconstruction/build/
+reconstruction/full/build/
+
+# c166/c166sv2 build outputs
+c166/deliverables/firmware/firmware_model
+c166/deliverables/firmware/src/*.o
+c166/deliverables/firmware/build/
+c166/deliverables/reconstruction/build/
+c166sv2/deliverables/reconstruction/build/
+c166sv2/deliverables/reconstruction/full/build/
+c166sv2/rest/emulator/out/
+
+# Separate Ghidra extension repository
+c166sv2/rest/emulator/ghidra/

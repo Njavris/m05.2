@@ -1,0 +1,127 @@
+// c00d34 timer7_isr size=118 cc=unknown proto=undefined timer7_isr(void)
+
+void timer7_isr(void)
+
+{
+  ushort uVar1;
+  short sVar2;
+  undefined2 uVar3;
+  undefined2 uVar4;
+  undefined2 uVar5;
+  undefined2 uVar6;
+  undefined2 uVar7;
+  undefined2 uVar8;
+  undefined2 uVar9;
+  undefined2 uVar10;
+  undefined2 uVar11;
+  undefined2 uVar12;
+  undefined2 uVar13;
+  undefined2 uVar14;
+  undefined2 uVar15;
+  undefined2 uVar16;
+  
+  DAT_00fc40 = &stack0x0000;
+  uVar8 = DPP0;
+  uVar3 = DPP0;
+  uVar3 = DPP0;
+  DPP0 = 0x300;
+  uVar9 = DPP2;
+  uVar3 = DPP2;
+  uVar3 = DPP2;
+  DPP2 = 0x302;
+  uVar16 = DAT_00ffde;
+  uVar3 = DAT_00ffde;
+  uVar3 = DAT_00ffde;
+  uVar10 = DAT_00fe5c;
+  uVar3 = DAT_00fe5c;
+  uVar3 = DAT_00fe5c;
+  uVar11 = DAT_00fe5e;
+  uVar3 = DAT_00fe5e;
+  uVar3 = DAT_00fe5e;
+  uVar15 = DAT_00ffdc;
+  uVar3 = DAT_00ffdc;
+  uVar3 = DAT_00ffdc;
+  uVar14 = DAT_00ffda;
+  DAT_00ffda = 0;
+  uVar12 = DAT_00ff08;
+  uVar3 = DAT_00ff08;
+  uVar3 = DAT_00ff08;
+  uVar13 = DAT_00ff0a;
+  uVar3 = DAT_00ff0a;
+  uVar3 = DAT_00ff0a;
+  uVar3 = DAT_00f000;
+  uVar4 = DAT_00f000;
+  uVar4 = DAT_00f000;
+  uVar4 = DAT_00f002;
+  uVar5 = DAT_00f002;
+  uVar5 = DAT_00f002;
+  uVar5 = DAT_00f004;
+  uVar6 = DAT_00f004;
+  uVar6 = DAT_00f004;
+  uVar6 = DAT_00f006;
+  uVar7 = DAT_00f006;
+  uVar7 = DAT_00f006;
+  asc0_state_dispatch(uVar6,uVar5,uVar4,uVar3,uVar13,uVar12,uVar14,uVar15,uVar11,uVar10,uVar16,uVar9
+                      ,uVar8);
+  kwp_dispatch();
+  uVar1 = DAT_00c06e;
+  sVar2 = DAT_00c06e;
+  DAT_00c06e = sVar2 + 1;
+  if (1000 < uVar1) {
+    DAT_00c06e = 0;
+  }
+  DAT_00f006 = uVar6;
+  uVar6 = DAT_00f006;
+  uVar6 = DAT_00f006;
+  uVar6 = DAT_00f006;
+  DAT_00f004 = uVar5;
+  uVar5 = DAT_00f004;
+  uVar5 = DAT_00f004;
+  uVar5 = DAT_00f004;
+  DAT_00f002 = uVar4;
+  uVar4 = DAT_00f002;
+  uVar4 = DAT_00f002;
+  uVar4 = DAT_00f002;
+  DAT_00f000 = uVar3;
+  uVar3 = DAT_00f000;
+  uVar3 = DAT_00f000;
+  uVar3 = DAT_00f000;
+  DAT_00ff0a = uVar13;
+  uVar3 = DAT_00ff0a;
+  uVar3 = DAT_00ff0a;
+  uVar3 = DAT_00ff0a;
+  DAT_00ff08 = uVar12;
+  uVar3 = DAT_00ff08;
+  uVar3 = DAT_00ff08;
+  uVar3 = DAT_00ff08;
+  DAT_00ffda = uVar14;
+  uVar3 = DAT_00ffda;
+  uVar3 = DAT_00ffda;
+  uVar3 = DAT_00ffda;
+  DAT_00ffdc = uVar15;
+  uVar3 = DAT_00ffdc;
+  uVar3 = DAT_00ffdc;
+  uVar3 = DAT_00ffdc;
+  DAT_00fe5e = uVar11;
+  uVar3 = DAT_00fe5e;
+  uVar3 = DAT_00fe5e;
+  uVar3 = DAT_00fe5e;
+  DAT_00fe5c = uVar10;
+  uVar3 = DAT_00fe5c;
+  uVar3 = DAT_00fe5c;
+  uVar3 = DAT_00fe5c;
+  DAT_00ffde = uVar16;
+  uVar3 = DAT_00ffde;
+  uVar3 = DAT_00ffde;
+  uVar3 = DAT_00ffde;
+  DPP2 = uVar9;
+  uVar3 = DPP2;
+  uVar3 = DPP2;
+  uVar3 = DPP2;
+  DPP0 = uVar8;
+  uVar3 = DPP0;
+  uVar3 = DPP0;
+  uVar3 = DPP0;
+  return;
+}
+

@@ -1,0 +1,9 @@
+; c10afc pwm_output_enable size=16
+c10afc  atomic #0x4
+c10afe  extr #0x1
+c10b00  bset 0xf130.0x2
+c10b02  bset 0xff04.0x2
+c10b04  atomic #0x4
+c10b06  extr #0x1
+c10b08  bset 0xf104.0x2
+c10b0a  rets

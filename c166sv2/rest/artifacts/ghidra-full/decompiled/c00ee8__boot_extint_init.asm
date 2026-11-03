@@ -1,0 +1,12 @@
+; c00ee8 boot_extint_init size=36
+c00ee8  calls 0xc0030e
+c00eec  extr #0x1
+c00eee  mov 0xf1da,#0x0
+c00ef2  calls 0xc0030e
+c00ef6  extr #0x1
+c00ef8  mov 0xf1d8,#0x0
+c00efc  calls 0xc0030e
+c00f00  extr #0x2
+c00f02  mov 0xf1c0,#0x0
+c00f06  mov 0xf19e,#0x44
+c00f0a  rets

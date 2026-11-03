@@ -1,0 +1,22 @@
+; c28e94 fp_pack size=62
+c28e94  mov r3,r14
+c28e96  mov r14,[r11+#0x6]
+c28e9a  mov [r11+#0x6],r3
+c28e9e  mov r3,r13
+c28ea0  mov r13,[r11+#0x4]
+c28ea4  mov [r11+#0x4],r3
+c28ea8  mov r3,r12
+c28eaa  mov r12,[r11+#0x2]
+c28eae  mov [r11+#0x2],r3
+c28eb2  mov r3,r6
+c28eb4  mov r2,[r11]
+c28eb6  mov [r11],r3
+c28eb8  bmov r4.0x1,r2.0xf
+c28ebc  mov r6,r2
+c28ebe  and r6,#0xf
+c28ec2  shl r2,#0x1
+c28ec4  shr r2,#0x5
+c28ec6  bmovn r6.0x4,0xff10.0x3
+c28eca  mov r5,[r10+#0x6]
+c28ece  mov r3,#0x1
+c28ed0  jmpr cc_UC,0xc28ed8

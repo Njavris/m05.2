@@ -1,0 +1,20 @@
+; c1f61e gap_c1f61e size=70
+c1f61e  movb RL1,0xc702
+c1f622  jmpr cc_EQ,0xc1f63e
+c1f624  extp 0x301, #0x1
+c1f628  mov r12,0x3828
+c1f62c  mov 0xc09a,r12
+c1f630  mov 0xca84,r12
+c1f634  extp 0x380, #0x1
+c1f638  mov 0x88e,r12
+c1f63c  jmpr cc_UC,0xc1f64e
+c1f63e  mov r12,0xc09a
+c1f642  mov 0xca84,r12
+c1f646  extp 0x380, #0x1
+c1f64a  mov 0x88e,r12
+c1f64e  mov r12,0xc09a
+c1f652  extp 0x380, #0x1
+c1f656  mov 0x888,r12
+c1f65a  extp 0x380, #0x1
+c1f65e  movb 0x894,0xff1c
+c1f662  rets

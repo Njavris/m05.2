@@ -1,0 +1,5 @@
+; c1c564 gap_c1c564 size=14
+c1c564  mov 0xc97e,0xff1c
+c1c568  extp 0x380, #0x1
+c1c56c  movb 0x844,0xff1c
+c1c570  rets

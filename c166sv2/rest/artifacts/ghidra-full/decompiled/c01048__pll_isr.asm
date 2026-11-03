@@ -1,0 +1,27 @@
+; c01048 pll_isr size=56
+c01048  push 0xffde
+c0104a  push 0xfe5c
+c0104c  push 0xfe5e
+c0104e  push 0xffdc
+c01050  scxt 0xffda,#0x0
+c01054  push 0xff08
+c01056  push 0xff0a
+c01058  extr #0x4
+c0105a  push 0xf000
+c0105c  push 0xf002
+c0105e  push 0xf004
+c01060  push 0xf006
+c01062  srst
+c01066  extr #0x4
+c01068  pop 0xf006
+c0106a  pop 0xf004
+c0106c  pop 0xf002
+c0106e  pop 0xf000
+c01070  pop 0xff0a
+c01072  pop 0xff08
+c01074  pop 0xffda
+c01076  pop 0xffdc
+c01078  pop 0xfe5e
+c0107a  pop 0xfe5c
+c0107c  pop 0xffde
+c0107e  reti

@@ -1,0 +1,37 @@
+; c1145c gap_c1145c size=110
+c1145c  mov [-r0],r8
+c1145e  mov r8,r12
+c11460  calls 0xc1128a
+c11464  mov r12,[r8+#0x18]
+c11468  mov r13,[r8+#0x1a]
+c1146c  mov r14,[r8+#0x3a]
+c11470  calls 0xc114ca
+c11474  mov r12,r4
+c11476  jmpr cc_NE,0xc114bc
+c11478  mov r13,#0x0
+c1147a  mov [r8+#0x30],r13
+c1147e  mov r14,[r8+#0x18]
+c11482  mov r15,[r8+#0x1a]
+c11486  add r14,#0x4
+c11488  addc r15,#0x0
+c1148a  mov [r8+#0x32],r14
+c1148e  mov [r8+#0x34],r15
+c11492  mov r14,#0xaa55
+c11496  mov r15,#0x0
+c11498  mov [r8+#0x36],r14
+c1149c  mov [r8+#0x38],r15
+c114a0  mov [r8+#0x2c],r13
+c114a4  mov [r8+#0x2e],r13
+c114a8  mov r1,[r8+#0x3a]
+c114ac  shl r1,#0x3
+c114ae  mov r2,[r1+#0x7050]
+c114b2  mov r1,#0x0
+c114b4  mov [r8+#0x24],r2
+c114b8  mov [r8+#0x26],r1
+c114bc  cmp r12,#0x0
+c114be  jmpr cc_EQ,0xc114c4
+c114c0  mov r4,#0x0
+c114c2  jmpr cc_UC,0xc114c6
+c114c4  mov r4,#0x1
+c114c6  mov r8,[r0+]
+c114c8  rets

@@ -1,0 +1,11 @@
+; c10370 adc_start size=32
+c10370  mov 0xffbe,#0x9000
+c10374  extr #0x1
+c10376  mov 0xf09c,#0x0
+c1037a  extp 0x301, #0x1
+c1037e  mov r12,0x106a
+c10382  jmpr cc_NE,0xc1038a
+c10384  mov 0xffa4,#0x847f
+c10388  rets
+c1038a  mov 0xffa4,#0xc47f
+c1038e  rets

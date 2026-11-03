@@ -1,0 +1,46 @@
+; c24a16 gap_c24a16 size=122
+c24a16  calls 0xc2492e
+c24a1a  mov r12,#0x0
+c24a1c  mov r13,#0x0
+c24a1e  extp 0x380, #0x1
+c24a22  mov 0x83c,0xff1c
+c24a26  movb 0xcbdb,0xff1c
+c24a2a  jmpr cc_UC,0xc24a80
+c24a2c  mov r14,r12
+c24a2e  shl r14,#0x1
+c24a30  mov r15,[r14+#0x7286]
+c24a34  mov r14,r15
+c24a36  cmp r14,#0xffff
+c24a3a  jmpr cc_EQ,0xc24a7e
+c24a3c  mov [-r0],r13
+c24a3e  mov [-r0],r12
+c24a40  mov [-r0],r14
+c24a42  mov r12,[r0]
+c24a44  calls 0xc259ee
+c24a48  mov r14,[r0+]
+c24a4a  mov r12,[r0+]
+c24a4c  mov r13,[r0+]
+c24a4e  cmpb RL4,#0x0
+c24a50  jmpr cc_EQ,0xc24a70
+c24a52  mov r15,#0xc168
+c24a56  shl r14,#0x1
+c24a58  add r15,r14
+c24a5a  mov r14,[r15]
+c24a5c  and r14,#0x9fff
+c24a60  mov [r15],r14
+c24a62  mov r14,r13
+c24a64  shl r14,#0x1
+c24a66  sub 0xcb84,0xff1e
+c24a6a  mov [r14+#0xcb86],r12
+c24a6e  jmpr cc_UC,0xc24a7c
+c24a70  mov r15,r13
+c24a72  shl r15,#0x1
+c24a74  mov r14,#0xffff
+c24a78  mov [r15+#0xcb86],r14
+c24a7c  add r13,#0x1
+c24a7e  add r12,#0x1
+c24a80  cmp r12,#0x27
+c24a84  jmpr cc_C,0xc24a2c
+c24a86  movb 0xc1b6,0xff1c
+c24a8a  movb 0xc1ba,0xff1c
+c24a8e  rets

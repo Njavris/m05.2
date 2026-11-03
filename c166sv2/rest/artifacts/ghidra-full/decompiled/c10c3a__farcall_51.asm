@@ -1,0 +1,22 @@
+; c10c3a farcall_51 size=60
+c10c3a  mov 0xfca0,r0
+c10c3e  scxt 0xfe10,#0xfca0
+c10c42  scxt 0xff0e,#0x10
+c10c46  push 0xfe00
+c10c48  mov 0xfe00,#0x301
+c10c4c  push 0xfe04
+c10c4e  mov 0xfe04,#0x303
+c10c52  push 0xfe0c
+c10c54  push 0xfe0e
+c10c56  mov r12,#0xc4ec
+c10c5a  mov r13,#0xfe66
+c10c5e  mov r14,#0xff04
+c10c62  mov r15,#0x1
+c10c64  calls 0xc10b3e
+c10c68  pop 0xfe0e
+c10c6a  pop 0xfe0c
+c10c6c  pop 0xfe04
+c10c6e  pop 0xfe00
+c10c70  pop 0xff0e
+c10c72  pop 0xfe10
+c10c74  reti

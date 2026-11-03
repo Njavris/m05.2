@@ -1,0 +1,659 @@
+address,name,area,confidence,evidence,callees
+0xC00428,boot_timer_a_init,01-boot,medium,boot gap block; timer setup,
+0xC0077C,boot_timer_b_setup,01-boot,medium,boot gap block; timer/compare setup,
+0xC00898,boot_ssc_rx_setup,01-boot,medium,boot gap; SSC pointer setup,
+0xC00C30,boot_idle,01-boot,medium,boot gap; single idle/rets block,
+0xC00C92,boot_timer_clear_stub,01-boot,medium,boot gap; short timer clear,
+0xC00DAA,boot_fill_words,01-boot,medium,boot gap; word initialization,
+0xC00DDA,boot_fill_bytes,01-boot,medium,boot gap; byte initialization,
+0xC01130,boot_capture_vector_stub,01-boot,medium,boot gap; capture setup,
+0xC01212,kline_receive_pattern,01-boot,high,Receives the 5-byte K-line wake-up pattern and advances state.,c00c8a:asc0_read_rx_clear
+0xC019D4,boot_sub_c019d4,01-boot,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC01DC2,boot_clock_check,01-boot,medium,boot gap; reads 0x450 clock/config constant,
+0xC01EC0,boot_atomic_stub,01-boot,medium,boot gap; atomic sequence,
+0xC01F00,boot_fill_page,01-boot,medium,boot gap; zero-fill helper,
+0xC020C0,boot_hidden_copy_tail,02-hidden-boot,medium,hidden boot copy tail,
+0xC020C4,boot_hidden_copy,02-hidden-boot,high,copy helper in hidden block; ends at c02108,c0210a:boot_hidden_memcpy;c03ddc:boot_hidden_delay;c03de2:boot_hidden_store32
+0xC02132,boot_hidden_pin_stub,02-hidden-boot,medium,hidden boot pin helper,
+0xC021DE,boot_hidden_cmd_decode,02-hidden-boot,medium,hidden boot command decode,
+0xC02430,boot_hidden_task_dispatch,02-hidden-boot,medium,hidden boot task dispatch,
+0xC0248A,boot_hidden_task,02-hidden-boot,high,command/task helper in hidden block,
+0xC02A46,boot_hidden_eeprom_tail,02-hidden-boot,medium,hidden boot EEPROM tail,
+0xC02AC8,hidden_boot_sub_c02ac8,02-hidden-boot,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC02B76,boot_hidden_eeprom,02-hidden-boot,high,serial/EEPROM helper in hidden block,
+0xC02DDC,boot_hidden_serial_loop,02-hidden-boot,medium,hidden boot serial/EEPROM loop,
+0xC03A04,boot_hidden_serial_cmd,02-hidden-boot,medium,hidden boot serial command helper,
+0xC03A16,hidden_boot_sub_c03a16,02-hidden-boot,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC03A3A,hidden_boot_sub_c03a3a,02-hidden-boot,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC03B5C,hidden_boot_sub_c03b5c,02-hidden-boot,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC03CB8,boot_hidden_i2c_a,02-hidden-boot,high,bit/byte serial helper in hidden block,
+0xC03CD0,boot_hidden_i2c_b,02-hidden-boot,high,bit/byte serial helper in hidden block,
+0xC03DD4,boot_hidden_atomic_stub,02-hidden-boot,medium,hidden boot atomic helper,
+0xC03DF8,boot_hidden_final,02-hidden-boot,medium,hidden boot final helper,
+0xC0BB54,update_event_offset_3,12-app-low,medium,writes event_offset_3/0,
+0xC0BD54,p1l1_set,12-app-low,high,Sets port P1L.1.,
+0xC0BD9E,app_low_sub_c0bd9e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0BE46,cc22_23_output_disable,08-io-timing,high,Clears the CC22/CC23 output-enable bits in CCM5.,
+0xC0BE58,app_low_sub_c0be58,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0BF54,cc_irq_enable,08-io-timing,high,Sets or clears a per-channel CC interrupt-enable bit.,
+0xC0BFCC,update_security_unlocked_helper_c0bfcc,12-app-low,medium,called only by update_security_unlocked_wrapper_c19766 (0xC19766),
+0xC0BFD8,app_low_sub_c0bfd8,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0BFF2,app_low_sub_c0bff2,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0BFF4,empty_stub_1,12-app-low,high,Empty function.,
+0xC0BFF6,empty_stub_2,12-app-low,high,Empty function.,
+0xC0C8E2,update_capture_state,12-app-low,medium,writes capture_state/capture_enable,c0d70a:gap_c0d70a
+0xC0CD24,speed_timing_calc,09-engine-calc,high,Maps engine speed input 0xC9D0 through axis 0x7000 and tables 0x504C/0x5038.,c27ca4:tbl16_interp;c2850e:axis16_unsigned
+0xC0D07C,app_low_sub_c0d07c,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0D082,update_output_gate_1_wrapper_c0d082,12-app-low,medium,calls update_output_gate_1 (0xC0EE3C),c0ee3c:gap_c0ee3c
+0xC0D088,app_low_sub_c0d088,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0D08E,update_output_gates_wrapper_c0d08e,12-app-low,medium,calls update_output_gates (0xC0EF4A),c0ef4a:gap_c0ef4a
+0xC0D094,update_output_gate_1_b_wrapper_c0d094,12-app-low,medium,calls update_output_gate_1_b (0xC0F032),c0f032:gap_c0f032
+0xC0D09A,update_app_flags_wrapper_c0d09a,12-app-low,medium,calls update_app_flags (0xC0F2B8),c0f2b8:gap_c0f2b8
+0xC0D0A0,update_app_flag_wrapper_c0d0a0,12-app-low,medium,calls update_app_flag (0xC0F378),c0f378:gap_c0f378
+0xC0D0A6,app_low_sub_c0d0a6,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0D0AC,app_low_sub_c0d0ac,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0D0B2,cc_irq_is_enabled_wrapper_c0d0b2,12-app-low,medium,calls cc_irq_is_enabled_dispatch_c0f132 (0xC0F132),c0f132:FUN_c0f132
+0xC0D314,math_mul_div_32_wrapper_c0d314,12-app-low,medium,calls math_mul_div_32 (0xC0D2E4),c0d2e4:FUN_c0d2e4
+0xC0D4CA,app_low_sub_c0d4ca,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0D6F0,event_start_fixed,08-io-timing,high,Loads fixed event parameters and starts the CC16/CC17 scheduler.,c0d39e:event_start
+0xC0D70A,update_capture_state_helper_c0d70a,12-app-low,medium,called only by update_capture_state (0xC0C8E2),
+0xC0D8FA,app_low_sub_c0d8fa,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0E4C0,app_low_sub_c0e4c0,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0E722,cc22_23_hysteresis_a,08-io-timing,high,Hysteresis thresholds for the first CC22/CC23 input; state in cc22_23_state_machine_a.,
+0xC0E760,cc22_23_hysteresis_b,08-io-timing,high,Hysteresis thresholds for the second CC22/CC23 input; state in cc22_23_state_machine_b.,
+0xC0ECE6,update_output_gate_1_helper_c0ece6,12-app-low,medium,called only by update_output_gate_1 (0xC0EE3C),
+0xC0EE3C,update_output_gate_1,12-app-low,medium,writes output gate,c0bf8c:cc_irq_is_enabled;c0e894:FUN_c0e894;c0ece6:gap_c0ece6;c0f97a:FUN_c0f97a;c0fa98:FUN_c0fa98;c1064c:t7_timestamp
+0xC0EF4A,update_output_gates,12-app-low,medium,writes output gates,c0bf8c:cc_irq_is_enabled;c0e7ec:FUN_c0e7ec;c0fa2a:FUN_c0fa2a
+0xC0F032,update_output_gate_1_b,12-app-low,medium,writes output gate,c0bf8c:cc_irq_is_enabled;c0e7ec:FUN_c0e7ec;c0fa2a:FUN_c0fa2a
+0xC0F2B8,update_app_flags,12-app-low,medium,writes app flag/gates,c0e7ca:FUN_c0e7ca
+0xC0F32C,t7_timestamp_dispatch_c0f32c,12-app-low,medium,"calls t7_timestamp_wrapper_c0f482,cc22_23_schedule_dispatch_c0f97a",c0f482:FUN_c0f482;c0f97a:FUN_c0f97a
+0xC0F378,update_app_flag,12-app-low,medium,writes app flag/gate,c0e7ca:FUN_c0e7ca;c0f482:FUN_c0f482
+0xC0F3D2,cc22_23_task,08-io-timing,high,Periodic task for the CC22/CC23 event pair; uses engine speed/timing input 0xC9D0.,c0be46:cc22_23_output_disable;c0bf54:cc_irq_enable;c0bf8c:cc_irq_is_enabled;c0e722:cc22_23_hysteresis_a;c0e760:cc22_23_hysteresis_b;c0fb8c:cc_event_timeout_tick
+0xC0F83C,app_low_sub_c0f83c,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC0FACE,cc22_23_start_pair,08-io-timing,high,Starts both CC22/CC23 channels at a common timestamp.,c0be6a:cc22_23_schedule
+0xC0FB36,cc22_23_start_once,08-io-timing,high,One-shot start of the CC22/CC23 pair.,c0bd54:p1l1_set;c0face:cc22_23_start_pair;c1064c:t7_timestamp
+0xC0FB8C,cc_event_timeout_tick,08-io-timing,high,Decrements the CC event timeout counters.,
+0xC0FFEE,math_div_32_d_wrapper_c0ffee,12-app-low,medium,calls math_div_32_d_wrapper_c13e94 (0xC13E94),c13e94:gap_c13e94
+0xC10240,empty_stub_3,12-app-low,high,Empty function.,
+0xC10242,input_debounce_sample,12-app-low,high,Samples P1L pins and updates input_state_bits/input_low_bits/input_high_bits.,
+0xC102DC,update_ssc_control_flags,12-app-low,medium,writes SSC control flags,
+0xC10342,ssc_task,06-ssc,high,"Periodic SSC task: start transfer, timeout, sample port.",c0ffc0:ssc_rx_start;c10240:empty_stub_3;c10242:input_debounce_sample
+0xC10398,math_div_32_d_helper_c10398,12-app-low,medium,called only by math_div_32_d_wrapper_c13e12 (0xC13E12),
+0xC10674,use_t7_offset_short_c10674,12-app-low,low,references t7_offset_short,
+0xC108B4,timeout_counter_tick,12-app-low,high,Increments timeout_counter and clears timeout_value_0/1 at 0x81.,
+0xC1096E,div32_checked,12-app-low,high,Checked 32-bit division; returns 0xFFFFFFFF on overflow/zero.,c28bb2:div32u
+0xC109A2,mul_div32,10-math,high,32-bit multiply followed by checked division.,c28b64:mul32;c28bb2:div32u
+0xC10A3E,app_low_sub_c10a3e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10A50,app_low_sub_c10a50,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10A62,app_low_sub_c10a62,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10A74,pwm_period_duty_calc,08-io-timing,high,Computes PWM period/duty from the 32-bit division result.,c1096e:div32_checked;c109a2:mul_div32
+0xC10ADE,app_low_sub_c10ade,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10AFC,pwm_output_enable,08-io-timing,high,Enables the PWM output (PWMCON0 and P1L.4).,
+0xC10B0C,math_div_32_d,10-math,medium,calls div32u,c28bb2:div32u
+0xC10DFE,app_low_sub_c10dfe,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10ED0,app_low_sub_c10ed0,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10F90,app_low_sub_c10f90,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC10FE8,app_low_sub_c10fe8,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1105E,load_axis_pair_7052,12-app-low,high,indexes 0x7052/0x7054,
+0xC1145C,app_low_sub_c1145c,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC114FC,app_low_sub_c114fc,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC11662,app_low_sub_c11662,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1168A,app_low_sub_c1168a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c10f90:gap_c10f90;c10fe8:gap_c10fe8;c1145c:gap_c1145c;c114fc:gap_c114fc;c11662:gap_c11662
+0xC11926,app_low_sub_c11926,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC11CAE,app_idle_wait,12-app-low,high,Scheduler idle/wait path.,c0cd24:speed_timing_calc;c0f3d2:cc22_23_task;c10342:ssc_task;c108b4:timeout_counter_tick;c11eb4:app_scheduler;c11eec:scheduler_tick;c12982:kline_transport_task;c13d5e:test_command_dispatch;c28c4e:empty_stub_0
+0xC11D98,update_kline_state,12-app-low,medium,writes K-line/scheduler state,c11f60:asc0_read_rx_raw
+0xC11DBA,update_kline_event_flag,12-app-low,medium,writes scheduler event flag,
+0xC11DD0,update_kline_event_flag_b,12-app-low,medium,writes scheduler event flag,
+0xC11E0E,app_low_sub_c11e0e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC11E3C,update_kline_event_flag_c,12-app-low,medium,writes scheduler event flag,c127a2:gap_c127a2
+0xC11E4C,use_kline_flag_c5a2_c11e4c,12-app-low,low,references kline_flag_c5a2,
+0xC11E54,app_low_sub_c11e54,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC11E94,update_kline_event_flag_d,12-app-low,medium,writes scheduler event flag,c1482c:diag_status_build
+0xC11EC6,app_scheduler_path,12-app-low,high,Scheduler alternate path.,c28c4e:empty_stub_0
+0xC11EEC,scheduler_tick,12-app-low,high,Increments the scheduler counter and dispatches command 3.,c147c6:command_dispatch_index3
+0xC11F04,app_low_sub_c11f04,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC11F16,command_wrapper_c11f16,12-app-low,medium,calls command_wrapper_c147d6 (0xC147D6),c147d6:gap_c147d6
+0xC11F5A,update_kline_state_b_helper_c11f5a,12-app-low,medium,called only by update_kline_state_b (0xC127A2),
+0xC11FFE,app_low_sub_c11ffe,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910
+0xC12066,app_low_sub_c12066,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910
+0xC12126,app_low_sub_c12126,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1223A,app_low_sub_c1223a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12324,app_low_sub_c12324,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12398,app_low_sub_c12398,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC123DE,app_low_sub_c123de,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC123F4,app_low_sub_c123f4,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12444,app_low_sub_c12444,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1245A,use_cal_checksum_accum_c1245a,12-app-low,low,references cal_checksum_accum,c12910:gap_c12910
+0xC124E0,app_low_sub_c124e0,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910
+0xC125D2,use_speed_status_flags_c125d2,12-app-low,low,"references speed_status_flags,engine_speed_input",
+0xC125F4,kline_start_timeout_helper_c125f4,12-app-low,medium,called only by kline_start_timeout_wrapper_c13902 (0xC13902),
+0xC125FA,kline_start_timeout_helper_c125fa,12-app-low,medium,called only by kline_start_timeout_wrapper_c13902 (0xC13902),
+0xC12602,app_low_sub_c12602,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1267A,kline_start_timeout_helper_c1267a,12-app-low,medium,called only by kline_start_timeout_wrapper_c13902 (0xC13902),
+0xC12696,kline_get_status,04-kline-kwp,high,Returns the K-line status byte 0xC56D.,
+0xC1269C,app_low_sub_c1269c,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC126A6,app_low_sub_c126a6,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC126B0,kline_start_timeout,04-kline-kwp,high,Loads the K-line timeout 0xC56A with 0x0500.,
+0xC126D2,kline_rx_state_8_helper_c126d2,12-app-low,medium,called only by kline_rx_state_8_wrapper_c12ca4 (0xC12CA4),
+0xC127A2,update_kline_state_b,12-app-low,medium,writes K-line state,c11f5a:gap_c11f5a
+0xC12856,update_kline_state_c,12-app-low,medium,writes K-line state,
+0xC12910,call_kline_prepare_frame_c12910,12-app-low,low,calls kline_prepare_frame,c126da:kline_prepare_frame;c12856:gap_c12856
+0xC1296E,app_low_sub_c1296e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12982,kline_transport_task,04-kline-kwp,high,K-line transport state machine; state 0xC584 selects a handler table at 0x7164.,c0bff6:empty_stub_2;c126b0:kline_start_timeout;c126bc:kline_state_reset;c13d50:test_command_clear;c28c62:store32
+0xC129D6,update_kline_timeout,12-app-low,medium,writes K-line timeout,
+0xC129E2,update_kline_state_c129e2,12-app-low,medium,writes kline_state,c126bc:kline_state_reset
+0xC12A16,kline_state_reset_dispatch_c12a16,12-app-low,medium,"calls kline_state_reset,kline_prepare_frame",c126bc:kline_state_reset;c126da:kline_prepare_frame
+0xC12A78,use_kline_flag_c5a9_c12a78,12-app-low,low,references kline_flag_c5a9,c28c54:gap_c28c54
+0xC12AE8,app_low_sub_c12ae8,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12AFC,use_kline_flag_c5a2_c12afc,12-app-low,low,references kline_flag_c5a2,
+0xC12B46,use_kline_flag_c57d_c12b46,12-app-low,low,references kline_flag_c57d,
+0xC12B90,app_low_sub_c12b90,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12C0A,app_low_sub_c12c0a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12C32,app_low_sub_c12c32,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1296e:gap_c1296e
+0xC12C46,app_low_sub_c12c46,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12C92,kline_rx_state_8_wrapper_c12c92,12-app-low,medium,calls kline_rx_state_8_helper_c126d2 (0xC126D2),c126d2:gap_c126d2
+0xC12CA4,kline_rx_state_8_wrapper_c12ca4,12-app-low,medium,calls kline_rx_state_8 (0xC12848),c126d2:gap_c126d2;c12848:kline_rx_state_8
+0xC12D28,update_kline_flag_c57d_c12d28,12-app-low,medium,"writes kline_flag_c57d,kline_state",c126bc:kline_state_reset;c12910:gap_c12910
+0xC12EDE,kline_prepare_frame_wrapper_c12ede,12-app-low,medium,calls kline_prepare_frame (0xC126DA),c126da:kline_prepare_frame
+0xC12F10,app_low_sub_c12f10,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12F40,app_low_sub_c12f40,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC12F46,update_kline_mode_c12f46,12-app-low,medium,"writes kline_mode,kline_state,kline_flag_c588",c0bff4:empty_stub_1;c12696:kline_get_status;c28c4e:empty_stub_0
+0xC1305E,app_low_sub_c1305e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC130B2,app_low_sub_c130b2,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13104,update_test_command,12-app-low,medium,writes test command,
+0xC13132,update_test_command_b,12-app-low,medium,writes test command,
+0xC13160,update_test_command_c,12-app-low,medium,writes test command,
+0xC1318E,update_test_command_d,12-app-low,medium,writes test command,
+0xC131CE,update_scheduler_event_flag_b_helper_c131ce,12-app-low,medium,called only by update_scheduler_event_flag_b (0xC131D6),
+0xC131D6,update_scheduler_event_flag_b,12-app-low,medium,writes scheduler event flag,c12910:gap_c12910;c131ce:gap_c131ce;c28c62:store32
+0xC132EC,update_scheduler_event_flag_b_wrapper_c132ec,12-app-low,medium,calls update_scheduler_event_flag_b_helper_c131ce (0xC131CE),c12910:gap_c12910;c131ce:gap_c131ce
+0xC1331A,app_low_sub_c1331a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910;c25732:gap_c25732
+0xC1338A,app_low_sub_c1338a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13484,select_active_record_wrapper_c13484,12-app-low,medium,calls select_active_record_helper_c244ce (0xC244CE),c12910:gap_c12910;c244ce:gap_c244ce
+0xC136A0,app_low_sub_c136a0,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910
+0xC136F6,app_low_sub_c136f6,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c136a0:gap_c136a0
+0xC1385E,app_low_sub_c1385e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12602:gap_c12602;c12910:gap_c12910
+0xC13902,kline_start_timeout_wrapper_c13902,12-app-low,medium,calls kline_start_timeout (0xC126B0),c125f4:gap_c125f4;c125fa:gap_c125fa;c1267a:gap_c1267a;c126b0:kline_start_timeout;c12910:gap_c12910
+0xC13A9A,app_low_sub_c13a9a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13BA8,app_low_sub_c13ba8,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13BD2,app_low_sub_c13bd2,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13BE8,app_low_sub_c13be8,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13BF0,app_low_sub_c13bf0,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13C04,app_low_sub_c13c04,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13C1A,app_low_sub_c13c1a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13C30,app_low_sub_c13c30,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13C46,app_low_sub_c13c46,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1305e:gap_c1305e
+0xC13C5A,app_low_sub_c13c5a,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c130b2:gap_c130b2
+0xC13C70,update_test_command_wrapper_c13c70,12-app-low,medium,calls update_test_command (0xC13104),c13104:gap_c13104
+0xC13C7A,update_test_command_b_wrapper_c13c7a,12-app-low,medium,calls update_test_command_b (0xC13132),c13132:gap_c13132
+0xC13C84,update_test_command_c_wrapper_c13c84,12-app-low,medium,calls update_test_command_c (0xC13160),c13160:gap_c13160
+0xC13C9E,app_low_sub_c13c9e,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910;c130b2:gap_c130b2
+0xC13D14,app_low_sub_c13d14,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c12910:gap_c12910
+0xC13D50,test_command_clear,12-app-low,high,Clears the 0xFD18 command and its counters.,
+0xC13D5E,test_command_dispatch,12-app-low,high,Dispatches 0xFD18 actuator/test command bits.,c0d6f0:event_start_fixed;c0fb36:cc22_23_start_once;c10a74:pwm_period_duty_calc;c10afc:pwm_output_enable
+0xC13DE0,math_div_32_d_wrapper_c13de0,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13DEA,math_div_32_d_wrapper_c13dea,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13DF4,math_div_32_d_wrapper_c13df4,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13DFE,math_div_32_d_wrapper_c13dfe,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13E08,math_div_32_d_wrapper_c13e08,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13E12,math_div_32_d_wrapper_c13e12,12-app-low,medium,calls math_div_32_d_wrapper_c14cde (0xC14CDE),c10398:gap_c10398;c146de:gap_c146de;c14cde:gap_c14cde
+0xC13E48,app_low_sub_c13e48,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13E54,app_low_sub_c13e54,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13E62,math_div_32_d_wrapper_c13e62,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13E76,app_low_sub_c13e76,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13E94,math_div_32_d_wrapper_c13e94,12-app-low,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC13F3C,math_mul_div_32_e,10-math,medium,calls mul32/div32u,c28b64:mul32;c28bb2:div32u
+0xC13F84,update_capture_input_select,12-app-low,medium,writes capture input select,
+0xC13F88,update_capture_input_select_b,12-app-low,medium,writes capture input select,
+0xC13FB2,update_speed_input_ready_dispatch_helper_c13fb2,12-app-low,medium,"called by update_speed_input_ready_dispatch_c1587e,update_speed_input_ready_dispatch_c158b2",
+0xC13FE2,app_low_sub_c13fe2,12-app-low,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC13FE6,update_capture_input_select_c,12-app-low,medium,writes capture input select,
+0xC14036,app_io_sub_c14036,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14074,app_io_sub_c14074,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1408A,event_start_wrapper_c1408a,13-app-io,medium,calls event_start (0xC0D39E),c0d39e:event_start
+0xC14090,app_io_sub_c14090,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC141B6,math_mul_div_32_wrapper_c141b6,13-app-io,medium,calls math_mul_div_32_wrapper_c0d314 (0xC0D314),c0d314:gap_c0d314
+0xC141DE,update_event_offset_1,13-app-io,medium,writes event offset,
+0xC14236,app_io_sub_c14236,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c0d4ca:gap_c0d4ca
+0xC14246,app_io_sub_c14246,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC142A4,timer5_init_dispatch_c142a4,13-app-io,medium,"calls timer5_init,config_sensor_setup,capture_init",c0cdfa:timer5_init;c0f628:config_sensor_setup;c14298:capture_init
+0xC142C2,app_io_sub_c142c2,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c0f83c:gap_c0f83c
+0xC142DA,math_div_32_d_wrapper_c142da,13-app-io,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC14300,math_div_32_d_wrapper_c14300,13-app-io,medium,calls math_div_32_d_helper_c10398 (0xC10398),c10398:gap_c10398
+0xC1433E,app_io_sub_c1433e,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14346,app_io_sub_c14346,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1434E,app_io_sub_c1434e,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14368,app_io_sub_c14368,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC143B8,app_io_sub_c143b8,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC143E4,use_input_high_bits_c143e4,13-app-io,low,"references input_high_bits,input_low_bits",
+0xC14682,math_div_32_e,10-math,medium,calls div32u,c28bb2:div32u
+0xC146DE,math_div_32_d_helper_c146de,13-app-io,medium,called only by math_div_32_d_wrapper_c13e12 (0xC13E12),
+0xC14738,app_io_sub_c14738,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14772,command_wrapper_c14772,13-app-io,medium,calls command_dispatch (0xC19A2C),c19a2c:command_dispatch
+0xC1477A,command_wrapper_c1477a,13-app-io,medium,calls command_dispatch (0xC19A2C),c1168a:gap_c1168a;c19a2c:command_dispatch
+0xC147AE,use_engine_state_c147ae,13-app-io,low,references engine_state,
+0xC147BE,app_io_sub_c147be,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC147C6,command_dispatch_index3,13-app-io,high,Calls command_dispatch with index 3.,c19a2c:command_dispatch
+0xC147D6,command_wrapper_c147d6,13-app-io,medium,calls command_dispatch (0xC19A2C),c19a2c:command_dispatch
+0xC1482C,diag_status_build,07-diagnostics,high,Builds the packed diagnostic status bytes 0xC60C..0xC610.,
+0xC149FC,app_io_sub_c149fc,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14A1C,app_io_sub_c14a1c,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14A3C,app_io_sub_c14a3c,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14CDE,math_div_32_d_wrapper_c14cde,13-app-io,medium,calls math_div_32_d (0xC10B0C),c10b0c:gap_c10b0c
+0xC14D36,app_io_sub_c14d36,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC14F38,app_io_sub_c14f38,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC15028,app_io_sub_c15028,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC15064,update_speed_input_ready_wrapper_c15064,13-app-io,medium,calls update_speed_input_ready_helper_c24d9a (0xC24D9A),c24d9a:gap_c24d9a
+0xC150E0,app_io_sub_c150e0,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC157E4,app_io_sub_c157e4,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15028:gap_c15028;c150e0:gap_c150e0;c24c2a:gap_c24c2a
+0xC1580E,app_io_sub_c1580e,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15028:gap_c15028
+0xC15814,app_io_sub_c15814,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15028:gap_c15028
+0xC1581A,app_io_sub_c1581a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15028:gap_c15028
+0xC15820,app_io_sub_c15820,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15028:gap_c15028
+0xC15828,update_speed_input_ready_wrapper_c15828,13-app-io,medium,calls update_speed_input_ready_wrapper_c15064 (0xC15064),c15064:gap_c15064
+0xC15836,dtc_status_bit5_wrapper_c15836,13-app-io,medium,calls dtc_status_bit5_wrapper_c265aa (0xC265AA),c15064:gap_c15064;c265aa:gap_c265aa
+0xC15848,update_speed_input_ready_wrapper_c15848,13-app-io,medium,calls update_speed_input_ready_wrapper_c15064 (0xC15064),c15064:gap_c15064
+0xC1585A,update_speed_input_ready_wrapper_c1585a,13-app-io,medium,calls update_speed_input_ready_wrapper_c15064 (0xC15064),c15064:gap_c15064
+0xC1586C,dtc_status_bit5_wrapper_c1586c,13-app-io,medium,calls dtc_status_bit5_wrapper_c26586 (0xC26586),c15064:gap_c15064;c26586:gap_c26586
+0xC1587E,update_speed_input_ready_dispatch_c1587e,13-app-io,medium,"calls update_speed_input_ready_helper_c24d9a,dtc_status_bit5_wrapper_c25e52",c13fb2:gap_c13fb2;c15064:gap_c15064;c24d9a:gap_c24d9a;c25e52:gap_c25e52
+0xC158B2,update_speed_input_ready_dispatch_c158b2,13-app-io,medium,"calls update_speed_input_ready_helper_c24d9a,dtc_status_bit5_wrapper_c25e60",c13fb2:gap_c13fb2;c15064:gap_c15064;c24d9a:gap_c24d9a;c25e60:gap_c25e60
+0xC158E6,update_speed_input_ready_wrapper_c158e6,13-app-io,medium,calls update_speed_input_ready_wrapper_c15064 (0xC15064),c15064:gap_c15064
+0xC158F4,dtc_status_bit5_wrapper_c158f4,13-app-io,medium,calls dtc_status_bit5_wrapper_c265ca (0xC265CA),c15064:gap_c15064;c265ca:gap_c265ca
+0xC1590A,update_speed_input_ready_wrapper_c1590a,13-app-io,medium,calls update_speed_input_ready_wrapper_c15064 (0xC15064),c15064:gap_c15064
+0xC159E8,calc_table_helper_c159e8,13-app-io,medium,called only by calc_table_dispatch_c17b70 (0xC17B70),
+0xC15A12,app_io_sub_c15a12,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC15A3A,app_io_sub_c15a3a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC15EA6,update_security_unlocked_helper_c15ea6,13-app-io,medium,called only by update_security_unlocked_wrapper_c19766 (0xC19766),
+0xC15EAC,app_io_sub_c15eac,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c161c6:gap_c161c6
+0xC15ECC,calc_map_helper_c15ecc,13-app-io,medium,called only by calc_map_dispatch_c1c0b4 (0xC1C0B4),
+0xC161C6,app_io_sub_c161c6,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC16464,app_io_sub_c16464,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c149fc:gap_c149fc
+0xC1659A,app_io_sub_c1659a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC165AA,app_io_sub_c165aa,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC166A2,calc_table_helper_c166a2,13-app-io,medium,called only by calc_table_6d48 (0xC1DEEE),
+0xC166CE,app_io_sub_c166ce,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC16790,sat_sub_u16_wrapper_c16790,13-app-io,medium,calls sat_sub_u16_wrapper_c1b982 (0xC1B982),c1b982:gap_c1b982
+0xC16946,sat_sub_u16_wrapper_c16946,13-app-io,medium,calls sat_sub_u16_wrapper_c16790 (0xC16790),c16790:gap_c16790
+0xC16CDE,calc_map_5c62,09-engine-calc,high,calls tbl2d 0x5C62 and correction curves,c18d8a:gap_c18d8a;c27fca:tbl8_interp;c2826e:tbl2d_interp;c284d8:axis16_signed;c28544:gap_c28544
+0xC170E6,use_engine_state_c170e6,13-app-io,low,"references engine_state,calc_input_z",
+0xC1719A,app_io_sub_c1719a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC17574,use_engine_speed_input_c17574,13-app-io,low,"references engine_speed_input,calc_input_w",
+0xC17B5C,app_io_sub_c17b5c,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC17B70,calc_table_dispatch_c17b70,13-app-io,medium,"calls calc_table_5db0,calc_table_613e",c159e8:gap_c159e8;c17f44:gap_c17f44;c1823c:gap_c1823c
+0xC17C28,app_io_sub_c17c28,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c17574:gap_c17574
+0xC17C2E,app_io_sub_c17c2e,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c170e6:gap_c170e6
+0xC17C70,calc_table_wrapper_c17c70,13-app-io,medium,calls calc_table_wrapper_c181c4 (0xC181C4),c181c4:gap_c181c4;c18528:gap_c18528;c19846:FUN_c19846;c20e96:gap_c20e96;c21158:gap_c21158;c22312:gap_c22312;c225a8:gap_c225a8
+0xC17C8E,calc_table_wrapper_c17c8e,13-app-io,medium,calls calc_table_wrapper_c181da (0xC181DA),c181da:gap_c181da;c18554:gap_c18554;c19846:FUN_c19846
+0xC17CA6,app_io_sub_c17ca6,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c18540:gap_c18540
+0xC17F44,calc_table_5db0,09-engine-calc,medium,calls tbl16 0x5DB0/0x7CDC/0x5D9C,c1c2b8:gap_c1c2b8;c27ca4:tbl16_interp;c284d8:axis16_signed;c28544:gap_c28544;c28852:FUN_c28852
+0xC18138,calc_table_helper_c18138,13-app-io,medium,called only by calc_table_5d9c (0xC18176),
+0xC18176,calc_table_5d9c,09-engine-calc,medium,calls tbl16 0x5D9C,c18138:gap_c18138;c1c2b8:gap_c1c2b8;c1c3ee:gap_c1c3ee;c27ca4:tbl16_interp;c284d8:axis16_signed
+0xC181C4,calc_table_wrapper_c181c4,13-app-io,medium,calls calc_table_helper_c18138 (0xC18138),c18138:gap_c18138
+0xC181DA,calc_table_wrapper_c181da,13-app-io,medium,calls calc_table_helper_c18138 (0xC18138),c18138:gap_c18138
+0xC1823C,calc_table_613e,09-engine-calc,medium,calls tbl16 0x613E/0x61F4,c27ca4:tbl16_interp
+0xC183E6,app_io_sub_c183e6,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18418,app_io_sub_c18418,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18528,calc_table_helper_c18528,13-app-io,medium,called only by calc_table_wrapper_c17c70 (0xC17C70),
+0xC18536,app_io_sub_c18536,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18540,app_io_sub_c18540,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18554,calc_table_helper_c18554,13-app-io,medium,called only by calc_table_wrapper_c17c8e (0xC17C8E),
+0xC18572,app_io_sub_c18572,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18C0A,app_io_sub_c18c0a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC18C5C,calc_table_636c,09-engine-calc,medium,calls tbl16 0x636C,c27ca4:tbl16_interp
+0xC18D8A,calc_table_63b4,09-engine-calc,medium,calls tbl8 0x63B4,c27fca:tbl8_interp;c284d8:axis16_signed
+0xC18ED0,app_io_sub_c18ed0,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC193D6,update_security_unlocked_dispatch_c193d6,13-app-io,medium,"calls update_security_unlocked_c1f61e,calc_table_7860",c1f61e:gap_c1f61e;c2006e:gap_c2006e
+0xC193FE,app_io_sub_c193fe,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1fd90:gap_c1fd90
+0xC19420,update_security_unlocked_wrapper_c19420,13-app-io,medium,calls update_security_unlocked_c1f664 (0xC1F664),c1971a:gap_c1971a;c1f664:gap_c1f664
+0xC194AC,app_io_sub_c194ac,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1fb28:gap_c1fb28
+0xC19706,app_io_sub_c19706,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1971A,update_security_unlocked_helper_c1971a,13-app-io,medium,called only by update_security_unlocked_wrapper_c19420 (0xC19420),
+0xC19766,update_security_unlocked_wrapper_c19766,13-app-io,medium,calls update_security_unlocked_dispatch_c193d6 (0xC193D6),c0bfcc:gap_c0bfcc;c15ea6:gap_c15ea6;c16946:gap_c16946;c193d6:gap_c193d6;c19846:FUN_c19846;c24e34:gap_c24e34
+0xC197AC,calc_table_wrapper_c197ac,13-app-io,medium,calls calc_table_wrapper_c1beca (0xC1BECA),c17c70:gap_c17c70;c19e84:gap_c19e84;c1beca:gap_c1beca;c24e5a:gap_c24e5a
+0xC197C2,empty_stub_0_wrapper_c197c2,13-app-io,medium,calls empty_stub_0_wrapper_c24e60 (0xC24E60),c1beec:gap_c1beec;c24e60:gap_c24e60
+0xC197CC,app_io_sub_c197cc,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24f26:gap_c24f26
+0xC197EE,app_io_sub_c197ee,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24e6c:gap_c24e6c
+0xC197F8,app_io_sub_c197f8,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c17ca6:gap_c17ca6;c193fe:gap_c193fe
+0xC1981A,update_engine_state_helper_c1981a,13-app-io,medium,called only by update_engine_state_c1b714 (0xC1B714),
+0xC19830,app_io_sub_c19830,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19e94:gap_c19e94
+0xC1983E,update_ssc_rx_frame_wrapper_c1983e,13-app-io,medium,calls update_ssc_rx_frame_wrapper_c1bf0a (0xC1BF0A),c1bf0a:gap_c1bf0a
+0xC19850,update_security_unlocked_wrapper_c19850,13-app-io,medium,calls update_security_unlocked_wrapper_c19766 (0xC19766),c16464:gap_c16464;c19766:gap_c19766
+0xC19860,app_io_sub_c19860,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC198F6,app_io_sub_c198f6,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2
+0xC1990E,update_calc_correction_wrapper_c1990e,13-app-io,medium,calls update_calc_correction_wrapper_c19b4a (0xC19B4A),c19ab2:gap_c19ab2;c19b04:gap_c19b04;c19b4a:gap_c19b4a
+0xC19924,calc_table_wrapper_c19924,13-app-io,medium,calls calc_table_wrapper_c19ae6 (0xC19AE6),c19ab2:gap_c19ab2;c19ae6:gap_c19ae6;c19b50:gap_c19b50
+0xC19932,math_div_32_d_wrapper_c19932,13-app-io,medium,calls math_div_32_d_wrapper_c19b56 (0xC19B56),c19ab2:gap_c19ab2;c19b56:gap_c19b56
+0xC19948,calc_table_dispatch_c19948,13-app-io,medium,"calls calc_table_wrapper_c19ae6,calc_table_wrapper_c19b60",c19ab2:gap_c19ab2;c19ae6:gap_c19ae6;c19b60:gap_c19b60
+0xC19956,app_io_sub_c19956,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2;c19b04:gap_c19b04;c19b66:gap_c19b66
+0xC19968,calc_table_wrapper_c19968,13-app-io,medium,calls calc_table_wrapper_c19ae6 (0xC19AE6),c19ab2:gap_c19ab2;c19ae6:gap_c19ae6;c19b6c:gap_c19b6c
+0xC19976,app_io_sub_c19976,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2
+0xC19988,calc_table_wrapper_c19988,13-app-io,medium,calls calc_table_wrapper_c19ae6 (0xC19AE6),c19ab2:gap_c19ab2;c19ae6:gap_c19ae6;c19b32:gap_c19b32
+0xC19996,app_io_sub_c19996,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2;c19b04:gap_c19b04
+0xC199A8,app_io_sub_c199a8,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2
+0xC199BA,calc_table_wrapper_c199ba,13-app-io,medium,calls calc_table_wrapper_c19ae6 (0xC19AE6),c19ab2:gap_c19ab2;c19ae6:gap_c19ae6
+0xC199C4,app_io_sub_c199c4,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19ab2:gap_c19ab2;c19b04:gap_c19b04
+0xC199D2,calc_table_wrapper_c199d2,13-app-io,medium,calls calc_table_wrapper_c19ae6 (0xC19AE6),c19ab2:gap_c19ab2;c19ae6:gap_c19ae6
+0xC199EE,app_io_sub_c199ee,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19b7a:gap_c19b7a
+0xC199F4,app_io_sub_c199f4,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC199FA,app_io_sub_c199fa,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19A00,update_kline_response_source_b_wrapper_c19a00,13-app-io,medium,calls update_kline_response_source_b_wrapper_c19b84 (0xC19B84),c19b84:gap_c19b84
+0xC19A06,select_active_record_wrapper_c19a06,13-app-io,medium,calls select_active_record_wrapper_c19b92 (0xC19B92),c19b92:gap_c19b92
+0xC19A22,app_io_sub_c19a22,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19846:FUN_c19846
+0xC19A3E,app_io_sub_c19a3e,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19A44,app_io_sub_c19a44,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19a22:gap_c19a22
+0xC19A4A,app_io_sub_c19a4a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19860:gap_c19860
+0xC19A50,app_io_sub_c19a50,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19a68:gap_c19a68
+0xC19A56,calc_map_wrapper_c19a56,13-app-io,medium,calls calc_map_dispatch_c1c0b4 (0xC1C0B4),c1c0b4:gap_c1c0b4
+0xC19A5C,app_io_sub_c19a5c,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19A68,app_io_sub_c19a68,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19846:FUN_c19846
+0xC19AB2,app_io_sub_c19ab2,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c14236:gap_c14236;c17b5c:gap_c17b5c;c19846:FUN_c19846;c19eb6:gap_c19eb6;c24eb2:gap_c24eb2
+0xC19AE6,calc_table_wrapper_c19ae6,13-app-io,medium,calls calc_table_dispatch_c17b70 (0xC17B70),c15eac:gap_c15eac;c17b70:gap_c17b70;c19ebc:gap_c19ebc
+0xC19B04,app_io_sub_c19b04,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1bfce:gap_c1bfce
+0xC19B32,app_io_sub_c19b32,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c194ac:gap_c194ac;c24ec2:gap_c24ec2
+0xC19B4A,update_calc_correction_wrapper_c19b4a,13-app-io,medium,calls update_calc_correction (0xC1C024),c1c024:gap_c1c024
+0xC19B50,update_timer7_tick_wrapper_c19b50,13-app-io,medium,calls update_timer7_tick_wrapper_c1c04a (0xC1C04A),c1c04a:gap_c1c04a
+0xC19B56,math_div_32_d_wrapper_c19b56,13-app-io,medium,calls math_div_32_d_wrapper_c0ffee (0xC0FFEE),c0ffee:gap_c0ffee;c19f80:gap_c19f80
+0xC19B60,calc_table_wrapper_c19b60,13-app-io,medium,calls calc_table_wrapper_c1f20a (0xC1F20A),c1f20a:gap_c1f20a
+0xC19B66,app_io_sub_c19b66,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19B6C,app_io_sub_c19b6c,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c17c28:gap_c17c28;c19846:FUN_c19846
+0xC19B7A,app_io_sub_c19b7a,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24ee0:gap_c24ee0
+0xC19B84,update_kline_response_source_b_wrapper_c19b84,13-app-io,medium,calls update_kline_response_source_b_wrapper_c1c05e (0xC1C05E),c17c2e:gap_c17c2e;c19f66:gap_c19f66;c1c05e:gap_c1c05e
+0xC19B92,select_active_record_wrapper_c19b92,13-app-io,medium,calls select_active_record_wrapper_c24eee (0xC24EEE),c24eee:gap_c24eee;c2705e:gap_c2705e
+0xC19D0A,use_engine_state_c19d0a,13-app-io,low,references engine_state,
+0xC19D74,app_io_sub_c19d74,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19E84,app_io_sub_c19e84,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19d74:gap_c19d74;c1a1e6:gap_c1a1e6
+0xC19E94,app_io_sub_c19e94,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1a208:gap_c1a208
+0xC19EB6,app_io_sub_c19eb6,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC19EBC,math_mul32_c_wrapper_c19ebc,13-app-io,medium,calls math_mul32_c_dispatch_c1e714 (0xC1E714),c1a44e:gap_c1a44e;c1e714:gap_c1e714
+0xC19F66,app_io_sub_c19f66,13-app-io,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c19d0a:gap_c19d0a
+0xC19F80,math_div_32_d_helper_c19f80,13-app-io,medium,called only by math_div_32_d_wrapper_c19b56 (0xC19B56),
+0xC1A1E6,engine_calc_sub_c1a1e6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1A1F0,capture_control_wrapper_c1a1f0,09-engine-calc,medium,calls capture_control (0xC13F6C),c13f6c:capture_control
+0xC1A208,engine_calc_sub_c1a208,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1A298,engine_calc_sub_c1a298,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1A44E,math_mul32_c_helper_c1a44e,09-engine-calc,medium,called only by math_mul32_c_wrapper_c19ebc (0xC19EBC),
+0xC1A51A,rate_limit_dispatch_c1a51a,09-engine-calc,medium,"calls rate_limit,math_mul32_c,axis16_signed,axis16_unsigned,math_div32",c1596e:rate_limit;c27f0e:gap_c27f0e;c284d8:axis16_signed;c2850e:axis16_unsigned;c28544:gap_c28544
+0xC1AC8C,update_calc_input_w,09-engine-calc,medium,writes calc_input_w,
+0xC1ACD6,calc_table_6ca4,09-engine-calc,medium,calls tbl8 0x6CA4,c1596e:rate_limit;c1aeac:FUN_c1aeac;c27fca:tbl8_interp;c28544:gap_c28544
+0xC1AEDC,limit_condition_eval,09-engine-calc,high,speed/threshold limiter check,c243a8:FUN_c243a8;c27fca:tbl8_interp;c2850e:axis16_unsigned
+0xC1B2E2,calc_table_helper_c1b2e2,09-engine-calc,medium,called only by calc_table_wrapper_c1beca (0xC1BECA),
+0xC1B2FC,update_calc_input_z,09-engine-calc,medium,writes calc_input_z/correction,c13dc8:FUN_c13dc8;c27bf8:gap_c27bf8;c284d8:axis16_signed;c2850e:axis16_unsigned
+0xC1B34A,update_calc_input_z_b,09-engine-calc,medium,writes calc_input_z,c13dc8:FUN_c13dc8;c20400:gap_c20400;c27bf8:gap_c27bf8;c2850e:axis16_unsigned
+0xC1B4FA,use_engine_state_c1b4fa,09-engine-calc,low,"references engine_state,calc_input_z,engine_speed_input",
+0xC1B5FE,update_timer7_tick_wrapper_c1b5fe,09-engine-calc,medium,calls update_timer7_tick (0xC1C410),c1c410:gap_c1c410
+0xC1B682,update_engine_state,09-engine-calc,medium,writes engine_state,
+0xC1B6A6,update_engine_state_c1b6a6,09-engine-calc,medium,"writes engine_state,speed_status_flags",c197ac:gap_c197ac
+0xC1B6CC,update_engine_state_c1b6cc,09-engine-calc,medium,writes engine_state,c197ee:gap_c197ee
+0xC1B6F0,update_engine_state_c1b6f0,09-engine-calc,medium,writes engine_state,c197c2:gap_c197c2;c197cc:gap_c197cc
+0xC1B714,update_engine_state_c1b714,09-engine-calc,medium,writes engine_state,c197f8:gap_c197f8;c1981a:gap_c1981a
+0xC1B73A,update_engine_state_c1b73a,09-engine-calc,medium,writes engine_state,c19830:gap_c19830;c1983e:gap_c1983e
+0xC1B784,update_kline_response_payload_wrapper_c1b784,09-engine-calc,medium,calls update_kline_response_payload (0xC20450),c20450:gap_c20450
+0xC1B866,calc_table_6b6a,09-engine-calc,medium,calls tbl16 0x6B6A,c27ca4:tbl16_interp;c28852:FUN_c28852
+0xC1B982,sat_sub_u16_wrapper_c1b982,09-engine-calc,medium,calls sat_sub_u16 (0xC28852),c28852:FUN_c28852
+0xC1BC74,engine_calc_sub_c1bc74,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1BC90,engine_calc_sub_c1bc90,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1bc74:gap_c1bc74
+0xC1BC96,engine_calc_sub_c1bc96,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1bc74:gap_c1bc74
+0xC1BECA,calc_table_wrapper_c1beca,09-engine-calc,medium,calls calc_table_6c7a (0xC1D8C6),c142a4:gap_c142a4;c1b2e2:gap_c1b2e2;c1c0ea:gap_c1c0ea;c1d8c6:gap_c1d8c6;c225e4:gap_c225e4
+0xC1BEEC,engine_calc_sub_c1beec,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1cbc4:gap_c1cbc4
+0xC1BF0A,update_ssc_rx_frame_wrapper_c1bf0a,09-engine-calc,medium,calls update_ssc_rx_frame (0xC1CB9E),c1cb9e:gap_c1cb9e
+0xC1BFCE,engine_calc_sub_c1bfce,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c1e380:gap_c1e380
+0xC1C024,update_calc_correction,09-engine-calc,medium,writes calc_input_correction,c1b34a:gap_c1b34a;c284d8:axis16_signed
+0xC1C04A,update_timer7_tick_wrapper_c1c04a,09-engine-calc,medium,calls update_timer7_tick_wrapper_c1b5fe (0xC1B5FE),c1b5fe:gap_c1b5fe
+0xC1C05E,update_kline_response_source_b_wrapper_c1c05e,09-engine-calc,medium,calls update_kline_response_source_b (0xC2046C),c1b784:gap_c1b784;c2046c:gap_c2046c
+0xC1C09E,calc_map_wrapper_c1c09e,09-engine-calc,medium,calls calc_map_70f6 (0xC1DA6E),c1da6e:gap_c1da6e
+0xC1C0B4,calc_map_dispatch_c1c0b4,09-engine-calc,medium,"calls calc_map_wrapper_c1c09e,calc_table_helper_c1c3ee",c15ecc:gap_c15ecc;c1c09e:gap_c1c09e;c1c3ee:gap_c1c3ee
+0xC1C0EA,calc_table_helper_c1c0ea,09-engine-calc,medium,called only by calc_table_wrapper_c1beca (0xC1BECA),
+0xC1C12A,engine_calc_sub_c1c12a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1C1F0,engine_calc_sub_c1c1f0,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1C2B8,calc_table_helper_c1c2b8,09-engine-calc,medium,"called by calc_table_5db0,calc_table_5d9c",
+0xC1C2C4,engine_calc_sub_c1c2c4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1C3EE,calc_table_helper_c1c3ee,09-engine-calc,medium,called only by calc_table_5d9c (0xC18176),
+0xC1C410,update_timer7_tick,09-engine-calc,medium,writes timer7_tick,
+0xC1C564,engine_calc_sub_c1c564,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1C718,update_speed_status,09-engine-calc,medium,writes speed flags/input,
+0xC1C864,engine_calc_sub_c1c864,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1C956,math_mul32,10-math,medium,calls mul32,c27738:gap_c27738;c288a8:gap_c288a8;c28b64:mul32
+0xC1C9BC,engine_calc_sub_c1c9bc,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1CA5E,engine_calc_sub_c1ca5e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c27776:gap_c27776;c288c2:gap_c288c2
+0xC1CAD8,use_ssc_rx_frame_c1cad8,09-engine-calc,low,references ssc_rx_frame,c14368:gap_c14368
+0xC1CB9E,update_ssc_rx_frame,09-engine-calc,medium,writes SSC RX frame,
+0xC1CBC4,engine_calc_sub_c1cbc4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c14368:gap_c14368
+0xC1D0C4,engine_calc_sub_c1d0c4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1D0D0,engine_calc_sub_c1d0d0,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1D358,engine_calc_sub_c1d358,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1D450,engine_calc_sub_c1d450,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1D8C6,calc_table_6c7a,09-engine-calc,medium,calls tbl16 0x6C7A,c27ca4:tbl16_interp;c2850e:axis16_unsigned
+0xC1DA6E,calc_map_70f6,09-engine-calc,high,"axis 0x50DC, map 0x70F6",c2826e:tbl2d_interp;c28544:gap_c28544;c28852:FUN_c28852
+0xC1DB18,calc_map_6e50,09-engine-calc,high,map 0x6E50,c2826e:tbl2d_interp;c2850e:axis16_unsigned;c28544:gap_c28544;c28852:FUN_c28852
+0xC1DCF2,calc_map_dispatch_c1dcf2,09-engine-calc,medium,"calls calc_map_70f6,calc_map_6e50",c1da6e:gap_c1da6e;c1db18:gap_c1db18
+0xC1DEEE,calc_table_6d48,09-engine-calc,medium,calls tbl8 0x6D48,c13dc8:FUN_c13dc8;c166a2:gap_c166a2;c27fca:tbl8_interp;c28544:gap_c28544
+0xC1E380,use_engine_speed_input_c1e380,09-engine-calc,low,references engine_speed_input,
+0xC1E714,math_mul32_c_dispatch_c1e714,09-engine-calc,medium,"calls math_mul32_c,math_div32,math_div32_b",c27f0e:gap_c27f0e;c28544:gap_c28544;c286ca:gap_c286ca
+0xC1E9D8,engine_calc_sub_c1e9d8,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1ED9E,calc_table_7616,09-engine-calc,medium,calls tbl16 0x7616,c27ca4:tbl16_interp;c28544:gap_c28544;c28852:FUN_c28852
+0xC1F20A,calc_table_wrapper_c1f20a,09-engine-calc,medium,calls calc_table_7616 (0xC1ED9E),c1ed9e:gap_c1ed9e
+0xC1F61E,update_security_unlocked_c1f61e,09-engine-calc,medium,writes security_unlocked,
+0xC1F664,update_security_unlocked_c1f664,09-engine-calc,medium,writes security_unlocked,
+0xC1FB28,engine_calc_sub_c1fb28,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1FD48,engine_calc_sub_c1fd48,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1FD90,engine_calc_sub_c1fd90,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC1FD9C,calc_load,09-engine-calc,high,"Calibration-based VE/load calculation; axes 0x7564/0x755E, VE map 0x794A, correction 0x79B6; live-data FVE1.",c1596e:rate_limit;c27fca:tbl8_interp;c2826e:tbl2d_interp;c2850e:axis16_unsigned
+0xC1FEDE,update_kline_response_source_b_helper_c1fede,09-engine-calc,medium,called only by update_kline_response_source_b (0xC2046C),
+0xC1FF2A,use_engine_state_c1ff2a,09-engine-calc,low,"references engine_state,test_command",
+0xC1FFF6,engine_calc_sub_c1fff6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2006E,calc_table_7860,09-engine-calc,medium,calls tbl8 0x7860,c202ee:calc_limit3;c27fca:tbl8_interp;c284d8:axis16_signed
+0xC20096,calc_limit3_wrapper_c20096,09-engine-calc,medium,calls calc_limit3 (0xC202EE),c202ee:calc_limit3
+0xC200AA,calc_limit1,09-engine-calc,high,Provisional injection-time/limit calculation (table 0x7912); live-data injector-time range cross-check.,c202ee:calc_limit3;c27ca4:tbl16_interp
+0xC201AE,calc_limit2,09-engine-calc,high,Provisional spark/limit calculation (tables 0x7860/0x784C); live-data spark-advance range cross-check.,c27fca:tbl8_interp;c2850e:axis16_unsigned
+0xC202EE,calc_limit3,09-engine-calc,high,Provisional spark/limit calculation (tables 0x7552/0x7912/0x78E2/0x7874/0x78D8).,c27ca4:tbl16_interp;c27fca:tbl8_interp;c284d8:axis16_signed;c2850e:axis16_unsigned
+0xC20398,update_kline_response_source,09-engine-calc,medium,writes K-line response source,
+0xC20400,update_kline_response_payload_4_c20400,09-engine-calc,medium,writes kline_response_payload_4,
+0xC2042A,update_kline_rx_index,09-engine-calc,medium,writes K-line RX index,
+0xC20450,update_kline_response_payload,09-engine-calc,medium,writes K-line response payload,
+0xC2046C,update_kline_response_source_b,09-engine-calc,medium,writes K-line response source,c1fede:gap_c1fede
+0xC205D8,math_mul32_wrapper_c205d8,09-engine-calc,medium,calls math_mul32_helper_c27738 (0xC27738),c27738:gap_c27738
+0xC20600,math_mul32_wrapper_c20600,09-engine-calc,medium,calls math_mul32_wrapper_c205d8 (0xC205D8),c205d8:gap_c205d8
+0xC20E96,use_calc_input_z_c20e96,09-engine-calc,low,references calc_input_z,c18ed0:gap_c18ed0
+0xC21158,use_calc_input_z_c21158,09-engine-calc,low,references calc_input_z,c18ed0:gap_c18ed0
+0xC21F42,dtc_status_bit5_wrapper_c21f42,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC22312,calc_table_helper_c22312,09-engine-calc,medium,called only by calc_table_wrapper_c17c70 (0xC17C70),
+0xC225A8,calc_table_helper_c225a8,09-engine-calc,medium,called only by calc_table_wrapper_c17c70 (0xC17C70),
+0xC225E4,calc_table_helper_c225e4,09-engine-calc,medium,called only by calc_table_wrapper_c1beca (0xC1BECA),
+0xC225EA,engine_calc_sub_c225ea,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC22628,engine_calc_sub_c22628,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2292C,math_div32_c_wrapper_c2292c,09-engine-calc,medium,calls math_div32_c (0xC28B88),c28b88:gap_c28b88
+0xC22CFC,sat_sub_u16_wrapper_c22cfc,09-engine-calc,medium,calls sat_sub_u16 (0xC28852),c28852:FUN_c28852
+0xC22F3A,sat_sub_u16_wrapper_c22f3a,09-engine-calc,medium,calls sat_sub_u16 (0xC28852),c28852:FUN_c28852
+0xC2316A,engine_calc_sub_c2316a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC232EA,dtc_status_bit5_wrapper_c232ea,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8;c244ce:gap_c244ce
+0xC2338A,engine_calc_sub_c2338a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC233DE,engine_calc_sub_c233de,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23446,math_helper_c23446,09-engine-calc,medium,"called by math_c23790,math_c2380a,math_c238d4,math_c23982",
+0xC234E2,engine_calc_sub_c234e2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC234FA,engine_calc_sub_c234fa,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23554,engine_calc_sub_c23554,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC235BC,engine_calc_sub_c235bc,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC235CA,engine_calc_sub_c235ca,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c23554:gap_c23554
+0xC2363E,engine_calc_sub_c2363e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c234fa:gap_c234fa;c235bc:gap_c235bc
+0xC2367C,engine_calc_sub_c2367c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2368A,dtc_status_bit5_dispatch_c2368a,09-engine-calc,medium,"calls dtc_status_bit5_wrapper_c21f42,math_helper_c23446",c21f42:gap_c21f42;c23446:gap_c23446
+0xC236C6,axis16_unsigned_wrapper_c236c6,09-engine-calc,medium,calls axis16_unsigned (0xC2850E),c23446:gap_c23446;c2850e:axis16_unsigned
+0xC23720,axis16_signed_wrapper_c23720,09-engine-calc,medium,calls axis16_signed (0xC284D8),c23446:gap_c23446;c284d8:axis16_signed
+0xC2376A,math_c2376a,10-math,medium,calls axis16_signed,c28450:gap_c28450;c284d8:axis16_signed
+0xC23790,math_c23790,10-math,medium,calls axis16_signed,c23446:gap_c23446;c284d8:axis16_signed;c289c2:gap_c289c2
+0xC237E4,math_c237e4,10-math,medium,calls axis16_signed,c28450:gap_c28450;c284d8:axis16_signed
+0xC2380A,math_c2380a,10-math,medium,calls axis16_signed,c23446:gap_c23446;c284d8:axis16_signed;c289c2:gap_c289c2
+0xC2385E,math_wrapper_c2385e,09-engine-calc,medium,calls math_helper_c23446 (0xC23446),c23446:gap_c23446
+0xC2389C,math_wrapper_c2389c,09-engine-calc,medium,calls math_helper_c23446 (0xC23446),c23446:gap_c23446
+0xC238D4,math_c238d4,10-math,medium,calls axis16_unsigned,c23446:gap_c23446;c2850e:axis16_unsigned
+0xC2392E,math_c2392e,10-math,medium,calls axis16_signed,c284d8:axis16_signed
+0xC23958,math_c23958,10-math,medium,calls axis16_signed,c284d8:axis16_signed
+0xC23982,math_c23982,10-math,medium,calls axis16_unsigned,c23446:gap_c23446;c2850e:axis16_unsigned
+0xC239DA,engine_calc_sub_c239da,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC239F6,engine_calc_sub_c239f6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23A0E,engine_calc_sub_c23a0e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c23554:gap_c23554
+0xC23A82,engine_calc_sub_c23a82,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23A96,engine_calc_sub_c23a96,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c23554:gap_c23554
+0xC23B0A,engine_calc_sub_c23b0a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23B14,engine_calc_sub_c23b14,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c23554:gap_c23554
+0xC23B88,math_wrapper_c23b88,09-engine-calc,medium,calls math_helper_c23446 (0xC23446),c20600:gap_c20600;c23446:gap_c23446
+0xC23D06,engine_calc_sub_c23d06,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23E18,engine_calc_sub_c23e18,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC23E36,engine_calc_sub_c23e36,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC240FE,select_active_record,09-engine-calc,high,record table 0x71EA,c244ce:gap_c244ce
+0xC2432E,engine_calc_sub_c2432e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24350,engine_calc_sub_c24350,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC243CA,engine_calc_sub_c243ca,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC243EA,engine_calc_sub_c243ea,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2444C,engine_calc_sub_c2444c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC244CE,select_active_record_helper_c244ce,09-engine-calc,medium,called only by select_active_record (0xC240FE),
+0xC24510,engine_calc_sub_c24510,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24592,engine_calc_sub_c24592,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC245B2,engine_calc_sub_c245b2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC245F2,engine_calc_sub_c245f2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC246FE,engine_calc_sub_c246fe,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC247AA,empty_stub_0_wrapper_c247aa,09-engine-calc,medium,calls empty_stub_0 (0xC28C4E),c28c4e:empty_stub_0
+0xC247E6,engine_calc_sub_c247e6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24802,engine_calc_sub_c24802,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24828,empty_stub_0_wrapper_c24828,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC24846,empty_stub_0_wrapper_c24846,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC2485A,empty_stub_0_wrapper_c2485a,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC24864,empty_stub_0_wrapper_c24864,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC24878,empty_stub_0_wrapper_c24878,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC24882,empty_stub_0_wrapper_c24882,09-engine-calc,medium,calls empty_stub_0_wrapper_c247aa (0xC247AA),c247aa:gap_c247aa
+0xC24896,engine_calc_sub_c24896,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC248CE,engine_calc_sub_c248ce,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC248D8,engine_calc_sub_c248d8,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC248EA,engine_calc_sub_c248ea,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24924,engine_calc_sub_c24924,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2492E,engine_calc_sub_c2492e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24A16,engine_calc_sub_c24a16,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c2492e:gap_c2492e
+0xC24C14,engine_calc_sub_c24c14,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c15a12:gap_c15a12
+0xC24C2A,engine_calc_sub_c24c2a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c247e6:gap_c247e6;c24802:gap_c24802
+0xC24C72,engine_calc_sub_c24c72,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c247e6:gap_c247e6;c24802:gap_c24802
+0xC24CB4,config_mode_update_helper_c24cb4,09-engine-calc,medium,called only by config_mode_update (0xC27216),
+0xC24D1C,config_mode_update_helper_c24d1c,09-engine-calc,medium,called only by config_mode_update (0xC27216),
+0xC24D9A,update_speed_input_ready_helper_c24d9a,09-engine-calc,medium,called only by update_speed_input_ready_c26cd4 (0xC26CD4),
+0xC24E34,engine_calc_sub_c24e34,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c255cc:gap_c255cc;c2756a:gap_c2756a
+0xC24E5A,calc_table_helper_c24e5a,09-engine-calc,medium,called only by calc_table_wrapper_c197ac (0xC197AC),
+0xC24E60,empty_stub_0_wrapper_c24e60,09-engine-calc,medium,calls empty_stub_0_wrapper_c24846 (0xC24846),c24846:gap_c24846
+0xC24E6C,engine_calc_sub_c24e6c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24E72,empty_stub_0_wrapper_c24e72,09-engine-calc,medium,calls empty_stub_0_wrapper_c2485a (0xC2485A),c2485a:gap_c2485a
+0xC24E78,empty_stub_0_wrapper_c24e78,09-engine-calc,medium,calls empty_stub_0_wrapper_c24864 (0xC24864),c24864:gap_c24864
+0xC24E88,update_adapt_age_wrapper_c24e88,09-engine-calc,medium,calls update_adapt_age (0xC25600),c24878:gap_c24878;c25600:gap_c25600
+0xC24EB2,engine_calc_sub_c24eb2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24896:gap_c24896
+0xC24EC2,engine_calc_sub_c24ec2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24EE0,engine_calc_sub_c24ee0,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24c14:gap_c24c14;c2769c:gap_c2769c
+0xC24EEE,select_active_record_wrapper_c24eee,09-engine-calc,medium,calls select_active_record (0xC240FE),c240fe:gap_c240fe;c25300:gap_c25300
+0xC24F1A,engine_calc_sub_c24f1a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F26,engine_calc_sub_c24f26,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F3E,dtc_status_bit5_wrapper_c24f3e,09-engine-calc,medium,calls dtc_status_bit5_wrapper_c21f42 (0xC21F42),c21f42:gap_c21f42
+0xC24F46,use_calc_input_y_c24f46,09-engine-calc,low,references calc_input_y,
+0xC24F4C,use_calc_input_z_c24f4c,09-engine-calc,low,references calc_input_z,
+0xC24F52,engine_calc_sub_c24f52,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F58,engine_calc_sub_c24f58,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F5E,engine_calc_sub_c24f5e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F64,use_engine_speed_input_c24f64,09-engine-calc,low,references engine_speed_input,
+0xC24F6A,engine_calc_sub_c24f6a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F70,engine_calc_sub_c24f70,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24F76,math_mul32_wrapper_c24f76,09-engine-calc,medium,calls math_mul32_wrapper_c20600 (0xC20600),c20600:gap_c20600
+0xC24F7E,engine_calc_sub_c24f7e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC24FD8,engine_calc_sub_c24fd8,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25026,engine_calc_sub_c25026,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2504E,engine_calc_sub_c2504e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24510:gap_c24510
+0xC25300,select_active_record_helper_c25300,09-engine-calc,medium,called only by select_active_record_wrapper_c24eee (0xC24EEE),
+0xC253D2,engine_calc_sub_c253d2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC255CC,engine_calc_sub_c255cc,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c243ea:gap_c243ea;c2444c:gap_c2444c
+0xC25600,update_adapt_age,09-engine-calc,high,walks 0x1E records,c243a8:FUN_c243a8
+0xC25732,engine_calc_sub_c25732,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25A7C,engine_calc_sub_c25a7c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25AA2,engine_calc_sub_c25aa2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25AE4,engine_calc_sub_c25ae4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25AFE,engine_calc_sub_c25afe,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25B0A,use_engine_state_c25b0a,09-engine-calc,low,references engine_state,
+0xC25B38,use_engine_state_962_c25b38,09-engine-calc,low,references engine_state_962,
+0xC25BA6,engine_calc_sub_c25ba6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c25b0a:gap_c25b0a;c25b38:gap_c25b38
+0xC25C3E,engine_calc_sub_c25c3e,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25C60,engine_calc_sub_c25c60,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25C6C,config_mode_update_dispatch_c25c6c,09-engine-calc,medium,"calls config_mode_update_helper_c24cb4,config_mode_update_helper_c24d1c",c24cb4:gap_c24cb4;c24d1c:gap_c24d1c
+0xC25E52,dtc_status_bit5_wrapper_c25e52,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC25E60,dtc_status_bit5_wrapper_c25e60,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC25E7C,engine_calc_sub_c25e7c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25EA2,engine_calc_sub_c25ea2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC25EB2,config_mode_update_dispatch_c25eb2,09-engine-calc,medium,"calls config_mode_update_helper_c24cb4,config_mode_update_helper_c24d1c",c24cb4:gap_c24cb4;c24d1c:gap_c24d1c
+0xC26064,engine_calc_sub_c26064,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26086,table_7d88_c26086,09-engine-calc,medium,calls tbl16_interp@0x7D88,c27ca4:tbl16_interp;c284d8:axis16_signed
+0xC260B4,table_7d88_c260b4,09-engine-calc,medium,calls tbl16_interp@0x7D88,c27ca4:tbl16_interp;c284d8:axis16_signed
+0xC260D8,config_mode_update_dispatch_c260d8,09-engine-calc,medium,"calls config_mode_update_helper_c24cb4,config_mode_update_helper_c24d1c",c19846:FUN_c19846;c24cb4:gap_c24cb4;c24d1c:gap_c24d1c
+0xC263B2,engine_calc_sub_c263b2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC263CC,engine_calc_sub_c263cc,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC264EE,engine_calc_sub_c264ee,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26586,dtc_status_bit5_wrapper_c26586,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC265AA,dtc_status_bit5_wrapper_c265aa,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC265CA,dtc_status_bit5_wrapper_c265ca,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC265EE,use_engine_state_962_c265ee,09-engine-calc,low,references engine_state_962,
+0xC26600,use_calc_input_z_c26600,09-engine-calc,low,references calc_input_z,
+0xC2663A,engine_calc_sub_c2663a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26680,engine_calc_sub_c26680,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC266AE,engine_calc_sub_c266ae,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC266DC,math_c266dc,10-math,medium,calls rate_limit,c1596e:rate_limit
+0xC266FE,engine_calc_sub_c266fe,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c265ee:gap_c265ee;c26600:gap_c26600;c2663a:gap_c2663a
+0xC267F4,engine_calc_sub_c267f4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26822,engine_calc_sub_c26822,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26850,math_c26850,10-math,medium,calls rate_limit,c1596e:rate_limit
+0xC26872,engine_calc_sub_c26872,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c265ee:gap_c265ee;c26600:gap_c26600;c2663a:gap_c2663a
+0xC26968,engine_calc_sub_c26968,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24c2a:gap_c24c2a
+0xC26974,engine_calc_sub_c26974,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2699E,use_calc_input_w_c2699e,09-engine-calc,low,"references calc_input_w,engine_state_962,calc_input_z",
+0xC269F6,engine_calc_sub_c269f6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c2699e:gap_c2699e
+0xC26A3A,engine_calc_sub_c26a3a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26A6A,math_c26a6a,10-math,medium,calls rate_limit,c1596e:rate_limit
+0xC26A9E,math_helper_c26a9e,09-engine-calc,medium,called only by math_wrapper_c26b6e (0xC26B6E),
+0xC26AC6,math_helper_c26ac6,09-engine-calc,medium,called only by math_wrapper_c26b6e (0xC26B6E),
+0xC26B04,math_helper_c26b04,09-engine-calc,medium,called only by math_wrapper_c26b6e (0xC26B6E),
+0xC26B6E,math_wrapper_c26b6e,09-engine-calc,medium,calls math_c26a6a (0xC26A6A),c24d9a:gap_c24d9a;c269f6:gap_c269f6;c26a6a:gap_c26a6a;c26a9e:gap_c26a9e;c26ac6:gap_c26ac6;c26b04:gap_c26b04
+0xC26BAA,engine_calc_sub_c26baa,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c26a3a:gap_c26a3a
+0xC26BEA,use_engine_state_962_c26bea,09-engine-calc,low,references engine_state_962,
+0xC26C14,engine_calc_sub_c26c14,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26C42,engine_calc_sub_c26c42,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26C48,engine_calc_sub_c26c48,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC26CD4,update_speed_input_ready_c26cd4,09-engine-calc,medium,writes speed_input_ready,c24d9a:gap_c24d9a
+0xC26D3A,update_speed_input_ready_dispatch_c26d3a,09-engine-calc,medium,"calls update_speed_input_ready_helper_c24d9a,sat_sub_u16_wrapper_c26dca",c24d9a:gap_c24d9a;c26dca:gap_c26dca
+0xC26DCA,sat_sub_u16_wrapper_c26dca,09-engine-calc,medium,calls sat_sub_u16 (0xC28852),c1aeac:FUN_c1aeac;c28852:FUN_c28852
+0xC2702A,dtc_status_bit5_helper_c2702a,09-engine-calc,medium,called only by dtc_status_bit5_wrapper_c2705e (0xC2705E),
+0xC2705E,dtc_status_bit5_wrapper_c2705e,09-engine-calc,medium,calls dtc_status_bit5_wrapper_c270da (0xC270DA),c2702a:gap_c2702a;c270da:gap_c270da
+0xC270DA,dtc_status_bit5_wrapper_c270da,09-engine-calc,medium,calls dtc_status_bit5 (0xC243A8),c243a8:FUN_c243a8
+0xC27142,engine_calc_sub_c27142,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC27154,engine_calc_sub_c27154,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24c2a:gap_c24c2a
+0xC27162,engine_calc_sub_c27162,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC271C4,engine_calc_sub_c271c4,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,c24c2a:gap_c24c2a
+0xC271D6,engine_calc_sub_c271d6,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC27216,config_mode_update,11-adaptation,high,writes XRAM mode flags,c24cb4:gap_c24cb4;c24d1c:gap_c24d1c;c28852:FUN_c28852
+0xC2756A,engine_calc_sub_c2756a,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC27570,engine_calc_sub_c27570,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC2769C,engine_calc_sub_c2769c,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC276F0,engine_calc_sub_c276f0,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC27738,math_mul32_helper_c27738,09-engine-calc,medium,called only by math_mul32 (0xC1C956),
+0xC27776,engine_calc_sub_c27776,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC277B2,engine_calc_sub_c277b2,09-engine-calc,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC27BF8,math_mul32_b,10-math,medium,calls mul32,c28b64:mul32
+0xC27F0E,math_mul32_c,10-math,medium,calls mul32,c28b64:mul32
+0xC27FCA,tbl8_interp,09-engine-calc,high,8-bit table lookup with 8.8 fixed-point interpolation.,c28b64:mul32
+0xC2826E,tbl2d_interp,14-app-runtime,high,2D 8-bit map lookup with bilinear interpolation.,c28b64:mul32
+0xC28450,math_mul32_d,10-math,medium,calls mul32,c28b64:mul32
+0xC284D8,axis16_signed,14-app-runtime,high,Signed axis descriptor -> 8.8 fixed-point index.,
+0xC28544,math_div32,10-math,medium,calls div32u,c28bb2:div32u
+0xC286CA,math_div32_b,10-math,medium,calls div32u,c28bb2:div32u
+0xC28860,app_runtime_sub_c28860,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC288A8,math_mul32_helper_c288a8,14-app-runtime,medium,called only by math_mul32 (0xC1C956),
+0xC288C2,app_runtime_sub_c288c2,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC289C2,math_helper_c289c2,14-app-runtime,medium,"called by math_c23790,math_c2380a",
+0xC28ACC,app_runtime_sub_c28acc,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28B50,app_runtime_sub_c28b50,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28B88,math_div32_c,10-math,medium,calls div32u,c28bb2:div32u
+0xC28C46,app_runtime_sub_c28c46,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28C54,app_runtime_sub_c28c54,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28C62,store32,14-app-runtime,high,Stores a 32-bit value as two 16-bit words.,
+0xC28C70,app_runtime_sub_c28c70,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28C9A,app_runtime_sub_c28c9a,14-app-runtime,low,C166SV2 whole-image pass; no strong callee/table/variable signal,
+0xC28E06,fp_store_dispatch_c28e06,14-app-runtime,medium,"calls fp_store,fp_store_zero",c28f1e:fp_store;c28f5e:fp_store_zero

@@ -1,0 +1,20 @@
+; c0d040 FUN_c0d040 size=54
+c0d040  mov 0xfa40,r0
+c0d044  scxt 0xfe10,#0xfa40
+c0d048  scxt 0xff0e,#0x10
+c0d04c  push 0xfe00
+c0d04e  mov 0xfe00,#0x301
+c0d052  push 0xfe04
+c0d054  mov 0xfe04,#0x303
+c0d058  push 0xfe0c
+c0d05a  push 0xfe0e
+c0d05c  mov r8,0xfd18
+c0d060  jb r8.0x7,0xc0d068
+c0d064  calls 0xc0c6f2
+c0d068  pop 0xfe0e
+c0d06a  pop 0xfe0c
+c0d06c  pop 0xfe04
+c0d06e  pop 0xfe00
+c0d070  pop 0xff0e
+c0d072  pop 0xfe10
+c0d074  reti

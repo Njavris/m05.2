@@ -1,0 +1,28 @@
+; c26cd4 gap_c26cd4 size=102
+c26cd4  movbz r12,0xc277
+c26cd8  extp 0x380, #0x1
+c26cdc  cmp r12,0x8f2
+c26ce0  jmpr cc_ULE,0xc26cee
+c26ce2  movbz r12,0xc277
+c26ce6  extp 0x380, #0x1
+c26cea  mov 0x8f2,r12
+c26cee  calls 0xc26d9c
+c26cf2  calls 0xc26ed6
+c26cf6  calls 0xc26f24
+c26cfa  mov r12,#0x1a
+c26cfe  extp 0x380, #0x1
+c26d02  movbz r13,0x8ed
+c26d06  extp 0x380, #0x1
+c26d0a  movbz r14,0x8f5
+c26d0e  mov r15,#0xcc8a
+c26d12  calls 0xc24d9a
+c26d16  movbz r12,0xc280
+c26d1a  cmp r12,#0x32
+c26d1e  jmpr cc_ULE,0xc26d38
+c26d20  movb 0xc280,0xff1c
+c26d24  movb 0xc277,0xff1c
+c26d28  movb 0xc264,0xff1c
+c26d2c  movb 0xc272,0xff1c
+c26d30  extp 0x380, #0x1
+c26d34  mov 0x8f2,0xff1c
+c26d38  rets

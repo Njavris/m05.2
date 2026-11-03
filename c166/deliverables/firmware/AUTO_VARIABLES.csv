@@ -1,0 +1,32 @@
+address,name,type,kind,width,evidence,confidence
+007286,fault_index_table,u16,table,2,c243a8/c2440a/c24530 read code*2+0x7286 and test 0xC168 bits,high
+00C168,fault_status_bits,u16,ram,2,fault-index lookup returns bit mask tested by c243a8/c2440a/c24530,high
+00C9F4,map_70f6_output_clamped,u16,ram,2,c1da6e writes result and clamps to 0x8000,high
+00CA00,map_70f6_raw,u16,ram,2,c1da6e stores tbl2d_interp(0x70F6) result,high
+00CA06,map_6e50_correction,u16,ram,2,c228be stores product correction,high
+00CA12,map_6e50_ratio,u16,ram,2,"c228be stores FUN_c27b86(0xC06A,0xC06B96,8)",high
+00CA16,map_6e50_raw,u16,ram,2,c228be stores tbl2d_interp(0x6E50) result,high
+00CA1C,map_6e50_output,u16,ram,2,c228be stores final product; read 21 times,medium
+00CB64,record_select_state,u8,ram,1,c240fe toggles around record-table scan,medium
+00CB68,record_select_index,u8,ram,1,c240fe stores index into 0x71EA records,medium
+00C10E,adapt_record_1e,u8,ram-array,30,c25600 walks records at 0xC10E with 0x1E stride,medium
+00E008FE,mode_flag_a,u8,xram,1,c27216 writes from calibration mode 0xC07E74,high
+00E00903,mode_source,u8,xram,1,c27216 copies DAT_e006fc,medium
+00E00904,mode_flag_b,u8,xram,1,c27216 writes from calibration mode 0xC07E74,high
+00E00905,limit_mode_enable,u8,xram,1,c27216 sets when speed/temp thresholds pass,medium
+00C804,fault_status_bitmap,u16,ram,2,c17cd6 writes FUN_c180fc result,medium
+007052,axis_pair_a,u16,external,2,c1105e indexes 0x7052 by param+0x3A*8,medium
+007054,axis_pair_b,u16,external,2,c1105e indexes 0x7054 by param+0x3A*8,medium
+C050DC,cal_axis_50dc,u16,calibration,2,"c1da6e calls axis16_unsigned(0x50DC,0xC0)",high
+C05146,cal_axis_5146,u16,calibration,2,"c228be calls axis16_unsigned/gap_c28544(0x5146,0xC0)",high
+C06E50,cal_map_6e50,u8,calibration,2,"c228be calls tbl2d_interp(0x6E50,0xC0)",high
+C070F6,cal_map_70f6,u8,calibration,2,"c1da6e calls tbl2d_interp(0x70F6,0xC0)",high
+C071EA,cal_record_table_71ea,u16,calibration,2,c240fe indexes records at 0x71EA,medium
+C06C68,cal_limit_threshold_lo,u16,calibration,2,c1aedc compares speed 0xC9D0 > 0xC06C68,medium
+C06C6A,cal_limit_threshold_hi,u16,calibration,2,c1aedc compares speed 0xC9D0 < 0xC06C6A,medium
+C06C6C,cal_limit_threshold_alt,u16,calibration,2,c1aedc compares input 0xC9CA > 0xC06C6C,medium
+C07E74,cal_mode_select,u8,calibration,1,c27216 switches on 0..3 mode,high
+C07E76,cal_mode_speed_lo,u16,calibration,2,c27216 checks 0xC07E76 <= speed <= 0xC07E78,medium
+C07E78,cal_mode_speed_hi,u16,calibration,2,c27216 upper speed threshold,medium
+C07E7A,cal_mode_temp_min,u16,calibration,2,c27216 checks 0xC936 >= 0xC07E7A,medium
+C07E7C,cal_mode_speed_cut,u16,calibration,2,c27216 checks 0xCA0A <= 0xC07E7C,medium

@@ -1,0 +1,6 @@
+; c27142 gap_c27142 size=18
+c27142  extp 0x380, #0x1
+c27146  movb 0x8f8,0xff1c
+c2714a  extp 0x380, #0x1
+c2714e  movb 0x8f9,0xff1c
+c27152  rets

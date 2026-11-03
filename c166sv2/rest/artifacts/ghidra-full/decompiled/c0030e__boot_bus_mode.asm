@@ -1,0 +1,36 @@
+; c0030e boot_bus_mode size=112
+c0030e  mov r12,0xf0c2
+c00312  and r12,#0x1800
+c00316  cmp r12,#0x800
+c0031a  jmpr cc_NE,0xc00332
+c0031c  mov r12,0xf0c2
+c00320  and r12,#0xff
+c00324  mov r1,r12
+c00326  cplb RL1
+c00328  movbz r12,RL1
+c0032a  or r12,#0x8e00
+c0032e  mov 0xf0c0,r12
+c00332  mov r12,0xf0c2
+c00336  and r12,#0x1800
+c0033a  cmp r12,#0x1800
+c0033e  jmpr cc_NE,0xc0037c
+c00340  extr #0x2
+c00342  mov 0xf0c0,#0xaaaa
+c00346  mov 0xf0c0,#0x5554
+c0034a  mov r12,0xf0c2
+c0034e  and r12,#0xff
+c00352  mov r1,r12
+c00354  cplb RL1
+c00356  movbz r12,RL1
+c00358  or r12,#0x9600
+c0035c  mov 0xf0c0,r12
+c00360  extr #0x1
+c00362  mov 0xf0c0,#0x800
+c00366  mov r12,0xf0c2
+c0036a  and r12,#0xff
+c0036e  mov r1,r12
+c00370  cplb RL1
+c00372  movbz r12,RL1
+c00374  or r12,#0x8e00
+c00378  mov 0xf0c0,r12
+c0037c  rets

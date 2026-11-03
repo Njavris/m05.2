@@ -3,63 +3,64 @@
 Static reverse engineering of the Delphi MT05.2 ECU flash dump
 (Infineon XC164CS-32, 256 KB) from a Mash Black Seven 125, Euro 4, 2018.
 
-## Project order
+## Project layout
 
-The workspace is arranged as an evidence pipeline:
+The repository is split by the Ghidra architecture used for each analysis.
+Shared inputs and host tools stay at the root.
 
-| Stage | Directory | Contents |
-|---|---|---|
-| 1. Evidence | [`dumps/`](dumps/README.md) | the four original 256 KB reads (read-only) |
-| 2. Analysis | [`docs/`](docs/00-INDEX.md) | the reverse-engineering report, start at `00-INDEX.md` |
-| 3. Reconstruction | [`reconstruction/`](reconstruction/README.md) | three-part C tree: bootloader, application, data |
-| 4. Firmware tree | [`firmware/`](firmware/README.md) | buildable host model, full decompilation, byte-exact rebuild |
-| 5. Generated artifacts | [`artifacts/`](artifacts/README.md) | function map, CSVs, decompiled files, block extracts |
-| 6. Host tool | [`ecu_tool/`](ecu_tool/README.md) | cross-platform FT232RL K-line live-data/flash tool |
-| 7. Diagnostic console | [`ecu_diag/`](ecu_diag/README.md) | cross-platform terminal diagnostic software |
+```text
+c166/                         superseded C166:CS / XC164CS analysis
+  documentation/              old pass method and reports
+  deliverables/               curated 195-function firmware/reconstruction
+  rest/                       old raw Ghidra listing and scripts
+
+c166sv2/                      current C166SV2:LE:16:xc164cs analysis
+  documentation/              current report and Ghidra notes
+  deliverables/               full 902-function reconstruction and artifacts
+  rest/                       raw Ghidra listing, decompilation and emulator
+
+dumps/                        shared original flash reads
+tools/                        shared host tools (ecu_tool, ecu_diag)
+secret/                       private HUD/log evidence (ignored)
+```
 
 ## Start here
 
-* [docs/00-INDEX.md](docs/00-INDEX.md) — executive summary and full report index
-* [docs/01-identity.md](docs/01-identity.md) — ECU/MCU identity, firmware IDs, input hashes
-* [docs/02-image-layout.md](docs/02-image-layout.md) — memory map, regions, checksums
-* [docs/03-boot.md](docs/03-boot.md) — reset, integrity validation, application start
-* [docs/05-communications.md](docs/05-communications.md) — K-line/KWP2000 and CAN
-* [docs/06-calibration.md](docs/06-calibration.md) — calibration tables and accessors
-* [reconstruction/README.md](reconstruction/README.md) — semantic decompilation by firmware part
-* [firmware/README.md](firmware/README.md) — buildable source tree
-* [firmware/SEMANTIC_NAMES.md](firmware/SEMANTIC_NAMES.md) — naming evidence
-* [firmware/ALGORITHMS.md](firmware/ALGORITHMS.md) — algorithm cross-index
-* [ecu_tool/README.md](ecu_tool/README.md) — FT232RL K-line live-data/flash tool
-* [ecu_diag/README.md](ecu_diag/README.md) — terminal diagnostic software
-* [docs/12-debug-channels.md](docs/12-debug-channels.md) — live-data `21 01`/`30` live-data map and firmware aliases
-* [docs/13-live-data-inferences.md](docs/13-live-data-inferences.md) — what the live-data map changes in the firmware analysis
+* [`c166sv2/documentation/report/00-INDEX.md`](c166sv2/documentation/report/00-INDEX.md) — full report
+* [`c166/deliverables/reconstruction/README.md`](c166/deliverables/reconstruction/README.md) — curated 195-function C tree
+* [`c166sv2/deliverables/reconstruction/full/README.md`](c166sv2/deliverables/reconstruction/full/README.md) — full 902-function C11 catalog
+* [`c166/deliverables/firmware/README.md`](c166/deliverables/firmware/README.md) — host model and byte-exact rebuild
+* [`c166sv2/rest/emulator/README.md`](c166sv2/rest/emulator/README.md) — C166SV2 emulator and Ghidra extension
+* [`tools/ecu_tool/README.md`](tools/ecu_tool/README.md) — K-line live-data/flash tool
+* [`tools/ecu_diag/README.md`](tools/ecu_diag/README.md) — terminal diagnostic software
+* [`c166sv2/documentation/artifacts-README.md`](c166sv2/documentation/artifacts-README.md) — artifact index
 
 ## Build and verify
 
 ```bash
-cd firmware
-make test      # host model checks against ../dumps/mash_dump.bin
-make demo      # checksums, vectors, KWP exchange, calibration tables
-make repro     # byte-exact rebuild of the original image
-make maps      # render calibration maps and interactive fuel map
-make reconstruction # rebuild ../reconstruction/ semantic tree
+# Curated C166 firmware model and byte-exact image
+make -C c166/deliverables/firmware test
+make -C c166/deliverables/firmware demo
+make -C c166/deliverables/firmware repro
+make -C c166/deliverables/firmware maps
+make -C c166/deliverables/firmware reconstruction
+
+# Both reconstructed trees
+make -C c166/deliverables/reconstruction test
+make -C c166sv2/deliverables/reconstruction test
+
+# Shared host tools
+cmake -S tools/ecu_tool -B tools/ecu_tool/build
+cmake --build tools/ecu_tool/build
+./tools/ecu_tool/build/ecu_tool selftest
+
+cmake -S tools/ecu_diag -B tools/ecu_diag/build
+cmake --build tools/ecu_diag/build
 ```
 
-`make test` passes; `make repro` produces a byte-identical 256 KB image. The
-host model is a semantic reimplementation, not a target ECU binary.
-
-## For C developers
-
-Start at [`reconstruction/README.md`](reconstruction/README.md). It has three
-parts: `01-bootloader/`, `02-application/` and `03-data/`. The function index,
-calibration tables, adaptation records and live-data maps are C arrays/structs
-in `reconstruction/03-data/data.c` and `data.h`; there are no CSV files in the
-reconstruction tree. A compile check is:
-
-```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic -Ireconstruction/03-data \
-    -fsyntax-only reconstruction/03-data/data.c
-```
+`make -C c166/deliverables/firmware test` passes; `repro` produces a
+byte-identical 256 KB image. The host model is a semantic reimplementation, not
+a target ECU binary.
 
 ## Key results
 
@@ -69,48 +70,17 @@ gcc -std=c11 -Wall -Wextra -Wpedantic -Ireconstruction/03-data \
 * K-line KWP2000 (ECU `0x11`, tester `0xF1`) and CAN (IDs `0x7E0`/`0x7E4`).
 * Fixed security seed/key: `0x1234` / `0x8474`.
 * Four dumps differ only in the `0xC04000–0xC04CFF` adaptation log.
-* live data uses KWP2000 `21 01` (100-byte packet, 90 fields) and `30` data
-  slewing; the field map and firmware aliases are in
-  [`docs/12-debug-channels.md`](docs/12-debug-channels.md). live-data logs indicate the
-  `0xC0794A` 9×9 map is a volume-efficiency map and confirm the 40 status bits.
-* All 195 recovered functions and all RAM variables outside the SFR/ESFR area
-  have evidence-based names; structures are in
-  [`firmware/include/firmware_types.h`](firmware/include/firmware_types.h).
-
-## Generated artifacts
-
-* [`artifacts/function_map.csv`](artifacts/function_map.csv) — 195 functions
-* [`artifacts/decompiled/`](artifacts/decompiled/) — per-function Ghidra C/ASM
-* [`artifacts/vector_table.csv`](artifacts/vector_table.csv) — complete vector table
-* [`artifacts/flash_regions.csv`](artifacts/flash_regions.csv) — region/checksum map
-* [`artifacts/calibration_tables.csv`](artifacts/calibration_tables.csv) — calibration tables
-* [`artifacts/eeprom_records.csv`](artifacts/eeprom_records.csv) — adaptation records
-* [`artifacts/dump_differences.csv`](artifacts/dump_differences.csv) — dump deltas
-* [`artifacts/debug_channels.csv`](artifacts/debug_channels.csv) — candidate live-data/debug channels
-* [`artifacts/live_21_01_fields.csv`](artifacts/live_21_01_fields.csv) — live-data `21 01` 100-byte live-data fields
-* [`artifacts/live_firmware_map.csv`](artifacts/live_firmware_map.csv) — firmware → live-data field/status-bit aliases
-* [`artifacts/live_30_slew.csv`](artifacts/live_30_slew.csv) — live-data `0x30` data-slewing channels
-* [`artifacts/checksums.txt`](artifacts/checksums.txt) — checksum/hash evidence
-* [`artifacts/maps/`](artifacts/maps/index.html) — calibration map heatmaps/curves (SVG/HTML)
+* Live data uses KWP2000 `21 01` (100-byte packet) and `30` data slewing.
+* Curated C166 model: 195 functions with evidence names and recovered structures.
+* C166SV2 full pass: 902 functions, 46,430 instructions, full 256 KB coverage,
+  491 variables, 34 structures and a 7-file C/ASM reference tree.
 
 ## Limits
 
 The target rebuild requires a commercial C166 toolchain (TASKING VX for C166 or
-Keil C166); none is installed here. External RAM at `0x7000`/`0xC000` is not in
-the dump, so several axis descriptors and task tables remain unknown. See
-[docs/10-method-and-limitations.md](docs/10-method-and-limitations.md).
-
-## Build the host tool
-
-```bash
-cmake -S ecu_tool -B ecu_tool/build
-cmake --build ecu_tool/build
-./ecu_tool/build/ecu_tool selftest
-
-cmake -S ecu_diag -B ecu_diag/build
-cmake --build ecu_diag/build
-./ecu_diag/build/ecu_diag --port /dev/ttyUSB0
-```
+Keil C166); none is installed here. External RAM at `0x705E`, `0x7164`,
+`0x7500`, `0x7564` and `0x7666` is absent from the dump. See
+[`c166sv2/documentation/report/10-method-and-limitations.md`](c166sv2/documentation/report/10-method-and-limitations.md).
 
 ## Credits
 

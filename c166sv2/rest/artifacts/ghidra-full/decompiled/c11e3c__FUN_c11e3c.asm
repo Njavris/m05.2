@@ -1,0 +1,20 @@
+; c11e3c FUN_c11e3c size=60
+c11e10  movb RL6,0xc576
+c11e14  cmpb RL6,0xc593
+c11e18  jmpr cc_C,0xc11e22
+c11e1a  mov r12,#0x5
+c11e1c  mov 0xc57a,r12
+c11e20  jmpr cc_UC,0xc11e78
+c11e22  movbz r6,0xc5c7
+c11e26  movbz r12,0xc576
+c11e2a  add r6,r12
+c11e2c  movb RL1,[r6+#0xf63d]
+c11e30  movb 0xc5b3,RL1
+c11e34  calls 0xc127a2
+c11e38  subb 0xc576,0xff1e
+c11e3c  mov r6,0xf0ba
+c11e40  and r6,#0x3f00
+c11e44  shr r6,#0x8
+c11e46  cmp r6,#0x7
+c11e48  jmpr cc_C,0xc11e10
+c11e4a  jmpr cc_UC,0xc11e78

@@ -9,30 +9,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Host model tests
-        run: make -C firmware test
+      - name: Curated C166 host model tests
+        run: make -C c166/deliverables/firmware test
       - name: Byte-exact image rebuild
-        run: make -C firmware repro
-      - name: Rebuild reconstruction
-        run: make -C firmware reconstruction
-      - name: Compile C data
-        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ireconstruction/03-data -fsyntax-only reconstruction/03-data/data.c
+        run: make -C c166/deliverables/firmware repro
+      - name: Rebuild curated C166 reconstruction
+        run: make -C c166/deliverables/firmware reconstruction
+      - name: Compile curated C data
+        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ic166/deliverables/reconstruction/03-data -fsyntax-only c166/deliverables/reconstruction/03-data/data.c
       - name: Compile host model
-        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ifirmware/include -fsyntax-only firmware/src/*.c
-      - name: Build ECU tool
+        run: gcc -std=c11 -Wall -Wextra -Wpedantic -Ic166/deliverables/firmware/include -fsyntax-only c166/deliverables/firmware/src/*.c
+      - name: Build curated reconstruction
         run: |
-          cmake -S ecu_tool -B ecu_tool/build
-          cmake --build ecu_tool/build
-      - name: Build diagnostic console
+          cmake -S c166/deliverables/reconstruction -B c166/deliverables/reconstruction/build
+          cmake --build c166/deliverables/reconstruction/build
+          ctest --test-dir c166/deliverables/reconstruction/build --output-on-failure
+      - name: Build full C166SV2 reconstruction catalog
         run: |
-          cmake -S ecu_diag -B ecu_diag/build
-          cmake --build ecu_diag/build
+          cmake -S c166sv2/deliverables/reconstruction -B c166sv2/deliverables/reconstruction/build
+          cmake --build c166sv2/deliverables/reconstruction/build
+          ctest --test-dir c166sv2/deliverables/reconstruction/build --output-on-failure
+      - name: Build shared tools
+        run: |
+          cmake -S tools/ecu_tool -B tools/ecu_tool/build
+          cmake --build tools/ecu_tool/build
+          cmake -S tools/ecu_diag -B tools/ecu_diag/build
+          cmake --build tools/ecu_diag/build
       - name: ECU tool tests
-        run: python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool
+        run: python3 tools/ecu_tool/tests/fake_ecu.py tools/ecu_tool/build/ecu_tool
       - name: ECU fault-path tests
-        run: python3 ecu_tool/tests/fault_tests.py
+        run: python3 tools/ecu_tool/tests/fault_tests.py
       - name: Fuel map generator
-        run: python3 firmware/tools/fuel_map_viewer.py --text >/dev/null
+        run: python3 c166/deliverables/firmware/tools/fuel_map_viewer.py --text >/dev/null
 
   portability:
     strategy:
@@ -41,11 +49,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - name: Build ECU tool
+      - name: Build shared tools
         run: |
-          cmake -S ecu_tool -B ecu_tool/build
-          cmake --build ecu_tool/build
-      - name: Build diagnostic console
-        run: |
-          cmake -S ecu_diag -B ecu_diag/build
-          cmake --build ecu_diag/build
+          cmake -S tools/ecu_tool -B tools/ecu_tool/build
+          cmake --build tools/ecu_tool/build
+          cmake -S tools/ecu_diag -B tools/ecu_diag/build
+          cmake --build tools/ecu_diag/build

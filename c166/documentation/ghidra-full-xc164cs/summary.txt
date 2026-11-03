@@ -1,0 +1,7 @@
+program=mash_dump.bin
+imageBase=000000
+language=C166:CS:LE:16:default
+functions=1355
+decompiled_ok=1349
+minAddress=00c000
+maxAddress=c3ffff

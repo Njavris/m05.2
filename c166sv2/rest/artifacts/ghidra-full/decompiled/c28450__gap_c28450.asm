@@ -1,0 +1,33 @@
+; c28450 gap_c28450 size=76
+c28450  mov r1,#0x7fff
+c28454  mov r2,#0x0
+c28456  mov r14,#0x8000
+c2845a  mov r15,#0xffff
+c2845e  mov r4,r12
+c28460  mov r5,#0x0
+c28462  mov r10,r13
+c28464  mov r11,r10
+c28466  ashr r11,#0xf
+c28468  calls 0xc28b64
+c2846c  mov r12,r4
+c2846e  mov r13,r5
+c28470  mov [-r0],r2
+c28472  mov [-r0],r1
+c28474  mov r3,r12
+c28476  mov r4,r13
+c28478  mov r1,[r0+]
+c2847a  mov r2,[r0+]
+c2847c  sub r3,r1
+c2847e  subc r4,r2
+c28480  jmpr cc_SGE,0xc28496
+c28482  mov r1,r12
+c28484  mov r2,r13
+c28486  sub r1,r14
+c28488  subc r2,r15
+c2848a  jmpr cc_SLE,0xc28490
+c2848c  mov r4,r12
+c2848e  jmpr cc_UC,0xc28494
+c28490  mov r4,#0x8000
+c28494  jmpr cc_UC,0xc2849a
+c28496  mov r4,#0x7fff
+c2849a  rets

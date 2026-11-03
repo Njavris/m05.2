@@ -1,0 +1,34 @@
+; c238d4 gap_c238d4 size=90
+c238d4  sub r0,#0x4
+c238d6  movb RL1,0xcb2d
+c238da  cmpb RL1,#0x20
+c238de  jmpr cc_EQ,0xc238ec
+c238e0  cmpb RL1,#0x10
+c238e4  jmpr cc_NE,0xc23904
+c238e6  mov [r0],0xca3e
+c238ea  jmpr cc_UC,0xc23904
+c238ec  sub r0,#0x4
+c238ee  mov r12,#0x7
+c238f0  movbz r13,0xcb25
+c238f4  calls 0xc23446
+c238f8  mov r14,[r4+]
+c238fa  mov r15,[r4]
+c238fc  add r0,#0x4
+c238fe  mov [r0],r14
+c23900  mov [r0+#0x2],r15
+c23904  mov r12,[r0]
+c23906  cmp r12,#0x7f80
+c2390a  jmpr cc_C,0xc23914
+c2390c  mov r13,#0xff00
+c23910  mov [r0],r13
+c23912  jmpr cc_UC,0xc23920
+c23914  mov r12,#0x7704
+c23918  mov r13,[r0]
+c2391a  calls 0xc2850e
+c2391e  mov [r0],r4
+c23920  mov r12,[r0]
+c23922  shr r12,#0x8
+c23924  mov r1,r12
+c23926  movb 0xcb39,RL1
+c2392a  add r0,#0x4
+c2392c  rets

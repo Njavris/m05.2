@@ -1,0 +1,32 @@
+; c01c6e can_isotp_send size=90
+c01c6e  mov [-r0],r8
+c01c70  movb RL1,0xc1d6
+c01c74  jmpr cc_EQ,0xc01cc4
+c01c76  mov r12,0xc1d4
+c01c7a  cmp r12,#0x0
+c01c7c  jmpr cc_ULE,0xc01cc4
+c01c7e  cmp r12,#0x8
+c01c82  jmpr cc_ULE,0xc01c88
+c01c84  mov r12,#0x8
+c01c86  jmpr cc_UC,0xc01c8c
+c01c88  mov r12,0xc1d4
+c01c8c  mov r8,r12
+c01c8e  mov [-r0],r8
+c01c90  mov r12,0xc1dc
+c01c94  mov r13,0xc1de
+c01c98  mov r14,#0xf740
+c01c9c  mov r4,r14
+c01c9e  calls 0xc01eea
+c01ca2  mov r14,r4
+c01ca4  mov r15,r5
+c01ca6  calls 0xc01d9a
+c01caa  add r0,#0x2
+c01cac  sub 0xc1d4,r8
+c01cb0  mov r12,#0x0
+c01cb2  add 0xc1dc,r8
+c01cb6  addc 0xc1de,r12
+c01cba  mov r8,0xc1d4
+c01cbe  jmpr cc_NE,0xc01cc4
+c01cc0  movb 0xc1d6,0xff1c
+c01cc4  mov r8,[r0+]
+c01cc6  rets

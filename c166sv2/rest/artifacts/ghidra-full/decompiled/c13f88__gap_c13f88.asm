@@ -1,0 +1,7 @@
+; c13f88 gap_c13f88 size=18
+c13f88  jb 0xfd10.0x2,0xc13f98
+c13f8c  extp 0x301, #0x1
+c13f90  mov r12,0x1064
+c13f94  jmpr cc_NE,0xc13f98
+c13f96  bset 0xfd1a.0x5
+c13f98  rets

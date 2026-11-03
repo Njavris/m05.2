@@ -1,0 +1,31 @@
+; c28860 gap_c28860 size=72
+c28860  mov r14,r13
+c28862  mov r13,r12
+c28864  ashr r13,#0xf
+c28866  mov r15,r13
+c28868  mov r13,r14
+c2886a  mov r1,r14
+c2886c  ashr r1,#0xf
+c2886e  mov r13,r15
+c28870  sub r12,r14
+c28872  subc r13,r1
+c28874  mov r14,r12
+c28876  mov r15,r13
+c28878  sub r14,#0x7fff
+c2887c  subc r15,#0x0
+c2887e  jmpr cc_SGE,0xc2889e
+c28880  mov r14,r12
+c28882  mov r15,r13
+c28884  sub r14,#0x8000
+c28888  subc r15,#0xffff
+c2888c  jmpr cc_SLE,0xc28894
+c2888e  mov r13,r12
+c28890  ashr r13,#0xf
+c28892  jmpr cc_UC,0xc2889c
+c28894  mov r12,#0x8000
+c28898  mov r13,#0xffff
+c2889c  jmpr cc_UC,0xc288a4
+c2889e  mov r12,#0x7fff
+c288a2  mov r13,#0x0
+c288a4  mov r4,r12
+c288a6  rets

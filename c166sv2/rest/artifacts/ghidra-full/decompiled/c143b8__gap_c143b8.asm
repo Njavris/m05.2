@@ -1,0 +1,19 @@
+; c143b8 gap_c143b8 size=44
+c143b8  mov r1,r12
+c143ba  cmpb RL1,#0x2
+c143bc  jmpr cc_EQ,0xc143de
+c143be  cmpb RL1,#0x3
+c143c0  jmpr cc_EQ,0xc143cc
+c143c2  cmpb RL1,#0x4
+c143c4  jmpr cc_EQ,0xc143d2
+c143c6  cmpb RL1,#0x6
+c143c8  jmpr cc_EQ,0xc143d8
+c143ca  jmpr cc_UC,0xc143e2
+c143cc  bmovn 0xff06.0x1,0xff06.0x1
+c143d0  rets
+c143d2  bmovn 0xff06.0x5,0xff06.0x5
+c143d6  rets
+c143d8  bmovn 0xff04.0x6,0xff04.0x6
+c143dc  rets
+c143de  bmovn 0xffc4.0x6,0xffc4.0x6
+c143e2  rets

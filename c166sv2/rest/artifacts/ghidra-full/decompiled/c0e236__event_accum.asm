@@ -1,0 +1,30 @@
+; c0e236 event_accum size=70
+c0e236  mov r1,#0xc41a
+c0e23a  mov r2,r12
+c0e23c  movbz r14,RL2
+c0e23e  mov r15,r14
+c0e240  shl r14,#0x3
+c0e242  add r14,r15
+c0e244  shl r14,#0x1
+c0e246  add r1,r14
+c0e248  mov r15,r13
+c0e24a  sub r15,[r1]
+c0e24c  mov r12,r15
+c0e24e  cmp r12,#0x7f00
+c0e252  jmpr cc_UGT,0xc0e27a
+c0e254  mov r15,#0xc416
+c0e258  add r15,r14
+c0e25a  mov r4,#0x0
+c0e25c  mov r2,[r15]
+c0e25e  mov r3,[r15+#0x2]
+c0e262  add r2,r12
+c0e264  addc r3,r4
+c0e266  mov [r15+#0x2],r3
+c0e26a  mov r12,#0xc41c
+c0e26e  add r12,r14
+c0e270  mov [r15],r2
+c0e272  mov [r1],r13
+c0e274  movb RL1,[r12]
+c0e276  bclr r1.0x7
+c0e278  movb [r12],RL1
+c0e27a  rets

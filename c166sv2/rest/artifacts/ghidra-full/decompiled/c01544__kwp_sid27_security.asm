@@ -1,0 +1,46 @@
+; c01544 kwp_sid27_security size=150
+c01544  movb RL1,0xc149
+c01548  cmpb RL1,#0x1
+c0154a  jmpr cc_EQ,0xc01552
+c0154c  cmpb RL1,#0x2
+c0154e  jmpr cc_EQ,0xc01580
+c01550  jmpr cc_UC,0xc015d8
+c01552  movb RL1,#0x80
+c01556  movb 0xc0b2,RL1
+c0155a  movb RL2,#0x4
+c0155c  movb 0xc0b5,RL2
+c01560  movb RL3,#0x67
+c01564  movb 0xc0b6,RL3
+c01568  movb RL4,#0x1
+c0156a  movb 0xc0b7,RL4
+c0156e  movb RL5,#0x12
+c01572  movb 0xc0b8,RL5
+c01576  movb RL1,#0x34
+c0157a  movb 0xc0b9,RL1
+c0157e  rets
+c01580  movb RL1,#0x3
+c01582  movb 0xc0b5,RL1
+c01586  movb RL2,#0x80
+c0158a  movb 0xc0b2,RL2
+c0158e  movb RL3,0xc14a
+c01592  cmpb RL3,#0x84
+c01596  jmpr cc_NE,0xc015c0
+c01598  movb RL4,0xc14b
+c0159c  cmpb RL4,#0x74
+c015a0  jmpr cc_NE,0xc015c0
+c015a2  movb RL5,#0x1
+c015a4  movb 0xc09a,RL5
+c015a8  movb RL1,#0x67
+c015ac  movb 0xc0b6,RL1
+c015b0  movb RL1,#0x2
+c015b2  movb 0xc0b7,RL1
+c015b6  movb RL1,#0x34
+c015ba  movb 0xc0b8,RL1
+c015be  rets
+c015c0  movb RL1,#0x7f
+c015c4  movb 0xc0b6,RL1
+c015c8  movb RL2,#0x27
+c015cc  movb 0xc0b7,RL2
+c015d0  movb RL3,#0x35
+c015d4  movb 0xc0b8,RL3
+c015d8  rets

@@ -1,0 +1,6 @@
+program=mash_dump.bin
+language=C166SV2:LE:16:xc164cs
+functions=902
+decompiled_ok=901
+instructions=46430
+flash=00c00000-00c3ffff

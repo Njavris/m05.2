@@ -1,0 +1,369 @@
+source_file,source_bin,source_crc,calibration,table_index,address,shift,head,data_width,decoded_bytes
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,0,0x6B98,1,2,2,66
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,1,0x6BDC,1,2,2,66
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,2,0x71D4,1,2,2,28
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,3,0x7A20,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,4,0x504C,1,2,2,18
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,5,0x5AEC,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,6,0x5B4E,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,7,0x5C24,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,8,0x5D4C,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,9,0x5D9C,1,2,2,18
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,10,0x5DB0,1,2,2,12
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,11,0x5E2E,1,2,2,36
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,12,0x5E54,1,2,2,36
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,13,0x613E,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,14,0x6164,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,15,0x61F4,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,16,0x636C,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,17,0x63FE,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,18,0x6422,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,19,0x6C7A,1,2,2,22
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,20,0x70A0,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,21,0x714E,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,22,0x71F2,1,2,2,28
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,23,0x74A6,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,24,0x7616,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,25,0x7912,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,26,0x7938,1,2,2,14
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,27,0x7B0C,1,2,2,12
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,28,0x5350,1,4,2,144
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,29,0x53E4,1,4,2,748
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,30,0x571A,1,4,2,144
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,31,0x57AE,1,4,2,748
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,32,0x5E7A,1,4,2,340
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,33,0x5FD2,1,4,2,340
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,34,0x6DAA,1,4,2,162
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,35,0x61D2,256,2,1,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,36,0x68B4,64,2,1,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,37,0x68BC,64,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,38,0x68CA,64,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,39,0x68DE,64,2,1,33
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,40,0x722E,64,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,41,0x7242,64,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,42,0x7470,64,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,43,0x7484,64,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,44,0x7498,64,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,45,0x5D24,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,46,0x5D38,1,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,47,0x5D70,256,2,1,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,48,0x5DBE,1,2,1,9
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,49,0x5E06,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,50,0x5E1A,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,51,0x6188,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,52,0x61A8,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,53,0x61BC,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,54,0x621C,256,2,1,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,55,0x62E4,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,56,0x6300,256,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,57,0x639A,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,58,0x6B5A,256,2,1,9
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,59,0x6C20,128,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,60,0x6C94,256,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,61,0x6CA4,1,2,1,9
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,62,0x6CE8,1,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,63,0x6D20,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,64,0x6D34,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,65,0x74CA,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,66,0x74DE,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,67,0x74F2,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,68,0x7506,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,69,0x751A,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,70,0x7576,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,71,0x758A,1,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,72,0x75A0,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,73,0x75B4,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,74,0x75C8,1,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,75,0x75DE,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,76,0x7842,128,2,1,7
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,77,0x784C,128,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,78,0x7860,128,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,79,0x7874,128,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,80,0x78D8,256,2,1,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,81,0x78E2,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,82,0x78F6,256,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,83,0x7904,256,2,1,11
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,84,0x799E,256,2,1,9
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,85,0x79AA,256,2,1,9
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,86,0x79B6,256,2,1,17
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,87,0x7A4A,256,2,1,13
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,88,0x7AEC,1,2,1,13
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,89,0x7AFC,256,2,1,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,90,0x7C1C,1,2,1,13
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,91,0x5294,256,3,1,90
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,92,0x52F2,256,3,1,90
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,93,0x5AA4,256,3,1,54
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,94,0x677E,64,3,1,306
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,95,0x6916,64,3,1,102
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,96,0x6980,64,3,1,102
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,97,0x56D4,256,3,1,66
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,98,0x6236,256,3,1,170
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,99,0x6E50,128,3,1,561
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,100,0x70F6,256,3,1,81
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,101,0x752E,256,3,1,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,102,0x794A,128,3,1,81
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,103,0x7A5C,256,3,1,117
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,104,0x7B2A,128,3,1,117
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,105,0x7BA2,128,3,1,117
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,106,0x7C98,256,3,1,54
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,107,0x50CE,1,2,2,12
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,108,0x50DC,1,2,2,18
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,109,0x5106,1,2,2,26
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,110,0x5122,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,111,0x5146,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,112,0x5196,1,2,2,18
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,113,0x51C0,1,2,2,24
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,114,0x5200,1,2,2,44
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,115,0x5252,1,2,2,12
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,116,0x5260,1,2,2,8
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,117,0x526A,1,2,2,12
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,118,0x64E0,1,2,2,34
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,119,0x507A,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,120,0x5080,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,121,0x619C,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,122,0x62F8,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,123,0x6CC0,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,124,0x6CE2,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,125,0x6CFC,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,126,0x70F2,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,127,0x781A,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,128,0x7A1A,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,129,0x7A1C,1,0,1,1
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,130,0x5068,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,131,0x5076,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,132,0x5086,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,133,0x5088,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,134,0x508A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,135,0x5090,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,136,0x5290,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,137,0x5AA0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,138,0x5B1C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,139,0x5B1E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,140,0x5B20,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,141,0x5B22,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,142,0x5B24,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,143,0x5B26,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,144,0x5B28,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,145,0x5B2A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,146,0x5B86,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,147,0x5C22,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,148,0x5C48,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,149,0x5C52,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,150,0x5C58,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,151,0x5C5C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,152,0x5C5E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,153,0x5DD6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,154,0x5DD8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,155,0x5DEA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,156,0x5E02,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,157,0x6136,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,158,0x6138,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,159,0x6162,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,160,0x61A0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,161,0x61A2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,162,0x61A4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,163,0x61EA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,164,0x61EC,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,165,0x61EE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,166,0x61F0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,167,0x61F2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,168,0x6218,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,169,0x6222,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,170,0x6224,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,171,0x6226,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,172,0x622C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,173,0x630E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,174,0x6310,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,175,0x6368,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,176,0x6396,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,177,0x6398,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,178,0x63AE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,179,0x63B2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,180,0x63DE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,181,0x63E0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,182,0x63E2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,183,0x63E6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,184,0x63E8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,185,0x63EE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,186,0x63F2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,187,0x63F4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,188,0x63F6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,189,0x63FA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,190,0x63FC,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,191,0x6510,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,192,0x6516,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,193,0x6518,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,194,0x6904,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,195,0x6912,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,196,0x6B96,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,197,0x6C46,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,198,0x6C4A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,199,0x6C4C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,200,0x6C52,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,201,0x6C68,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,202,0x6C74,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,203,0x6CBE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,204,0x6CE6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,205,0x6D00,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,206,0x6D04,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,207,0x7084,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,208,0x7086,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,209,0x7088,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,210,0x7094,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,211,0x709C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,212,0x70C8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,213,0x70CA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,214,0x70CC,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,215,0x70D6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,216,0x70DA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,217,0x70E0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,218,0x714C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,219,0x7174,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,220,0x7176,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,221,0x71D2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,222,0x7258,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,223,0x746A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,224,0x746C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,225,0x746E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,226,0x759E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,227,0x75DC,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,228,0x75F4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,229,0x75FC,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,230,0x75FE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,231,0x7602,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,232,0x760C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,233,0x7610,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,234,0x763A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,235,0x781C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,236,0x7820,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,237,0x7822,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,238,0x7824,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,239,0x7826,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,240,0x7828,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,241,0x782C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,242,0x782E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,243,0x7830,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,244,0x7834,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,245,0x783A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,246,0x783C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,247,0x7948,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,248,0x79CA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,249,0x79E4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,250,0x7A16,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,251,0x7A18,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,252,0x7A1E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,253,0x7A44,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,254,0x7A48,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,255,0x7A5A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,256,0x7AD4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,257,0x7AD6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,258,0x7AD8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,259,0x7C1A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,260,0x7C3C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,261,0x7CD2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,262,0x7D04,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,263,0x7D1E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,264,0x7D94,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,265,0x7E02,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,266,0x7E16,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,267,0x7E1A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,268,0x7E1C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,269,0x7E1E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,270,0x7E20,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,271,0x7E2E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,272,0x5AEA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,273,0x5B18,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,274,0x5B1A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,275,0x5B8A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,276,0x5C20,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,277,0x5C54,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,278,0x5DE8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,279,0x619E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,280,0x61A6,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,281,0x622A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,282,0x6392,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,283,0x6394,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,284,0x650A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,285,0x6512,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,286,0x6514,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,287,0x651E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,288,0x6520,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,289,0x6A1A,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,290,0x6C4E,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,291,0x6C6C,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,292,0x6CC4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,293,0x6CC8,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,294,0x6D54,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,295,0x70C4,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,296,0x70CE,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,297,0x70D2,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,298,0x71D0,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,299,0x7256,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,300,0x7DFA,1,0,2,2
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,301,0x7DD2,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,302,0x7DD6,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,303,0x7DDA,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,304,0x7E6A,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,305,0x7E6E,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,306,0x7E78,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,307,0x7E7C,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,308,0x7E80,1,0,2,4
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,309,0x5B72,1,0,2,14
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,310,0x5B80,1,0,2,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,311,0x5B8C,1,0,2,72
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,312,0x5BD4,1,0,2,72
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,313,0x63D8,1,0,2,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,314,0x70E2,1,0,2,10
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,315,0x70EC,1,0,2,6
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,316,0x763E,1,0,2,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,317,0x774E,1,0,2,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,318,0x7792,1,0,2,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,319,0x77D6,1,0,2,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,320,0x5000,1,0,1,8
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,321,0x50A6,1,0,1,20
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,322,0x50BA,1,0,1,20
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,323,0x5AE1,1,0,1,8
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,324,0x7682,1,0,2,68
+Patch_3F47DCDB_Kovi 300i compared with Zongshen RX4.xml,Kovi 300i (1 cylinder).bin,0x03B1E9D5,M954_V03,325,0x770A,1,0,2,68
+Patch_5D06BA79_Increase Idle Target Decay.xml,Regal Raptor 350 (2 cylinder).bin,0xD345BA32,HUDDECAY,0,0x61FC,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,0,0x6334,1,2,2,34
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,1,0x75AE,1,2,2,34
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,2,0x6DE8,128,3,1,561
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,3,0x708E,256,3,1,81
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,4,0x78E2,128,3,1,81
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,5,0x7AC0,128,3,1,117
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,6,0x50DA,1,2,2,18
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,7,0x506A,1,0,1,1
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,8,0x507F,1,0,1,1
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,9,0x77B2,1,0,1,1
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,10,0x7964,1,0,1,1
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,11,0x7C8A,1,0,1,1
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,12,0x5066,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,13,0x620E,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,14,0x62D4,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,15,0x62D8,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,16,0x6384,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,17,0x6386,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,18,0x64B4,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,19,0x7404,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,20,0x758C,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,21,0x7590,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,22,0x7592,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,23,0x7594,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,24,0x7596,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,25,0x759A,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,26,0x759C,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,27,0x75A0,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,28,0x75A2,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,29,0x75A4,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,30,0x75A6,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,31,0x75A8,1,0,2,2
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,32,0x7E2E,1,0,2,4
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,33,0x5B50,1,0,2,14
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,34,0x707A,1,0,2,10
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,35,0x75D6,1,0,2,68
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,36,0x761A,1,0,2,68
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,37,0x765E,1,0,2,68
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,38,0x76A2,1,0,2,68
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,39,0x76E6,1,0,2,68
+Patch_92F68A19_Benelli 600GT ECU 1 compared with ECU 2.xml,Benelli 600GT (4 cylinder) ECU 1.bin,0x86679C77,20120207,40,0x772A,1,0,2,68

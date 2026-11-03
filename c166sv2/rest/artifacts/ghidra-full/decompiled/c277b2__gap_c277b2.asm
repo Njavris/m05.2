@@ -1,0 +1,35 @@
+; c277b2 gap_c277b2 size=80
+c277b2  mov r15,r13
+c277b4  mov r13,#0x0
+c277b6  jmpr cc_UC,0xc277bc
+c277b8  add r12,r12
+c277ba  addc r13,r13
+c277bc  cmpd1 r14,#0x0
+c277be  jmpr cc_NE,0xc277b8
+c277c0  mov r14,r13
+c277c2  mov r13,r15
+c277c4  mov r1,r15
+c277c6  ashr r1,#0xf
+c277c8  mov r13,r14
+c277ca  add r12,r15
+c277cc  addc r13,r1
+c277ce  mov r14,r12
+c277d0  mov r15,r13
+c277d2  sub r14,#0x7fff
+c277d6  subc r15,#0x0
+c277d8  jmpr cc_SGE,0xc277f8
+c277da  mov r14,r12
+c277dc  mov r15,r13
+c277de  sub r14,#0x8000
+c277e2  subc r15,#0xffff
+c277e6  jmpr cc_SLE,0xc277ee
+c277e8  mov r13,r12
+c277ea  ashr r13,#0xf
+c277ec  jmpr cc_UC,0xc277f6
+c277ee  mov r12,#0x8000
+c277f2  mov r13,#0xffff
+c277f6  jmpr cc_UC,0xc277fe
+c277f8  mov r12,#0x7fff
+c277fc  mov r13,#0x0
+c277fe  mov r4,r12
+c27800  rets

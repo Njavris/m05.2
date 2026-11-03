@@ -1,0 +1,27 @@
+; c12398 gap_c12398 size=70
+c12398  movb RL5,RL1
+c1239a  movbz r12,RL5
+c1239c  movb RL4,#0x1
+c1239e  addb RL1,#0x1
+c123a0  movb [r12+#0xf63d],RL4
+c123a4  movb RL4,RL1
+c123a6  movbz r12,RL4
+c123a8  movb RL5,0x7692
+c123ac  addb RL1,#0x1
+c123ae  movb [r12+#0xf63d],RL5
+c123b2  movb RL4,0x7694
+c123b6  movb RL5,RL1
+c123b8  addb RL1,#0x1
+c123ba  movbz r12,RL5
+c123bc  movb RL5,RL1
+c123be  addb RL1,#0x1
+c123c0  movb [r12+#0xf63d],RL4
+c123c4  movbz r12,RL5
+c123c6  movb RL5,RL1
+c123c8  movb RL4,0x76bd
+c123cc  movb [r12+#0xf63d],RL4
+c123d0  movbz r12,RL5
+c123d2  movb RL4,0x76be
+c123d6  addb RL1,#0x1
+c123d8  movb [r12+#0xf63d],RL4
+c123dc  jmpr cc_UC,0xc124a8

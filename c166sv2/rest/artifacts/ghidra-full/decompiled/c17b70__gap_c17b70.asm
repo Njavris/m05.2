@@ -1,0 +1,29 @@
+; c17b70 gap_c17b70 size=102
+c17b70  mov r12,#0xc7c6
+c17b74  mov r13,#0xc7c1
+c17b78  mov r14,#0x1
+c17b7a  calls 0xc159bc
+c17b7e  mov r12,#0xc7ae
+c17b82  mov r13,#0xc7fa
+c17b86  mov r14,#0x5
+c17b88  calls 0xc159bc
+c17b8c  mov r12,#0xc792
+c17b90  mov r13,#0xc7ea
+c17b94  mov r14,#0xe
+c17b96  calls 0xc159bc
+c17b9a  mov r12,#0xc7c4
+c17b9e  mov r13,#0xc7c2
+c17ba2  mov r14,#0x1
+c17ba4  calls 0xc159e8
+c17ba8  calls 0xc18ed6
+c17bac  calls 0xc18edc
+c17bb0  calls 0xc21a18
+c17bb4  calls 0xc20d96
+c17bb8  calls 0xc21058
+c17bbc  calls 0xc20d76
+c17bc0  calls 0xc220b6
+c17bc4  calls 0xc22326
+c17bc8  calls 0xc17666
+c17bcc  calls 0xc1823c
+c17bd0  calls 0xc17f44
+c17bd4  rets

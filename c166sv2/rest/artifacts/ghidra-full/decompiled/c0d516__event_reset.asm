@@ -1,0 +1,6 @@
+; c0d516 event_reset size=18
+c0d516  mov 0xc378,0xff1c
+c0d51a  mov 0xc37e,0xff1c
+c0d51e  mov 0xc374,0xff1c
+c0d522  movb 0xc370,0xff1c
+c0d526  rets

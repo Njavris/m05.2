@@ -1,0 +1,39 @@
+; c10f90 gap_c10f90 size=88
+c10f90  mov [-r0],r8
+c10f92  mov r8,r12
+c10f94  add r8,#0x10
+c10f98  mov r15,#0x0
+c10f9a  mov r12,[r8]
+c10f9c  mov r1,[r8+#0x2]
+c10fa0  add r12,#0x1
+c10fa2  addc r1,#0x0
+c10fa4  mov [r8+#0x2],r1
+c10fa8  mov [r8],r12
+c10faa  jmpr cc_UC,0xc10fde
+c10fac  mov r12,[r8]
+c10fae  mov r1,[r8+#0x2]
+c10fb2  mov r2,r15
+c10fb4  shl r2,#0x3
+c10fb6  jmpr cc_UC,0xc10fc0
+c10fb8  shr r12,#0x1
+c10fba  bmov r12.0xf,r1.0x0
+c10fbe  ashr r1,#0x1
+c10fc0  cmpd1 r2,#0x0
+c10fc2  jmpr cc_NE,0xc10fb8
+c10fc4  and r12,#0xff
+c10fc8  and r1,#0x0
+c10fca  mov r2,r12
+c10fcc  mov r12,r15
+c10fce  mov r1,#0x0
+c10fd0  mov r3,r13
+c10fd2  mov r4,r14
+c10fd4  add r3,r12
+c10fd6  addc r4,r1
+c10fd8  exts r4, #0x1
+c10fda  movb [r3],RL2
+c10fdc  add r15,#0x1
+c10fde  cmp r15,#0x4
+c10fe0  jmpr cc_C,0xc10fac
+c10fe2  mov r4,r15
+c10fe4  mov r8,[r0+]
+c10fe6  rets

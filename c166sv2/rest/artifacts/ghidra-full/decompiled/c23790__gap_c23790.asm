@@ -1,0 +1,32 @@
+; c23790 gap_c23790 size=84
+c23790  sub r0,#0x4
+c23792  movb RL1,0xcb2d
+c23796  cmpb RL1,#0x20
+c2379a  jmpr cc_EQ,0xc237a8
+c2379c  cmpb RL1,#0x10
+c237a0  jmpr cc_NE,0xc237c0
+c237a2  mov [r0],0xca8e
+c237a6  jmpr cc_UC,0xc237c0
+c237a8  sub r0,#0x4
+c237aa  mov r12,#0x3
+c237ac  movbz r13,0xcb25
+c237b0  calls 0xc23446
+c237b4  mov r14,[r4+]
+c237b6  mov r15,[r4]
+c237b8  add r0,#0x4
+c237ba  mov [r0],r14
+c237bc  mov [r0+#0x2],r15
+c237c0  mov r12,[r0]
+c237c2  mov r13,#0x1
+c237c4  mov r14,#0xf
+c237c6  calls 0xc289c2
+c237ca  mov r13,r4
+c237cc  mov r12,#0x7716
+c237d0  calls 0xc284d8
+c237d4  mov [r0],r4
+c237d6  mov r12,[r0]
+c237d8  shr r12,#0x8
+c237da  mov r1,r12
+c237dc  movb 0xcb39,RL1
+c237e0  add r0,#0x4
+c237e2  rets

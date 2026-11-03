@@ -1,0 +1,244 @@
+; c16cde gap_c16cde size=796
+c16cde  mov [-r0],r8
+c16ce0  movb RL1,0xc93c
+c16ce4  cmpb RL1,#0x3
+c16ce6  jmpr cc_EQ,0xc16d7a
+c16ce8  calls 0xc1eb4a
+c16cec  movb RL1,0xc93c
+c16cf0  cmpb RL1,#0x2
+c16cf2  jmpr cc_NE,0xc16d50
+c16cf4  mov r8,0xc996
+c16cf8  extp 0x301, #0x1
+c16cfc  cmp r8,0x2224
+c16d00  jmpr cc_C,0xc16d50
+c16d02  movb RL2,#0x1
+c16d04  movb 0xc7bc,RL2
+c16d08  extp 0x301, #0x1
+c16d0c  movbz r12,0x2228
+c16d10  cmp r12,0xc7e8
+c16d14  jmpr cc_UGT,0xc16d38
+c16d16  mov r12,0xc76a
+c16d1a  cmp r12,#0xcd
+c16d1e  jmpr cc_ULE,0xc16d38
+c16d20  extp 0x301, #0x1
+c16d24  mov r14,0x2226
+c16d28  mulu r12,r14
+c16d2a  mov r13,#0x0
+c16d2c  mov r12,0xfe0c
+c16d30  mov 0xc76a,r12
+c16d34  mov 0xc7e8,0xff1c
+c16d38  mov r8,0xc76a
+c16d3c  cmp r8,#0xcd
+c16d40  jmpr cc_UGT,0xc16d58
+c16d42  mov 0xc7e8,0xff1c
+c16d46  movb 0xc7bc,0xff1c
+c16d4a  mov 0xc76a,0xff1c
+c16d4e  jmpr cc_UC,0xc16d58
+c16d50  movb 0xc7bc,0xff1c
+c16d54  mov 0xc7e8,0xff1c
+c16d58  mov r8,0xca6e
+c16d5c  cmp r8,0xc76a
+c16d60  jmpr cc_ULE,0xc16d6e
+c16d62  sub r8,0xc76a
+c16d66  mov 0xc770,r8
+c16d6a  jmpa cc_UC,0xc16fce
+c16d6e  mov r8,#0xcd
+c16d72  mov 0xc770,r8
+c16d76  jmpa cc_UC,0xc16fce
+c16d7a  mov r12,#0x51aa
+c16d7e  mov r13,#0xc0
+c16d82  mov r14,0xca1c
+c16d86  calls 0xc28544
+c16d8a  mov r8,r4
+c16d8c  mov r12,#0x5146
+c16d90  mov r13,#0xc0
+c16d94  mov r14,0xc9d0
+c16d98  calls 0xc28544
+c16d9c  mov r14,r4
+c16d9e  mov r12,#0x5c62
+c16da2  mov r13,#0xc0
+c16da6  mov r15,r14
+c16da8  mov r14,r8
+c16daa  calls 0xc2826e
+c16dae  mov 0xc776,r4
+c16db2  calls 0xc1eb2a
+c16db6  calls 0xc1ebf8
+c16dba  extp 0x301, #0x1
+c16dbe  movb RL1,0x1e04
+c16dc2  cmpb RL1,#0x1
+c16dc4  jmpr cc_EQ,0xc16dd8
+c16dc6  cmpb RL1,#0x2
+c16dc8  jmpr cc_EQ,0xc16de2
+c16dca  cmpb RL1,#0x3
+c16dcc  jmpr cc_NE,0xc16dea
+c16dce  mov r8,0xca5a
+c16dd2  cmp r8,0xca5c
+c16dd6  jmpr cc_NC,0xc16de2
+c16dd8  mov r8,0xca5a
+c16ddc  mov 0xc772,r8
+c16de0  jmpr cc_UC,0xc16dea
+c16de2  mov r8,0xca5c
+c16de6  mov 0xc772,r8
+c16dea  extp 0x380, #0x1
+c16dee  movb RL1,0x89d
+c16df2  jmpr cc_EQ,0xc16e04
+c16df4  extp 0x301, #0x1
+c16df8  mov r8,0x21ec
+c16dfc  mov 0xc770,r8
+c16e00  jmpa cc_UC,0xc16f9e
+c16e04  movb RL1,0xc77e
+c16e08  jmpr cc_EQ,0xc16e3e
+c16e0a  extp 0x380, #0x1
+c16e0e  movb RL2,0x832
+c16e12  jmpr cc_NE,0xc16e3e
+c16e14  mov r8,0xc772
+c16e18  extp 0x301, #0x1
+c16e1c  cmp r8,0x21a4
+c16e20  jmpr cc_NC,0xc16e2a
+c16e22  mov 0xc770,0xff1c
+c16e26  jmpa cc_UC,0xc16f9e
+c16e2a  mov r8,0xc772
+c16e2e  extp 0x301, #0x1
+c16e32  sub r8,0x21a4
+c16e36  mov 0xc770,r8
+c16e3a  jmpa cc_UC,0xc16f9e
+c16e3e  movb RL1,0xc81c
+c16e42  jmpa cc_EQ,0xc16f64
+c16e46  extp 0x380, #0x1
+c16e4a  movb RL2,0x832
+c16e4e  jmpa cc_NE,0xc16f64
+c16e52  calls 0xc18d8a
+c16e56  mov r12,r4
+c16e58  mov r8,0xc9d0
+c16e5c  extp 0x301, #0x1
+c16e60  cmp r8,0x23b0
+c16e64  jmpr cc_NC,0xc16ec8
+c16e66  extp 0x380, #0x1
+c16e6a  movb RL1,0x81a
+c16e6e  cmpb RL1,#0x1
+c16e70  jmpr cc_NE,0xc16ec8
+c16e72  mov r13,0xc774
+c16e76  extp 0x301, #0x1
+c16e7a  cmp r13,0x230e
+c16e7e  jmpr cc_NC,0xc16ec8
+c16e80  mov r12,#0x5278
+c16e84  mov r13,#0xc0
+c16e88  mov r14,r8
+c16e8a  calls 0xc28544
+c16e8e  mov r14,r4
+c16e90  mov r12,#0x621c
+c16e94  mov r13,#0xc0
+c16e98  calls 0xc27fca
+c16e9c  mov r8,r4
+c16e9e  mov r12,#0x63c2
+c16ea2  mov r13,#0xc0
+c16ea6  mov r14,0xc97c
+c16eaa  calls 0xc27fca
+c16eae  mov r12,r4
+c16eb0  mulu r8,r12
+c16eb2  mov r13,0xfe0c
+c16eb6  mov r8,0xfe0e
+c16eba  mov r14,r13
+c16ebc  shr r8,#0xf
+c16ebe  shr r13,#0xf
+c16ec0  shl r14,#0x1
+c16ec2  or r8,r14
+c16ec4  mov r12,r8
+c16ec6  jmpr cc_UC,0xc16f44
+c16ec8  cmp r12,0xca2a
+c16ecc  jmpr cc_ULE,0xc16f26
+c16ece  extp 0x380, #0x1
+c16ed2  movb RL1,0x81a
+c16ed6  jmpr cc_NE,0xc16f26
+c16ed8  mov r8,0xc77a
+c16edc  extp 0x301, #0x1
+c16ee0  cmp r8,0x2310
+c16ee4  jmpr cc_NC,0xc16f26
+c16ee6  calls 0xc1eb34
+c16eea  mov r12,#0x7624
+c16eee  mov r13,0xc9d0
+c16ef2  calls 0xc284d8
+c16ef6  mov r12,r4
+c16ef8  mov r8,r12
+c16efa  mov r12,#0x6300
+c16efe  mov r13,#0xc0
+c16f02  mov r14,r8
+c16f04  calls 0xc27fca
+c16f08  mov r12,r4
+c16f0a  mov r13,0xca62
+c16f0e  mulu r12,r13
+c16f10  mov r8,0xfe0c
+c16f14  mov r12,0xfe0e
+c16f18  mov r14,r8
+c16f1a  shr r12,#0xf
+c16f1c  shr r8,#0xf
+c16f1e  shl r14,#0x1
+c16f20  or r12,r14
+c16f22  mov r8,r12
+c16f24  jmpr cc_UC,0xc16f44
+c16f26  mov r8,0xc772
+c16f2a  mov r14,0xca66
+c16f2e  mulu r8,r14
+c16f30  mov r13,0xfe0c
+c16f34  mov r8,0xfe0e
+c16f38  mov r15,r13
+c16f3a  shr r8,#0xf
+c16f3c  shr r13,#0xf
+c16f3e  shl r15,#0x1
+c16f40  or r8,r15
+c16f42  mov r12,r8
+c16f44  cmp r12,#0xf800
+c16f48  jmpr cc_ULE,0xc16f50
+c16f4a  mov r8,#0xf800
+c16f4e  jmpr cc_UC,0xc16f5e
+c16f50  cmp r12,#0xcd
+c16f54  jmpr cc_NC,0xc16f5c
+c16f56  mov r8,#0xcd
+c16f5a  jmpr cc_UC,0xc16f5e
+c16f5c  mov r8,r12
+c16f5e  mov 0xc770,r8
+c16f62  jmpr cc_UC,0xc16f9e
+c16f64  movb RL1,0xcad6
+c16f68  jmpr cc_NE,0xc16f70
+c16f6a  movb RL2,0xcad7
+c16f6e  jmpr cc_EQ,0xc16f96
+c16f70  mov r8,0xc936
+c16f74  extp 0x301, #0x1
+c16f78  cmp r8,0x21a6
+c16f7c  jmpr cc_SLE,0xc16f96
+c16f7e  extp 0x380, #0x1
+c16f82  movb RL1,0x832
+c16f86  jmpr cc_NE,0xc16f96
+c16f88  extp 0x301, #0x1
+c16f8c  mov r12,0x2162
+c16f90  mov 0xc770,r12
+c16f94  jmpr cc_UC,0xc16f9e
+c16f96  calls 0xc1725c
+c16f9a  mov 0xc770,r4
+c16f9e  mov r8,0xc936
+c16fa2  extp 0x301, #0x1
+c16fa6  cmp r8,0x222a
+c16faa  jmpr cc_SGE,0xc16fba
+c16fac  mov r12,0xc072
+c16fb0  extp 0x301, #0x1
+c16fb4  cmp r12,0x222c
+c16fb8  jmpr cc_C,0xc16fce
+c16fba  mov 0xc7e8,0xff1c
+c16fbe  movb 0xc7bc,0xff1c
+c16fc2  extp 0x301, #0x1
+c16fc6  mov r8,0x2222
+c16fca  mov 0xc76a,r8
+c16fce  mov r8,0xc770
+c16fd2  cmp r8,#0xf800
+c16fd6  jmpr cc_ULE,0xc16fde
+c16fd8  mov r8,#0xf800
+c16fdc  jmpr cc_UC,0xc16ff2
+c16fde  mov r8,0xc770
+c16fe2  cmp r8,#0xcd
+c16fe6  jmpr cc_NC,0xc16fee
+c16fe8  mov r8,#0xcd
+c16fec  jmpr cc_UC,0xc16ff2
+c16fee  mov r8,0xc770
+c16ff2  mov 0xc770,r8
+c16ff6  mov r8,[r0+]
+c16ff8  rets

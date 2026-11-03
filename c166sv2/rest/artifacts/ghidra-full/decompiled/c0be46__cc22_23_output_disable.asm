@@ -1,0 +1,7 @@
+; c0be46 cc22_23_output_disable size=18
+c0be46  cmp r12,#0x0
+c0be48  jmpa cc_NE,0xc0be52
+c0be4c  bfldh 0xff24,#0x70,#0x0
+c0be50  rets
+c0be52  bfldh 0xff24,#0x7,#0x0
+c0be56  rets

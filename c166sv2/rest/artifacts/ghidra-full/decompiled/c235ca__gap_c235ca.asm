@@ -1,0 +1,40 @@
+; c235ca gap_c235ca size=116
+c235ca  movb RL1,0xcb2d
+c235ce  cmpb RL1,#0x10
+c235d2  jmpr cc_EQ,0xc2360c
+c235d4  cmpb RL1,#0x20
+c235d8  jmpr cc_NE,0xc2363c
+c235da  mov r12,#0x1
+c235dc  mov r13,#0x0
+c235de  calls 0xc23554
+c235e2  movb 0xcb39,RL4
+c235e6  mov r12,#0x1
+c235e8  mov r13,#0x1
+c235ea  calls 0xc23554
+c235ee  movb 0xcb38,RL4
+c235f2  mov r12,#0x1
+c235f4  mov r13,#0x2
+c235f6  calls 0xc23554
+c235fa  movb 0xcb37,RL4
+c235fe  mov r12,#0x1
+c23600  mov r13,#0x3
+c23602  calls 0xc23554
+c23606  movb 0xcb36,RL4
+c2360a  rets
+c2360c  mov r12,#0x0
+c2360e  mov r13,#0x0
+c23610  calls 0xc23554
+c23614  movb 0xcb39,RL4
+c23618  mov r12,#0x0
+c2361a  mov r13,#0x1
+c2361c  calls 0xc23554
+c23620  movb 0xcb38,RL4
+c23624  mov r12,#0x0
+c23626  mov r13,#0x2
+c23628  calls 0xc23554
+c2362c  movb 0xcb37,RL4
+c23630  mov r12,#0x0
+c23632  mov r13,#0x3
+c23634  calls 0xc23554
+c23638  movb 0xcb36,RL4
+c2363c  rets

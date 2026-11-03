@@ -1,0 +1,36 @@
+; c11b2a can_bus_config size=112
+c11b2a  mov r12,0xf0c2
+c11b2e  and r12,#0x1800
+c11b32  cmp r12,#0x800
+c11b36  jmpr cc_NE,0xc11b4e
+c11b38  mov r12,0xf0c2
+c11b3c  and r12,#0xff
+c11b40  mov r1,r12
+c11b42  cplb RL1
+c11b44  movbz r12,RL1
+c11b46  or r12,#0x8e00
+c11b4a  mov 0xf0c0,r12
+c11b4e  mov r12,0xf0c2
+c11b52  and r12,#0x1800
+c11b56  cmp r12,#0x1800
+c11b5a  jmpr cc_NE,0xc11b98
+c11b5c  extr #0x2
+c11b5e  mov 0xf0c0,#0xaaaa
+c11b62  mov 0xf0c0,#0x5554
+c11b66  mov r12,0xf0c2
+c11b6a  and r12,#0xff
+c11b6e  mov r1,r12
+c11b70  cplb RL1
+c11b72  movbz r12,RL1
+c11b74  or r12,#0x9600
+c11b78  mov 0xf0c0,r12
+c11b7c  extr #0x1
+c11b7e  mov 0xf0c0,#0x800
+c11b82  mov r12,0xf0c2
+c11b86  and r12,#0xff
+c11b8a  mov r1,r12
+c11b8c  cplb RL1
+c11b8e  movbz r12,RL1
+c11b90  or r12,#0x8e00
+c11b94  mov 0xf0c0,r12
+c11b98  rets

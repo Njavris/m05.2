@@ -1,0 +1,31 @@
+; c276f0 gap_c276f0 size=72
+c276f0  mov r14,r13
+c276f2  mov r13,r12
+c276f4  ashr r13,#0xf
+c276f6  mov r15,r13
+c276f8  mov r13,r14
+c276fa  mov r1,r14
+c276fc  ashr r1,#0xf
+c276fe  mov r13,r15
+c27700  add r12,r14
+c27702  addc r13,r1
+c27704  mov r14,r12
+c27706  mov r15,r13
+c27708  sub r14,#0x7fff
+c2770c  subc r15,#0x0
+c2770e  jmpr cc_SGE,0xc2772e
+c27710  mov r14,r12
+c27712  mov r15,r13
+c27714  sub r14,#0x8000
+c27718  subc r15,#0xffff
+c2771c  jmpr cc_SLE,0xc27724
+c2771e  mov r13,r12
+c27720  ashr r13,#0xf
+c27722  jmpr cc_UC,0xc2772c
+c27724  mov r12,#0x8000
+c27728  mov r13,#0xffff
+c2772c  jmpr cc_UC,0xc27734
+c2772e  mov r12,#0x7fff
+c27732  mov r13,#0x0
+c27734  mov r4,r12
+c27736  rets

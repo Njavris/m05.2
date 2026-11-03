@@ -1,0 +1,31 @@
+; c11bf4 app_hw_init size=110
+c11bf4  calls 0xc11b2a
+c11bf8  extr #0x2
+c11bfa  or 0xf0fe,#0x1
+c11bfe  mov 0xf1d0,#0x7f13
+c11c02  calls 0xc103c0
+c11c06  calls 0xc105ec
+c11c0a  calls 0xc10370
+c11c0e  calls 0xc11f1c
+c11c12  calls 0xc0ff00
+c11c16  calls 0xc10200
+c11c1a  calls 0xc108ce
+c11c1e  calls 0xc1072a
+c11c22  calls 0xc0cea2
+c11c26  calls 0xc0cdfa
+c11c2a  calls 0xc0bfd2
+c11c2e  calls 0xc14298
+c11c32  calls 0xc0f628
+c11c36  calls 0xc0fb6e
+c11c3a  calls 0xc0d562
+c11c3e  calls 0xc0d528
+c11c42  calls 0xc0bda2
+c11c46  calls 0xc0d9e4
+c11c4a  calls 0xc0ba9e
+c11c4e  calls 0xc11b9a
+c11c52  calls 0xc11b2a
+c11c56  mov 0xffae,#0xbc01
+c11c5a  co_mac_unknown 0x7a
+c11c5c  co_mac_unknown 0x85
+c11c5e  bclr 0xff06.0x2
+c11c60  rets

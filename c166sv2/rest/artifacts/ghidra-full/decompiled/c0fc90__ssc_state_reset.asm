@@ -1,0 +1,7 @@
+; c0fc90 ssc_state_reset size=22
+c0fc90  mov 0xc47e,0xff1c
+c0fc94  movb 0xc47c,0xff1c
+c0fc98  movb 0xc480,0xff1c
+c0fc9c  movb 0xc47b,0xff1c
+c0fca0  movb 0xc47a,0xff1c
+c0fca4  rets

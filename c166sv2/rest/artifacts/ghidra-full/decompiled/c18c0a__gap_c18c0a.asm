@@ -1,0 +1,6 @@
+; c18c0a gap_c18c0a size=18
+c18c0a  movb 0xc848,0xff1c
+c18c0e  mov 0xc846,0xff1c
+c18c12  movb 0xc84c,0xff1c
+c18c16  mov 0xc84a,0xff1c
+c18c1a  rets

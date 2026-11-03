@@ -1,0 +1,37 @@
+; c0e830 FUN_c0e830 size=100
+c0e830  mov r13,#0x1a
+c0e834  mulu r12,r13
+c0e836  mov r14,#0xc3de
+c0e83a  mov r13,0xfe0e
+c0e83e  add r14,r13
+c0e840  mov r5,#0x0
+c0e842  sub r0,#0x4
+c0e844  mov r15,[r14]
+c0e846  sub r15,0xc274
+c0e84a  mov r12,r15
+c0e84c  mov r4,r12
+c0e84e  mov r10,#0x780
+c0e852  mov r11,#0x0
+c0e854  calls 0xc28bb2
+c0e858  mov [r0],r4
+c0e85a  mov [r0+#0x2],r5
+c0e85e  cmpb RL4,#0xff
+c0e862  jmpr cc_ULE,0xc0e86a
+c0e864  movb RL1,#0xff
+c0e868  jmpr cc_UC,0xc0e86c
+c0e86a  movb RL1,[r0]
+c0e86c  mov r12,#0xc3d8
+c0e870  add r12,r13
+c0e872  mov r2,#0x780
+c0e876  movb [r12],RL1
+c0e878  movb RL1,[r12]
+c0e87a  movbz r12,RL1
+c0e87c  mulu r12,r2
+c0e87e  mov r14,[r14]
+c0e880  mov r1,0xfe0c
+c0e884  mov r12,0xfe0e
+c0e888  mov r15,r12
+c0e88a  sub r14,r15
+c0e88c  mov [r13+#0xc3dc],r14
+c0e890  add r0,#0x4
+c0e892  rets

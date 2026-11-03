@@ -1,0 +1,37 @@
+; c0fa2a FUN_c0fa2a size=100
+c0fa2a  mov [-r0],r8
+c0fa2c  sub r0,#0x2
+c0fa2e  mov r8,r13
+c0fa30  shl r13,#0x1
+c0fa32  mov [-r0],r12
+c0fa34  mov [r0+#0x2],r13
+c0fa38  mov r12,[r13+#0x7046]
+c0fa3c  calls 0xc0bf8c
+c0fa40  mov r12,[r0+]
+c0fa42  cmp r4,#0x1
+c0fa44  jmpa cc_NE,0xc0fa88
+c0fa48  sub r12,0xc458
+c0fa4c  mov r13,r12
+c0fa4e  mov r13,#0x1a
+c0fa52  mulu r8,r13
+c0fa54  mov r14,0xfe0e
+c0fa58  mov r13,[r14+#0xc3ce]
+c0fa5c  calls 0xc0ecb6
+c0fa60  mov r13,[r0]
+c0fa62  mov r12,r4
+c0fa64  mov r14,r12
+c0fa66  mov r12,[r13+#0x7046]
+c0fa6a  mov r13,r8
+c0fa6c  calls 0xc0be6a
+c0fa70  cmp r8,#0x0
+c0fa72  jmpa cc_NE,0xc0fa7e
+c0fa76  extr #0x1
+c0fa78  bset 0xf16e.0x6
+c0fa7a  jmpa cc_UC,0xc0fa88
+c0fa7e  cmp r8,#0x1
+c0fa80  jmpa cc_NE,0xc0fa88
+c0fa84  extr #0x1
+c0fa86  bset 0xf16c.0x6
+c0fa88  add r0,#0x2
+c0fa8a  mov r8,[r0+]
+c0fa8c  rets

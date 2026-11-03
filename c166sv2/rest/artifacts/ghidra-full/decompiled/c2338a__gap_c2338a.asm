@@ -1,0 +1,37 @@
+; c2338a gap_c2338a size=84
+c2338a  mov [-r0],r9
+c2338c  mov [-r0],r8
+c2338e  mov [-r0],r7
+c23390  mov [-r0],r6
+c23392  mov r7,r12
+c23394  mov r8,#0x0
+c23396  movb RL6,#0x0
+c23398  mov r12,r8
+c2339a  calls 0xc2425c
+c2339e  mov r9,r4
+c233a0  mov r12,r8
+c233a2  calls 0xc24286
+c233a6  cmpb RL4,#0x0
+c233a8  jmpr cc_EQ,0xc233ca
+c233aa  cmp r9,0xcb22
+c233ae  jmpr cc_C,0xc233ca
+c233b0  cmp r9,0xcb20
+c233b4  jmpr cc_UGT,0xc233ca
+c233b6  cmpb RL7,#0x1
+c233b8  jmpr cc_EQ,0xc233c8
+c233ba  cmpb RL7,#0x0
+c233bc  jmpr cc_NE,0xc233ca
+c233be  mov r12,r8
+c233c0  calls 0xc24530
+c233c4  cmpb RL4,#0x0
+c233c6  jmpr cc_EQ,0xc233ca
+c233c8  addb RL6,#0x1
+c233ca  add r8,#0x1
+c233cc  cmp r8,#0x27
+c233d0  jmpr cc_C,0xc23398
+c233d2  movb RL4,RL6
+c233d4  mov r6,[r0+]
+c233d6  mov r7,[r0+]
+c233d8  mov r8,[r0+]
+c233da  mov r9,[r0+]
+c233dc  rets

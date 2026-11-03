@@ -1,0 +1,139 @@
+; c02ddc gap_c02ddc size=366
+c02ddc  mov [-r0],r6
+c02dde  sub r0,#0x4
+c02de0  extp 0x380, #0x1
+c02de4  movb RL1,0x2
+c02de8  movbz r15,RL1
+c02dea  mov r14,#0x0
+c02dec  extp 0x380, #0x1
+c02df0  movbz r2,0x3
+c02df4  mov r12,#0x0
+c02df6  mov r13,r2
+c02df8  shl r2,#0x8
+c02dfa  shl r12,#0x8
+c02dfc  shr r13,#0x8
+c02dfe  or r12,r13
+c02e00  or r14,r2
+c02e02  or r15,r12
+c02e04  extp 0x380, #0x1
+c02e08  movbz r2,0x4
+c02e0c  mov r12,#0x0
+c02e0e  or r14,r2
+c02e10  or r15,r12
+c02e12  and r15,#0xff
+c02e16  extp 0x380, #0x1
+c02e1a  movb RL3,0x5
+c02e1e  movbz r2,RL3
+c02e20  mov r1,#0x0
+c02e22  extp 0x380, #0x1
+c02e26  movbz r4,0x6
+c02e2a  mov r13,#0x0
+c02e2c  mov r5,r4
+c02e2e  shl r4,#0x8
+c02e30  shl r13,#0x8
+c02e32  shr r5,#0x8
+c02e34  or r13,r5
+c02e36  or r1,r4
+c02e38  or r2,r13
+c02e3a  extp 0x380, #0x1
+c02e3e  movbz r4,0x7
+c02e42  mov r13,#0x0
+c02e44  or r1,r4
+c02e46  or r2,r13
+c02e48  and r2,#0xff
+c02e4c  mov r12,r14
+c02e4e  mov r13,r15
+c02e50  sub r1,r14
+c02e52  subc r2,r15
+c02e54  add r1,#0x1
+c02e56  addc r2,#0x0
+c02e58  mov r14,r1
+c02e5a  mov r15,r2
+c02e5c  mov r1,#0xffff
+c02e60  mov r2,r1
+c02e62  mov [r0],r1
+c02e64  mov [r0+#0x2],r2
+c02e68  jmpr cc_UC,0xc02ece
+c02e6a  mov r6,r12
+c02e6c  mov r1,r13
+c02e6e  add r12,#0x1
+c02e70  addc r13,#0x0
+c02e72  exts r1, #0x1
+c02e74  movb RL6,[r6]
+c02e76  movbz r6,RL6
+c02e78  mov r1,#0x0
+c02e7a  mov r2,[r0]
+c02e7c  mov r3,[r0+#0x2]
+c02e80  xor r2,r6
+c02e82  xor r3,r1
+c02e84  mov [r0],r2
+c02e86  mov [r0+#0x2],r3
+c02e8a  movb RL6,#0x0
+c02e8c  mov r1,[r0]
+c02e8e  mov r2,[r0+#0x2]
+c02e92  jnb r1.0x0,0xc02eae
+c02e96  mov r1,[r0]
+c02e98  mov r2,[r0+#0x2]
+c02e9c  shr r1,#0x1
+c02e9e  bmov r1.0xf,r2.0x0
+c02ea2  shr r2,#0x1
+c02ea4  xor r1,#0x8320
+c02ea8  xor r2,#0xedb8
+c02eac  jmpr cc_UC,0xc02ebc
+c02eae  mov r1,[r0]
+c02eb0  mov r2,[r0+#0x2]
+c02eb4  shr r1,#0x1
+c02eb6  bmov r1.0xf,r2.0x0
+c02eba  shr r2,#0x1
+c02ebc  mov [r0],r1
+c02ebe  mov [r0+#0x2],r2
+c02ec2  addb RL6,#0x1
+c02ec4  cmpb RL6,#0x8
+c02ec8  jmpr cc_C,0xc02e8c
+c02eca  sub r14,#0x1
+c02ecc  subc r15,#0x0
+c02ece  mov r6,r14
+c02ed0  mov r1,r15
+c02ed2  or r6,r1
+c02ed4  jmpr cc_NE,0xc02e6a
+c02ed6  mov r12,r0
+c02ed8  calls 0xc02f4a
+c02edc  mov r6,[r0]
+c02ede  mov r12,[r0+#0x2]
+c02ee2  mov r6,r12
+c02ee4  shr r6,#0x8
+c02ee6  mov r12,#0x0
+c02ee8  and r6,#0xff
+c02eec  and r12,#0x0
+c02eee  extp 0x380, #0x1
+c02ef2  movb 0x20,RL6
+c02ef6  mov r12,[r0]
+c02ef8  mov r12,[r0+#0x2]
+c02efc  mov r13,#0x0
+c02efe  and r12,#0xff
+c02f02  and r13,#0x0
+c02f04  mov r1,r12
+c02f06  extp 0x380, #0x1
+c02f0a  movb 0x21,RL1
+c02f0e  mov r12,[r0]
+c02f10  mov r13,[r0+#0x2]
+c02f14  mov r14,r13
+c02f16  shr r12,#0x8
+c02f18  shr r13,#0x8
+c02f1a  shl r14,#0x8
+c02f1c  or r12,r14
+c02f1e  and r12,#0xff
+c02f22  and r13,#0x0
+c02f24  mov r2,r12
+c02f26  extp 0x380, #0x1
+c02f2a  movb 0x22,RL2
+c02f2e  mov r12,[r0]
+c02f30  mov r13,[r0+#0x2]
+c02f34  add r0,#0x4
+c02f36  and r12,#0xff
+c02f3a  mov r3,r12
+c02f3c  extp 0x380, #0x1
+c02f40  movb 0x23,RL3
+c02f44  and r13,#0x0
+c02f46  mov r6,[r0+]
+c02f48  rets

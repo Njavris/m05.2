@@ -1,0 +1,21 @@
+; c12b46 gap_c12b46 size=74
+c12b46  movb 0xc5ae,[r0]
+c12b4a  movb RL1,0xc5ae
+c12b4e  movb 0xc5a1,RL1
+c12b52  movb 0xc56e,0xff1c
+c12b56  andb RL1,#0x3f
+c12b5a  movb 0xc578,RL1
+c12b5e  movb RL2,0xc5ae
+c12b62  andb RL2,#0xc0
+c12b66  cmpb RL2,#0x80
+c12b6a  jmpa cc_EQ,0xc12caa
+c12b6e  cmpb RL2,#0xc0
+c12b72  jmpa cc_EQ,0xc12caa
+c12b76  cmpb RL2,#0x0
+c12b78  jmpr cc_EQ,0xc12b86
+c12b7a  cmpb RL2,#0x40
+c12b7e  jmpa cc_EQ,0xc12c9e
+c12b82  jmpa cc_UC,0xc12cb0
+c12b86  movb RL1,0xc57d
+c12b8a  jmpa cc_EQ,0xc12c9e
+c12b8e  jmpr cc_UC,0xc12c24

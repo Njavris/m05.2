@@ -1,0 +1,32 @@
+; c2380a gap_c2380a size=84
+c2380a  sub r0,#0x4
+c2380c  movb RL1,0xcb2d
+c23810  cmpb RL1,#0x20
+c23814  jmpr cc_EQ,0xc23822
+c23816  cmpb RL1,#0x10
+c2381a  jmpr cc_NE,0xc2383a
+c2381c  mov [r0],0xca90
+c23820  jmpr cc_UC,0xc2383a
+c23822  sub r0,#0x4
+c23824  mov r12,#0x4
+c23826  movbz r13,0xcb25
+c2382a  calls 0xc23446
+c2382e  mov r14,[r4+]
+c23830  mov r15,[r4]
+c23832  add r0,#0x4
+c23834  mov [r0],r14
+c23836  mov [r0+#0x2],r15
+c2383a  mov r12,[r0]
+c2383c  mov r13,#0x1
+c2383e  mov r14,#0xf
+c23840  calls 0xc289c2
+c23844  mov r13,r4
+c23846  mov r12,#0x7716
+c2384a  calls 0xc284d8
+c2384e  mov [r0],r4
+c23850  mov r12,[r0]
+c23852  shr r12,#0x8
+c23854  mov r1,r12
+c23856  movb 0xcb39,RL1
+c2385a  add r0,#0x4
+c2385c  rets

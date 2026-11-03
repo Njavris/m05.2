@@ -1,0 +1,9 @@
+; c0cac2 watchdog_pin size=24
+c0cac2  mov r12,0xf1e4
+c0cac6  jb r12.0x0,0xc0cad2
+c0caca  mov r13,0xf1e4
+c0cace  jnb r13.0x1,0xc0cad6
+c0cad2  bset 0xfd00.0x5
+c0cad4  rets
+c0cad6  bclr 0xfd00.0x5
+c0cad8  rets

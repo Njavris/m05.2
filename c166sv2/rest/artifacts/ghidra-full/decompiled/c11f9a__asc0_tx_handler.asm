@@ -1,0 +1,36 @@
+; c11f9a asc0_tx_handler size=98
+c11f9a  mov 0xfce0,r0
+c11f9e  scxt 0xfe10,#0xfce0
+c11fa2  scxt 0xff0e,#0x10
+c11fa6  push 0xfe00
+c11fa8  mov 0xfe00,#0x301
+c11fac  push 0xfe04
+c11fae  mov 0xfe04,#0x303
+c11fb2  push 0xfe0c
+c11fb4  push 0xfe0e
+c11fb6  mov r8,0xc57a
+c11fba  cmp r8,#0x6
+c11fbc  jmpr cc_NE,0xc11fee
+c11fbe  mov r9,0xc5a2
+c11fc2  cmp r9,#0x1
+c11fc4  jmpr cc_NE,0xc11fe2
+c11fc6  mov 0xc5ac,0xff1c
+c11fca  movb RL6,0xc57d
+c11fce  jmpr cc_EQ,0xc11fdc
+c11fd0  movb RL7,0xc5b6
+c11fd4  jmpr cc_EQ,0xc11fe2
+c11fd6  calls 0xc12848
+c11fda  jmpr cc_UC,0xc11fe2
+c11fdc  mov r12,#0x5
+c11fde  calls 0xc126bc
+c11fe2  mov r8,0xc5a2
+c11fe6  jmpr cc_NE,0xc11fee
+c11fe8  mov r12,#0x0
+c11fea  calls 0xc126da
+c11fee  pop 0xfe0e
+c11ff0  pop 0xfe0c
+c11ff2  pop 0xfe04
+c11ff4  pop 0xfe00
+c11ff6  pop 0xff0e
+c11ff8  pop 0xfe10
+c11ffa  reti

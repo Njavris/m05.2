@@ -1,0 +1,31 @@
+; c0fc42 FUN_c0fc42 size=78
+c0fc42  mov [-r0],r8
+c0fc44  mov r8,r12
+c0fc46  calls 0xc1064c
+c0fc4a  mov r14,#0x1a
+c0fc4e  mulu r8,r14
+c0fc50  mov r15,0xfe0e
+c0fc54  mov r13,r4
+c0fc56  mov r12,[r15+#0xc3d2]
+c0fc5a  sub r12,r13
+c0fc5c  cmp r12,#0x1
+c0fc5e  jmpr cc_ULE,0xc0fc82
+c0fc60  cmp r12,#0x8000
+c0fc64  jmpr cc_NC,0xc0fc82
+c0fc66  calls 0xc1064c
+c0fc6a  mov r12,r8
+c0fc6c  shl r12,#0x1
+c0fc6e  mov r13,r12
+c0fc70  mov r14,r4
+c0fc72  mov r12,[r13+#0x7046]
+c0fc76  mov r13,r8
+c0fc78  calls 0xc0be6a
+c0fc7c  mov r12,r8
+c0fc7e  calls 0xc0fbcc
+c0fc82  cmp r8,#0x0
+c0fc84  jmpr cc_NE,0xc0fc8a
+c0fc86  bset 0xfd10.0x1
+c0fc88  jmpr cc_UC,0xc0fc8c
+c0fc8a  bset 0xfd0c.0x1
+c0fc8c  mov r8,[r0+]
+c0fc8e  rets
