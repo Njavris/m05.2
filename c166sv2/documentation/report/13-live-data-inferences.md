@@ -132,7 +132,8 @@ the likely actuation path for these tests. The exact `0x8C–0x8F` to
   stack must handle `0x21`/`0x30`.
 * `21 03`/`21 04`/`21 FF` are hardware ID, software ID and ignition counter;
   `23 C0 50 00 0A` reads the ASCII calibration version (`D000101 `).
-* The app handler table at external RAM `0x7164` remains the main missing code
+* The app handler table at logical `0x7164` is present at flash `0xC0B164`;
+  the service handler path for `0x21`/`0x30` remains the main unresolved code
   path for live data.
 
 ## 13.4 1-cylinder vs 2-cylinder caveat

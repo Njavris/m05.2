@@ -102,7 +102,8 @@ arithmetic instead of stacked address casts.
 
 - 342 low-confidence functions remain address-derived; most are small runtime
   helpers with only `FUN_*`/`gap_*` callees.
-- External RAM at `0x705E`, `0x7164`, `0x7500`, `0x7564`, `0x7666` is absent.
+- Ordinary external RAM is absent; the logical `0x705E`, `0x7164`,
+  `0x7500`/`0x7564` and `0x7666` tables are DPP1-mapped flash at `0xC0Bxxx`.
 - The encrypted HUD definitions were not decrypted.
 - HUD logs are from other MT05/MT05.2 machines; ranges are validation evidence,
   not a trace of this exact ECU.

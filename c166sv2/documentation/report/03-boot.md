@@ -197,8 +197,10 @@ All nine type-6 records in the application table are decoded in
 
 The emulator observation that "missing fields are filled from flash from
 `0xC0Bxxx`" is correct for these nine fields, but this table does **not**
-initialize the external-RAM axis descriptors at `0x7500`/`0x7564` or the task
-tables at `0x705E`/`0x7164`/`0x7666`. Those remain absent from the flash dump.
+initialize the axis descriptors at `0x7500`/`0x7564` or the task tables at
+`0x705E`/`0x7164`/`0x7666`. Those are separate DPP1-mapped flash objects at
+`0xC0B500`/`0xC0B564` and `0xC0B05E`/`0xC0B164`/`0xC0B666`; they are present in
+the dump.
 
 ## 3.8 Application main and scheduler
 
@@ -221,15 +223,15 @@ The scheduler at 0xC11EB4:
    `0xC962` must lie in 0x5800–0x6800, `0xCB60`/`0xC280` must be zero for the
    normal path; otherwise the code clears 0xC5E6/0xC5E8/0xC5EA and skips
    `test_command_dispatch`.
-6. Updates two counters from the table at external RAM 0x7088 and calls a
-   callback via a RAM function pointer.
-7. Dispatches a task from the external-RAM table at **0x705E** when the state
-   variable 0xC584 is in 4..15.
+6. Updates two counters from the table at logical 0x7088 (DPP1 -> physical
+   0xC0B088) and calls a callback via a RAM function pointer.
+7. Dispatches a task from the logical table at **0x705E** (physical `0xC0B05E`)
+   when the state variable 0xC584 is in 4..15.
 8. Calls `diag_status_build` (periodic work) and may reset the CPU on a fatal state.
 
-The task table at 0x705E is in external RAM and is **not present in the dump**;
-the task addresses cannot be enumerated from flash alone. The scheduler
-structure and the fixed calls are observed.
+The task table at logical 0x705E is present in flash at physical `0xC0B05E`
+via `DPP1 = 0x302`. Its first entries are `941E 941E 941E B01E`; task pointers
+are segment-C1 offsets. The scheduler structure and fixed calls are observed.
 
 ## 3.9 Boot-flow summary
 

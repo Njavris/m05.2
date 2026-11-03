@@ -7,7 +7,7 @@ Read `TODO.md` first. Then read:
 - `docs/06-calibration.md`
 - `docs/07-engine-control.md`
 - `firmware/SEMANTIC_NAMES.md`
-- the current `ecu_tool/` and `ecu_diag/` sources
+- the current `tools/ecu_tool/` and `tools/ecu_diag/` sources
 
 I have new data here:
 

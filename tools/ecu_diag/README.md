@@ -9,8 +9,8 @@ dump flash, but it cannot write calibration or firmware.
 ## Build
 
 ```bash
-cmake -S ecu_diag -B ecu_diag/build
-cmake --build ecu_diag/build
+cmake -S tools/ecu_diag -B tools/ecu_diag/build
+cmake --build tools/ecu_diag/build
 ```
 
 The tool links the shared serial/K-line/live-data sources from `ecu_tool/`.
@@ -18,7 +18,7 @@ The tool links the shared serial/K-line/live-data sources from `ecu_tool/`.
 ## Use
 
 ```bash
-./ecu_diag/build/ecu_diag --port /dev/ttyUSB0
+./tools/ecu_diag/build/ecu_diag --port /dev/ttyUSB0
 ```
 
 On Windows use `COM3` (or the actual port). On macOS use the FTDI

@@ -36,13 +36,13 @@ into `c166sv2/deliverables/reconstruction/full/catalog/HUD_PARAMETERS.csv`,
 | Boot K-line receive | `asc0_state4` | `0xC012E6` | validates header, fills request buffer |
 | Boot KWP dispatch | `kwp_dispatch` | `0xC01482` | 0x10/0x23/0x27/0x31/0x34/0x36/0x38/0x3D/0x81/0x83 |
 | Boot K-line transmit | `asc0_state5` | `0xC013E8` | builds `80 F1 11 ..` response and checksum |
-| App K-line task | `kline_transport_task` | `0xC12982` | handler table at external RAM `0x7164` |
+| App K-line task | `kline_transport_task` | `0xC12982` | handler table at logical `0x7164` (flash `0xC0B164`) |
 | App K-line TX | `kline_prepare_frame` / `asc0_tx_handler` | `0xC126DA` / `0xC11F9A` | second K-line stack |
 | CAN transport | `can_isotp_send` / `can_tx_frame` | `0xC01C6E` / `0xC01CC8` | same KWP payload over ISO-TP |
 
 The boot dispatcher does **not** implement `0x21` or `0x30`; the application
-K-line stack is the likely handler, and its handler table at external RAM
-`0x7164` is missing from the flash dump.
+K-line stack is the likely handler, and its handler table at logical `0x7164`
+is present at flash `0xC0B164`.
 
 ## 12.3 The `21 01` 100-byte packet
 

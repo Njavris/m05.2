@@ -46,7 +46,7 @@ count is not directly comparable: many old entries were small gap blocks.
 `c166sv2/rest/artifacts/ghidra-full/disassembly.txt` is the instruction-only listing.
 `c166sv2/rest/artifacts/ghidra-full/functions.csv` includes callers, callees, and xrefs.
 The buildable full catalog and named reference tree are in
-[`../../deliverables/c166sv2/deliverables/reconstruction/full/README.md`](../../deliverables/c166sv2/deliverables/reconstruction/full/README.md).
+[`../../deliverables/reconstruction/full/README.md`](../../deliverables/reconstruction/full/README.md).
 
 ## 14.4 What changed in the model
 
@@ -83,7 +83,8 @@ entered by an external bootstrap path. See
   algorithm claims.
 - The four remaining undefined code targets (`0xC12690`, `0xC19A0E`,
   `0xC19E9A`, `0xC2060A`) are data-like and remain explicit unknowns.
-- External RAM at `0x705E`, `0x7164`, `0x7500`, and `0x7666` is still absent.
+- Ordinary external RAM is absent; the logical `0x705E`, `0x7164`, `0x7500`
+  and `0x7666` tables are DPP1-mapped flash at `0xC0Bxxx` and are present.
 - DPP context and indirect table dispatch are still unresolved where the code
   depends on runtime data.
 

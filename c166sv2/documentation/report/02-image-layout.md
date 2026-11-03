@@ -93,10 +93,19 @@ XC164CS datasheet and is confirmed by the instructions:
 | 0x00FE00–0x00FFFF | SFR area | ports, timers, ASC0, ADC, CAPCOM |
 
 Important consequence: the dump contains **flash plus the adaptation log**, but
-not the external memory/RAM at 0x007000–0x007FFF or 0x00C000–0x00CFFF. Several
-calibration axis descriptors and the scheduler task table live in that external
-RAM, so their contents are unknown from this image alone. This is the largest
-single limitation of the analysis.
+not ordinary external RAM at `0x0000–0x7FFF` or the segment-`0xE0` window.
+Some engine variables (`0xC9xx`, `0xFDxx`) live in ordinary RAM and remain
+runtime-only. The calibration axis descriptors and scheduler/K-line task tables
+at logical `0x7000–0x7FFF` are different: with `DPP1 = 0x302` they map to
+physical flash `0xC0B000–0xC0BFFF` and are present in the dump.
+
+## 2.4.1 Dump completeness
+
+Four independent 256 KB reads are present in `dumps/`; they differ only in the
+adaptation log. All three flash checksums pass and every flash byte is accounted
+for. No additional flash dump is needed for the static reconstruction. The only
+optional hardware capture is a runtime snapshot of ordinary external RAM or the
+external EEPROM/SSC device; it is not required to recover the axis/task tables.
 
 ## 2.5 Visible structure of the image
 

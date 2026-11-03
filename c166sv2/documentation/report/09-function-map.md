@@ -153,8 +153,8 @@ body. Use them when the C decompiler output looks suspicious.
   larger application call graph than the original 195-function view.
 * Data tables are not functions; they are preserved in the raw dump and in
   `c166sv2/deliverables/artifacts/calibration_tables.csv`.
-* The decompiler cannot read external RAM at 0x705E/0x7500/0x00C9xx, which is
-  why several functions show `Unable to read bytes at ram:...` warnings.
+* Ghidra does not apply the runtime DPP mapping: logical 0x705E/0x7500 are
+  flash `0xC0Bxxx`; logical 0x00C9xx is genuine RAM and remains unavailable.
 
 ## 9.5 How to use the map
 

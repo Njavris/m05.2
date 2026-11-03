@@ -8,8 +8,8 @@ import sys
 import threading
 import tty
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-TOOL = os.path.join(ROOT, "ecu_tool", "build", "ecu_tool")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+TOOL = os.path.join(ROOT, "tools", "ecu_tool", "build", "ecu_tool")
 DUMP = os.path.join(ROOT, "dumps", "mash_dump.bin")
 
 

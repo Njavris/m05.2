@@ -78,8 +78,9 @@ a target ECU binary.
 ## Limits
 
 The target rebuild requires a commercial C166 toolchain (TASKING VX for C166 or
-Keil C166); none is installed here. External RAM at `0x705E`, `0x7164`,
-`0x7500`, `0x7564` and `0x7666` is absent from the dump. See
+Keil C166); none is installed here. Ordinary external RAM is absent from the
+dump; the logical `0x705E`, `0x7164`, `0x7500`/`0x7564` and `0x7666` tables are
+DPP1-mapped flash at `0xC0Bxxx`. See
 [`c166sv2/documentation/report/10-method-and-limitations.md`](c166sv2/documentation/report/10-method-and-limitations.md).
 
 ## Credits

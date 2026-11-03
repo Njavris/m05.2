@@ -57,9 +57,10 @@ index = (value - min) * (count - 1) * 256 / (max - min);
 ```
 
 The caller then uses `index` with one of the table lookup functions. Axis
-descriptors used by the engine calculations are at **external RAM 0x750A,
-0x7510, 0x7552, 0x755E, 0x7564** — not in the flash dump. Their contents are
-therefore unknown; only their addresses and use are recovered.
+descriptors used by the engine calculations are at logical **0x750A, 0x7510,
+0x7552, 0x755E, 0x7564**. With `DPP1 = 0x302` they map to physical flash
+`0xC0B50A`, `0xC0B510`, `0xC0B552`, `0xC0B55E`, `0xC0B564` and are present in
+the dump.
 
 ### 6.3.2 8-bit table (`tbl8_interp`, 0xC27FCA)
 
@@ -187,9 +188,10 @@ present in the dump.
 
 ## 6.6 Limitations
 
-* The axis descriptors at 0x750A–0x7564 live in **external RAM** and are not in
-  the image. Their count/min/max values are therefore unknown.
-* The scheduler task table at 0x705E is also in external RAM.
+* The axis descriptors at logical 0x750A–0x7564 map through DPP1 to physical
+  flash `0xC0B50A–0xC0B564` and are present in the image.
+* The scheduler task table at logical 0x705E maps to physical `0xC0B05E` and is
+  present.
 * The table at 0xC0794A is proven to be a 9×9 8-bit map. live-data `FVE1` and the
   log scaling identify it as a volumetric-efficiency/load map; the exact
   normalized unit is still raw counts.

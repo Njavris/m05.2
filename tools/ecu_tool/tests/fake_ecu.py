@@ -12,9 +12,9 @@ import sys
 import tempfile
 import tty
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 DUMP = os.path.join(ROOT, "dumps", "mash_dump.bin")
-CAL = os.path.join(ROOT, "artifacts", "calibration_block.bin")
+CAL = os.path.join(ROOT, "c166sv2", "deliverables", "artifacts", "calibration_block.bin")
 
 image = bytearray(open(DUMP, "rb").read())
 calibration = open(CAL, "rb").read()
@@ -135,7 +135,7 @@ def run(tool, args, timeout=30, input_text=None):
 
 
 def main():
-    tool = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "ecu_tool", "build", "ecu_tool")
+    tool = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "tools", "ecu_tool", "build", "ecu_tool")
     ok = True
     live = run(tool, ["live", "--count", "1"])
     print("live rc", live.returncode)
@@ -147,7 +147,7 @@ def main():
     if ids.returncode != 0 or b"21 03" not in ids.stdout:
         sys.stderr.write(ids.stderr.decode(errors="replace"))
         ok = False
-    diag_tool = os.path.join(ROOT, "ecu_diag", "build", "ecu_diag")
+    diag_tool = os.path.join(ROOT, "tools", "ecu_diag", "build", "ecu_diag")
     if os.path.exists(diag_tool):
         diag = run(diag_tool, [], input_text="1\n1\n100\n\n0\n")
         print("diag live rc", diag.returncode)

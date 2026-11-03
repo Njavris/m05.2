@@ -89,8 +89,8 @@ as logical views, not contiguous memory layouts.
   address-derived placeholders, not role claims.
 * 37 gaps remain in the whole-image listing, mostly data tables, vector-table
   slack, or padding.
-* External RAM at `0x705E`, `0x7164`, `0x7500`, `0x7564`, and `0x7666` is still
-  absent from the flash dump.
+* Ordinary external RAM is still absent. Logical `0x705E`, `0x7164`, `0x7500`,
+  `0x7564` and `0x7666` are DPP1-mapped flash at `0xC0Bxxx` and are present.
 * The hidden boot/test block is still not proven reachable; its entry is
   inferred from code shape.
 * The full project in `c166sv2/deliverables/reconstruction/full/` supersedes this table with a

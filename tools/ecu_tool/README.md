@@ -37,38 +37,38 @@ serial device and the FTDI VCP driver; the tool uses `IOSSIOSPEED` for 10400 bau
 ## Build
 
 ```bash
-cmake -S ecu_tool -B ecu_tool/build
-cmake --build ecu_tool/build
+cmake -S tools/ecu_tool -B tools/ecu_tool/build
+cmake --build tools/ecu_tool/build
 ```
 
 or directly:
 
 ```bash
 cc -std=c11 -O2 -Wall -Wextra -Wpedantic \
-   -Iecu_tool/src ecu_tool/src/*.c -o ecu_tool/build/ecu_tool
+   -Itools/ecu_tool/src tools/ecu_tool/src/*.c -o tools/ecu_tool/build/ecu_tool
 ```
 
 ## Commands
 
 ```bash
 # live dashboard
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 live
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 live
 
 # CSV log, 60 samples at 250 ms
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --csv live --count 60
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 --csv live --count 60
 
 # full 256 KB flash dump
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 dump --out mash_read.bin
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 dump --out mash_read.bin
 
 # read 16 calibration bytes
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
     read --addr 0xC05000 --len 16
 
 # hardware/software IDs and calibration version
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 ids
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 ids
 
 # offline checks
-./ecu_tool/build/ecu_tool selftest
+./tools/ecu_tool/build/ecu_tool selftest
 ```
 
 Use `--verbose` to print TX/RX frames. On Windows replace `/dev/ttyUSB0` with
@@ -93,14 +93,14 @@ reported; the image is still written for inspection.
 ## Dump everything
 
 ```bash
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
     dump-all --out incoming/session_001
 ```
 
 or:
 
 ```bash
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
     --dump-all --out incoming/session_001
 ```
 
@@ -121,7 +121,7 @@ a chip/bus capture.
 ## Calibration write (experimental)
 
 ```bash
-./ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
+./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 \
     write-cal --file tuned.bin --i-understand
 ```
 
@@ -161,13 +161,13 @@ application.
 ## Tests
 
 ```bash
-./ecu_tool/build/ecu_tool selftest
-python3 ecu_tool/tests/fake_ecu.py ecu_tool/build/ecu_tool
+./tools/ecu_tool/build/ecu_tool selftest
+python3 tools/ecu_tool/tests/fake_ecu.py tools/ecu_tool/build/ecu_tool
 ```
 
 The second test creates a PTY, emulates StartCommunication, live data, flash
 read and calibration transfer, and runs the tool end-to-end without hardware.
-`ecu_tool/tests/fault_tests.py` covers negative responses, short live packets,
+`tools/ecu_tool/tests/fault_tests.py` covers negative responses, short live packets,
 bad read responses and checksum-mismatched dumps.
 
 ## Credits

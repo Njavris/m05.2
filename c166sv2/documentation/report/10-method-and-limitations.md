@@ -74,9 +74,10 @@ bytes.
 
 ## 10.5 Limitations
 
-* **No external RAM in the dump.** The task table at 0x705E and the calibration
-  axis descriptors at 0x750A–0x7564 are not available. This prevents full
-  reconstruction of the scheduler tasks and the engine map axes.
+* **External RAM is not in the dump.** Ordinary RAM `0x0000–0x7FFF` and the
+  `0xE00000` segment are missing. The task table at logical 0x705E and axis
+  descriptors at 0x750A–0x7564 are DPP1-mapped flash at `0xC0Bxxx` and are
+  available.
 * **Limited runtime trace.** live-data logs from other MT05/MT05.2 bikes provide the
   live-data field map and validate status bits, but there is no capture from
   this specific ECU or a RAM snapshot. The producer of most non-status fields and the

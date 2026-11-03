@@ -11,10 +11,10 @@ calibration descriptors that are not in the flash dump.
   runs the 1 ms communication tick.
 * The application scheduler at 0xC11EB4 waits on a flag, services the watchdog,
   increments the tick counter at 0xC54A, and calls periodic hooks.
-* The scheduler dispatches tasks through a table in **external RAM at 0x705E**
-  for state values 4..15. Those task pointers are not in the dump.
-* Two counters are read from a 6-byte-stride table at external RAM 0x7088 and
-  used to time two callbacks. Again, the table contents are not captured.
+* The scheduler dispatches tasks through logical **0x705E** (physical
+  `0xC0B05E`) for state values 4..15; the table is present in flash.
+* Two counters are read from a 6-byte-stride table at logical 0x7088 (physical
+  `0xC0B088`) and used to time two callbacks; the table is present.
 
 This is a time-triggered cooperative scheduler with a small number of periodic
 tasks, not a preemptive RTOS.
@@ -136,8 +136,8 @@ an injection-time/limit candidate; the function names remain provisional.
 
 * The complete fuel and ignition equations.
 * The physical meaning of every calibration table.
-* The task table at 0x705E and the axis descriptors at 0x750A–0x7564
-  (external RAM, not in the dump).
+* The exact scheduler task arguments and the meaning of the DPP1-mapped task
+  table and axis descriptors.
 * The exact injector/ignition output mapping to CC16/CC17.
 * Closed-loop lambda/O2 control: live-data fields prove it exists (`AFFNLAFR`,
   `AFTAFR`, `FCLCINT`, `FCLCMUL`, `FBLMCOR`, `VAFCMULT`, `FCNO`), but the

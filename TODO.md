@@ -70,18 +70,14 @@ back to RAM, and deciding what is safe to publish.
   ```bash
   ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 dump --out backup_flash.bin
   ```
-- [ ] Read the missing external-RAM regions while the ECU is powered:
-  ```bash
-  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7000 --len 0x40 --out xram_7000.bin
-  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7500 --len 0x80 --out xram_7500.bin
-  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7050 --len 0x100 --out xram_7050.bin
-  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7160 --len 0x100 --out xram_7160.bin
-  ./tools/ecu_tool/build/ecu_tool --port /dev/ttyUSB0 read --addr 0x7660 --len 0x100 --out xram_7660.bin
-  ```
-- [ ] If `0x23` rejects those RAM addresses, use XC164 OCDS/JTAG or dump the
+- [x] Account for the logical `0x705E`, `0x7164`, `0x7500`, `0x7564` and
+      `0x7666` tables: they are DPP1-mapped flash at `0xC0Bxxx`, not missing RAM.
+- [ ] Optional runtime snapshot of ordinary external RAM `0x0000–0x7FFF`; this
+      is no longer required to recover the axis/task/table contents.
+- [ ] If `0x23` rejects ordinary RAM addresses, use XC164 OCDS/JTAG or read the
       external EEPROM/SSC device instead.
-- [ ] Decode the 6-byte axis descriptors `{count, min, max}` at `0x7000` and
-      `0x7564`, then convert the rev-limit threshold `0x1450` to RPM.
+- [x] Decode the axis descriptors from flash `0xC0B50A–0xC0B564`; convert the
+      rev-limit threshold `0x1450` after the runtime cut is measured.
 - [ ] Confirm the five live-data status bytes on this specific bike.
 - [ ] Test the Windows and macOS builds; only Linux has been exercised so far.
 
@@ -94,11 +90,10 @@ back to RAM, and deciding what is safe to publish.
       speed-limiter event.
 - [ ] Record RPM, MAP, throttle, injector time, dwell and the five status bytes
       at the moment the limiter cuts.
-- [ ] Read external RAM at `0x7000` and `0x7564` during the same session.
-- [ ] Determine whether those addresses are external RAM, memory-mapped NVM, or
-      a serial EEPROM copy; compare the read bytes with calibration candidates.
-- [ ] Resolve the DPP page used by `calc_load`/`speed_timing_calc` so the
-      physical address of `0x7564` is known.
+- [x] Resolve the DPP page used by `calc_load`/`speed_timing_calc`:
+      `DPP1 = 0x302`, so logical `0x7564` is physical `0xC0B564`.
+- [ ] Compare the decoded `0xC0Bxxx` axis values with live-data RPM/MAP and
+      confirm the rev-limit path.
 - [ ] Convert the measured cut RPM back through the axis to check whether the
       raw threshold `0x1450` is the limiter or only one part of it.
 - [ ] If the observed cut is near 9000 rpm and the raw threshold does not fit,
@@ -121,8 +116,8 @@ back to RAM, and deciding what is safe to publish.
 - [ ] Fit the `0xC0794A` volume-efficiency map axes from the logs.
 - [ ] Verify the `0xC07860`/`0xC07874` spark-advance hypothesis and the
       `0xC07912` injector-time/limit hypothesis.
-- [ ] Identify the application-side `0x21`/`0x30` handler and the table at
-      `0x7164` if the external-RAM read does not expose it.
+- [ ] Identify the application-side `0x21`/`0x30` handler; the dispatch table at
+      logical `0x7164` is present at flash `0xC0B164`.
 
 ## 4. Publication and legal
 

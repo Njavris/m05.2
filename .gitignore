@@ -2,11 +2,6 @@
 secret/
 incoming/
 
-# Host build outputs
-firmware/firmware_model
-firmware/src/*.o
-firmware/build/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -17,15 +12,10 @@ __pycache__/
 Thumbs.db
 *.swp
 
-# ECU tool build
-ecu_tool/build/
+# Shared host tools builds
+tools/ecu_tool/build/
+tools/ecu_diag/build/
 
-# ECU diagnostic console build
-ecu_diag/build/
-
-# Reconstruction project builds
-reconstruction/build/
-reconstruction/full/build/
 
 # c166/c166sv2 build outputs
 c166/deliverables/firmware/firmware_model
